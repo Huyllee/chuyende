@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -12,12 +13,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './Layouts/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './Layouts/footer/footer.component';
+import { HomePageComponent } from './Users/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { FooterComponent } from './Layouts/footer/footer.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

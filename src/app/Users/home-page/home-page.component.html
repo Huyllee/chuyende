@@ -1,0 +1,53 @@
+<!-- <main id="mainpart" class="at-index" style="min-height: 640px;"></main> -->
+<div class="container">
+  <div class="row">
+    <div class="no-push col-12 push-2-l col-8-l">
+      <div id="announcements" class="index-top_notification">
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Cải tiến về Tìm kiếm</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  Cyan">Giới thiệu truyện bạn trên fanpage Hako.re của CLN</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  Orange">BÌNH CHỌN TRUYỆN SÁNG TÁC 2.0 KỲ 8</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Donate hỗ trợ Cổng LN</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Không đăng Manga</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  blue">(HAKO FAQs) NHỮNG CÂU HỎI THƯỜNG GẶP TRÊN HAKO</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color: #eee;">Thử nghiệm thông báo chương mới</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Quy định chung đối với các dự án đăng tại Cổng Light Novel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <div class="daily-recent_views">
+
+        <header class="title">
+          <span class="top-tab_title title-active"><i class="fa fa-trophy"></i> Nổi bật</span>
+          <span class="top-tab_title"><a routerLink="/">Top tháng</a></span>
+          <span class="top-tab_title"><a routerLink="/">Toàn t/gian</a></span>
+        </header>
+
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let slide of dynamicSlides">
+            <ng-template carouselSlide id="slide.id">
+              <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+    <div class="col-12 col-lg-3"></div>
+
+</div>
