@@ -1,72 +1,75 @@
-<mat-toolbar class="primary">
+<div class="container">
+  <mat-toolbar class="primary">
 
-  <button class="toggle" mat-icon-button (click)="nav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-
- <div class="logo">My App</div>
- <div class="nav">
-  <button mat-button>Sáng tác</button>
-  <button mat-button>Danh mục</button>
-  <button mat-button>Thảo luận</button>
-  <button mat-button>Hướng dẫn</button>
- </div>
-
- <span class="spacer"></span>
-
- <div class="icon-nav">
-  <div class="searchbar">
-    <input class="search_input" type="text" name="" placeholder="Search...">
-    <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
-  </div>
-
-  <div class="icon">
-    <button mat-icon-button class="favorite-icon">
-      <mat-icon>favorite</mat-icon>
+    <button class="toggle" mat-icon-button (click)="nav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
-    <button mat-icon-button class="user-icon">
-     <mat-icon>account_circle</mat-icon>
-   </button>
-  </div>
 
- </div>
-</mat-toolbar>
+   <div class="logo">My App</div>
+   <div class="nav">
+    <button mat-button>Sáng tác</button>
+    <button mat-button>Danh mục</button>
+    <button mat-button>Thảo luận</button>
+    <button mat-button>Hướng dẫn</button>
+   </div>
 
-<mat-sidenav-container class="sidenav-wrapper">
-  <mat-sidenav #nav>
-    <div class="d-flex form-inputs">
-      <input class="form-control" type="text" placeholder="Search..">
-      <i class="fa fa-search"></i>
+   <span class="spacer"></span>
+
+   <div class="icon-nav">
+    <div class="searchbar">
+      <input class="search_input" type="text" name="" placeholder="Search...">
+      <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
     </div>
-    <a [routerLink]="['#']">
-      <button mat-button>
-        <!-- <mat-icon>home</mat-icon> -->
-        <span>Sáng tác</span>
+
+    <div class="icon">
+      <button mat-icon-button class="favorite-icon">
+        <mat-icon>favorite</mat-icon>
       </button>
-    </a>
-    <a [routerLink]="['#']">
-      <button mat-button>
-        <!-- <mat-icon>home</mat-icon> -->
-        <span>Danh mục</span>
-      </button>
-    </a>
-    <a [routerLink]="['#']">
-      <button mat-button>
-        <!-- <mat-icon>home</mat-icon> -->
-        <span>Thảo luận</span>
-      </button>
-    </a>
-    <a [routerLink]="['#']">
-      <button mat-button>
-        <!-- <mat-icon>home</mat-icon> -->
-        <span>Hướng dẫn</span>
-      </button>
-    </a>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-    <app-home-page></app-home-page>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <button mat-icon-button class="user-icon">
+       <mat-icon>account_circle</mat-icon>
+     </button>
+    </div>
+
+   </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav #nav>
+      <div class="d-flex form-inputs">
+        <input class="form-control" type="text" placeholder="Search..">
+        <i class="fa fa-search"></i>
+      </div>
+      <a [routerLink]="['#']">
+        <button mat-button>
+          <!-- <mat-icon>home</mat-icon> -->
+          <span>Sáng tác</span>
+        </button>
+      </a>
+      <a [routerLink]="['#']">
+        <button mat-button>
+          <!-- <mat-icon>home</mat-icon> -->
+          <span>Danh mục</span>
+        </button>
+      </a>
+      <a [routerLink]="['#']">
+        <button mat-button>
+          <!-- <mat-icon>home</mat-icon> -->
+          <span>Thảo luận</span>
+        </button>
+      </a>
+      <a [routerLink]="['#']">
+        <button mat-button>
+          <!-- <mat-icon>home</mat-icon> -->
+          <span>Hướng dẫn</span>
+        </button>
+      </a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <app-home-page></app-home-page>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
 
 

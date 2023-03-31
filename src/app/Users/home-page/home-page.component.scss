@@ -59,21 +59,132 @@
     font-weight: 900;
 }
 
-.blog .carousel-indicators {
-	left: 0;
-	top: auto;
-    bottom: -40px;
-
+.mainBlock {
+  position: relative;
+  margin: 0 auto;
+  height: 300px;
 }
 
-/* The colour of the indicators */
-.blog .carousel-indicators li {
-    background: #a3a3a3;
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
+.mainBlock .img-in-ratio {
+  // vertical-align: middle;
+  background-size: 100% 100%;
+  object-fit: cover;
 }
 
-.blog .carousel-indicators .active {
-background: #707070;
+.content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.img-in-ratio {
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.mainBlock .imgText {
+  background: linear-gradient(178deg,transparent 0,rgba(0,0,0,.8) 67%,rgba(0,0,0,.8));
+  bottom: 0;
+  height: 80px;
+  font-weight: 700;
+  left: 0;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.mainBlock a {
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+}
+
+@media only screen and (max-width: 500px) {
+  .mainBlock {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .mainBlock {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .mainBlock {
+    height: 250px;
+  }
+}
+
+/* left side */
+
+.index-section {
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+
+.index-section .section-title {
+  font-weight: 500;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.index-section .section-title a {
+  text-decoration: none;
+}
+
+.index-section .section-title a:hover {
+  .sts-empty {
+    color: #20c997;
+  }
+}
+
+.sts-bold {
+  background-color: rgba(26,26,26,.8);
+  color: #fff;
+  padding: 4px 8px;
+}
+
+.sts-bold, .sts-empty {
+  display: inline-block;
+}
+
+.sts-empty {
+  border-bottom: 2px solid rgba(26,26,26,.8);
+  margin: 0 8px;
+  color: rgba(26,26,26,.8);
+  text-transform: uppercase;
+}
+
+.last-topics .topic-item {
+  margin-bottom: 10px;
+  padding: 0 10px 0 20px;
+}
+
+.last-topics .topic-data {
+  color: rgba(0,0,0,.4);
+  padding: 0;
+  font-size: 14px;
+}
+
+.line-ellipsis {
+  display: inline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-ellipsis a {
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+}
+
+.line-ellipsis a:hover {
+  color: #20c997;
 }

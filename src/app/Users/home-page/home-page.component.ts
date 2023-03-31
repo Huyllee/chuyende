@@ -45,23 +45,25 @@ export class HomePageComponent {
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
-    dots: false,
+    dots: true,
     navSpeed: 600,
+    autoplayTimeout: 2000,
+    margin: 20,
     navText: ['&#8249', '&#8250;'],
     responsive: {
       0: {
-        items: 1
-      },
-      400: {
         items: 2
       },
-      760: {
+      500: {
         items: 3
       },
-      1000: {
+      680: {
+        items: 4
+      },
+      940: {
         items: 4
       }
     },
-    nav: true
+    nav: false
   }
 }
