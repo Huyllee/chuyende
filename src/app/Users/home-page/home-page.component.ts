@@ -66,4 +66,31 @@ export class HomePageComponent {
     },
     nav: false
   }
+
+  customOptions2: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 600,
+    autoplayTimeout: 2000,
+    margin: 20,
+    navText: ['&#8249', '&#8250;'],
+    responsive: {
+      0: {
+        items: 2
+      },
+      490: {
+        items: 4
+      },
+      700: {
+        items: 6
+      },
+      940: {
+        items: 8
+      }
+    },
+    nav: false
+  }
 }

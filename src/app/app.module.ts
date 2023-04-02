@@ -14,13 +14,15 @@ import { NavbarComponent } from './Layouts/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './Layouts/footer/footer.component';
 import { HomePageComponent } from './Users/home-page/home-page.component';
+import { ScrollToTopComponent } from './Layouts/scroll-to-top/scroll-to-top.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    HomePageComponent
+    HomePageComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
