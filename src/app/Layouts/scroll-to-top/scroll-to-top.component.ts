@@ -10,7 +10,5 @@ export class ScrollToTopComponent {
 
   constructor() { }
 
-  scrollToTop(){
-    window.scroll(0,0);
- }
+
 }
