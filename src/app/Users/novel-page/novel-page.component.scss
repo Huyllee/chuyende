@@ -158,11 +158,11 @@ a {
   line-height: 34px;
 }
 
-// @media only screen and (max-width: 1219px) {
-// .feature-section .series-information {
-//     margin-bottom: 80px;
-//   }
-// }
+@media only screen and (max-width: 1300px) and (min-width: 788px) {
+.feature-section .series-information {
+    margin-bottom: 80px;
+  }
+}
 
 .feature-section .series-gerne-item {
   background-color: #eee;
@@ -607,7 +607,7 @@ img {
 }
 
 .basic-section .sect-title {
-  font-size: 19px;
+  font-size: 18px;
   line-height: 26px;
 }
 
@@ -727,4 +727,111 @@ ol.list-volume li {
 
 .list_vol-order {
   margin-right: 10px;
+}
+
+.d-lg-block .long-text p {
+  font-size: 15px;
+}
+
+@media (min-width: 992px) {
+  .d-lg-block {
+    display: block!important;
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  .mobile-icon {
+    display: block;
+    float: right;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+/* list-chapter */
+
+@media only screen and (max-width: 999px) {
+  .basic-section .sect-title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .volume-cover {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .volume-cover .a6-ratio {
+    margin: auto;
+    max-width: 200px;
+  }
+}
+
+ul.list-chapters {
+  margin: 0;
+  padding: 0;
+}
+
+ul.list-chapters {
+  list-style: none;
+  text-decoration: none;
+}
+
+ul.list-chapters li {
+  padding: 5px 10px;
+  position: relative;
+}
+
+ul.list-chapters li .chapter-name {
+  padding-right: 86px;
+}
+
+ul.list-chapters li .chapter-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+ul.list-chapters li .chapter-time {
+  color: #aaa;
+  font-size: 14px;
+  position: absolute;
+  right: 10px;
+  top: 4px;
+}
+
+ul.list-chapters li:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+
+.chapter-name i {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.chapter-name a {
+  font-size: 15px;
+}
+
+.mobile-more {
+  background: linear-gradient(180deg,hsla(0,0%,100%,0) 0,#fff 75%,#fff);
+  bottom: 0;
+  cursor: pointer;
+  height: 100px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.mobile-more .see_more {
+  bottom: 10px;
+  font-weight: 600;
+  left: 0;
+  padding-left: 10px;
+  position: absolute;
+  right: 0;
+}
+
+.mobile-more:hover {
+  color: #36a189;
 }

@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class NovelPageComponent {
   currentClass: string = "summary-more more-state";
   currentText: string = "Xem thêm";
+  currentIcon: string = "fa fa-chevron-down";
+  currentSpan: string = "mobile-icon";
+  currentStyle: string = "";
   isChecked: boolean = false;
 
   changeClass() {
@@ -17,6 +20,18 @@ export class NovelPageComponent {
     } else {
       this.currentClass = "summary-more more-state";
       this.currentText = "Xem thêm";
+    }
+  }
+
+  mobileIcon() {
+    if (this.currentSpan === "mobile-icon") {
+      this.currentSpan = "mobile-icon show";
+      this.currentIcon = "fa fa-chevron-up";
+      this.currentStyle = "display: none;";
+    } else {
+      this.currentSpan = "mobile-icon";
+      this.currentIcon = "fa fa-chevron-down";
+      this.currentStyle = "";
     }
   }
 }
