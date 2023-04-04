@@ -18,6 +18,7 @@ import { HomePageComponent } from './Users/home-page/home-page.component';
 import { ScrollToTopComponent } from './Layouts/scroll-to-top/scroll-to-top.component';
 import { NovelPageComponent } from './Users/novel-page/novel-page.component';
 import { ProfilePageComponent } from './Users/profile-page/profile-page.component';
+import { NovelDetailPageComponent } from './Users/novel-detail-page/novel-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfilePageComponent } from './Users/profile-page/profile-page.componen
     HomePageComponent,
     ScrollToTopComponent,
     NovelPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    NovelDetailPageComponent
   ],
   imports: [
     BrowserModule,
