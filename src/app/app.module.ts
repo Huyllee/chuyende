@@ -17,6 +17,7 @@ import { FooterComponent } from './Layouts/footer/footer.component';
 import { HomePageComponent } from './Users/home-page/home-page.component';
 import { ScrollToTopComponent } from './Layouts/scroll-to-top/scroll-to-top.component';
 import { NovelPageComponent } from './Users/novel-page/novel-page.component';
+import { ProfilePageComponent } from './Users/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NovelPageComponent } from './Users/novel-page/novel-page.component';
     FooterComponent,
     HomePageComponent,
     ScrollToTopComponent,
-    NovelPageComponent
+    NovelPageComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

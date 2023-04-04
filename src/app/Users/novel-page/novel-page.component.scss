@@ -835,3 +835,63 @@ ul.list-chapters li:nth-child(2n) {
 .mobile-more:hover {
   color: #36a189;
 }
+
+/* other list */
+
+ul.others-list {
+  margin: 0;
+  padding: 0;
+}
+
+ul.others-list li {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+ul.others-list li {
+  list-style: none;
+  text-decoration: none;
+}
+
+ul.others-list li::before {
+  content: " ";
+  display: table;
+}
+
+ul.others-list li .others-img {
+  float: left;
+  margin-right: 10px;
+  width: 50px;
+}
+
+ul.others-list li .others-info {
+  padding-left: 60px;
+}
+
+ul.others-list li .others-name {
+  display: block;
+  font-weight: 600;
+  overflow: hidden;
+  padding-bottom: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+ul.others-list li small {
+  display: block;
+}
+
+ul.others-list li small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+ul.others-list li::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+

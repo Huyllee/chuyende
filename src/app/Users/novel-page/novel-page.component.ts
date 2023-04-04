@@ -28,6 +28,7 @@ export class NovelPageComponent {
       this.currentSpan = "mobile-icon show";
       this.currentIcon = "fa fa-chevron-up";
       this.currentStyle = "display: none;";
+
     } else {
       this.currentSpan = "mobile-icon";
       this.currentIcon = "fa fa-chevron-down";

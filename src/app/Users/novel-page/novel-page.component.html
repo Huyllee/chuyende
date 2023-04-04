@@ -274,11 +274,11 @@
 
       <section class="volume-list at-series basic-section volume-mobile gradual-mobile ">
         <header id="volume_11944" class="sect-header">
-          <span class="mobile-icon"><i class="fas fa-chevron-up"></i></span>
+          <span class="mobile-icon" (click)="mobileIcon()"><i [class]="currentIcon"></i></span>
           <span class="sect-title">Tập 01 - Tình yêu cũ vẫn chưa chịu kết thúc</span>
         </header>
 
-        <main class="d-lg-block">
+        <main class="d-lg-block" [style]="currentStyle">
           <div class="row">
 
             <div class="col-12 col-md-2">
@@ -340,14 +340,14 @@
                   <div class="chapter-time">26/07/2020</div>
                 </li>
 
-                <li class="none">
+                <li class="">
                   <div class="chapter-name">
                     <a href="/" title="Chương 06 - Bạn gái cũ vẫn cứ chờ đợi trong giấc mơ 「Mình bây giờ đang làm cái gì thế này......!?」">Chương 06 - Bạn gái cũ vẫn cứ chờ đợi trong giấc mơ 「Mình bây giờ đang làm cái gì thế này......!?」</a>
                   </div>
                   <div class="chapter-time">29/07/2020</div>
                 </li>
 
-                <li class="none">
+                <li class="">
                   <div class="chapter-name">
                     <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
                     <a href="/" title="Chương 07 - Cặp đôi người yêu cũ ■■■ với nhau ＜Phần đầu＞ 「Xin hãy lấy hôn nhân ra làm tiền đề để hẹn hò với tớ nhé」">Chương 07 - Cặp đôi người yêu cũ ■■■ với nhau ＜Phần đầu＞ 「Xin hãy lấy hôn nhân ra làm tiền đề để hẹn hò với tớ nhé」</a>
@@ -355,7 +355,7 @@
                   <div class="chapter-time">01/08/2020</div>
                 </li>
 
-                <li class="none">
+                <li class="">
                   <div class="chapter-name">
                     <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
                     <a href="/" title="Chương 08 - Cặp đôi người yêu cũ hẹn hò với nhau ＜Phần sau＞ 「Đồ hoang tưởng」「Đồ Otaku chết bằm」">Chương 08 - Cặp đôi người yêu cũ hẹn hò với nhau ＜Phần sau＞ 「Đồ hoang tưởng」「Đồ Otaku chết bằm」</a>
@@ -363,7 +363,7 @@
                   <div class="chapter-time">02/08/2020</div>
                 </li>
 
-                <li class="none">
+                <li class="">
                   <div class="chapter-name">
                     <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
                     <a href="/" title="Chương 09 - Đôi tình nhân trao quà cho nhau 「......Muốn chết quá đi......」">Chương 09 - Đôi tình nhân trao quà cho nhau 「......Muốn chết quá đi......」</a>
@@ -371,17 +371,201 @@
                   <div class="chapter-time">04/08/2020</div>
                 </li>
 
-                <div class="mobile-more">
+                <!-- <div class="mobile-more">
                   <div class="see_more">
                     <span>Xem tiếp (5 chương)</span>
                   </div>
-                </div>
+                </div> -->
 
               </ul>
+            </div>
+
+
+          </div>
+        </main>
+      </section>
+
+      <section class="volume-list at-series basic-section volume-mobile gradual-mobile ">
+        <header id="volume_11944" class="sect-header">
+          <span class="mobile-icon" (click)="mobileIcon()"><i [class]="currentIcon"></i></span>
+          <span class="sect-title">Tập 01 - Tình yêu cũ vẫn chưa chịu kết thúc</span>
+        </header>
+
+        <main class="d-lg-block" [style]="currentStyle">
+          <div class="row">
+
+            <div class="col-12 col-md-2">
+              <div class="volume-cover">
+                <a href="/">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/1.jpg')"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-10">
+              <ul class="list-chapters at-series">
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Minh họa">Minh họa</a>
+                  </div>
+                  <div class="chapter-time">25/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 01 - Chẳng muốn bị xem là người yêu cũ đâu 「Cho nên tôi mới ghét cậu ở điểm đó đấy」">Chương 01 - Chẳng muốn bị xem là người yêu cũ đâu 「Cho nên tôi mới ghét cậu ở điểm đó đấy」</a>
+                  </div>
+                  <div class="chapter-time">25/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 02 - Cặp đôi người yêu cũ trông nhà 「Đây là nhà của tôi, chuyện này là bình thường thôi mà?」">Chương 02 - Cặp đôi người yêu cũ trông nhà 「Đây là nhà của tôi, chuyện này là bình thường thôi mà?」</a>
+                  </div>
+                  <div class="chapter-time">25/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 03 - Cặp đôi người yêu cũ nhập học 「Cảm thấy cô đơn lắm à?」">Chương 03 - Cặp đôi người yêu cũ nhập học 「Cảm thấy cô đơn lắm à?」</a>
+                  </div>
+                  <div class="chapter-time">25/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <a href="/" title="Chương 04 - Bạn gái cũ và buổi khám sức khỏe 「......Ngửi thấy mùi mồ hôi」">Chương 04 - Bạn gái cũ và buổi khám sức khỏe 「......Ngửi thấy mùi mồ hôi」</a>
+                  </div>
+                  <div class="chapter-time">25/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 05 - Bạn trai cũ thăm bệnh 「Chuyện nhỏ thôi ấy mà」">Chương 05 - Bạn trai cũ thăm bệnh 「Chuyện nhỏ thôi ấy mà」</a>
+                  </div>
+                  <div class="chapter-time">26/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <a href="/" title="Chương 06 - Bạn gái cũ vẫn cứ chờ đợi trong giấc mơ 「Mình bây giờ đang làm cái gì thế này......!?」">Chương 06 - Bạn gái cũ vẫn cứ chờ đợi trong giấc mơ 「Mình bây giờ đang làm cái gì thế này......!?」</a>
+                  </div>
+                  <div class="chapter-time">29/07/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 07 - Cặp đôi người yêu cũ ■■■ với nhau ＜Phần đầu＞ 「Xin hãy lấy hôn nhân ra làm tiền đề để hẹn hò với tớ nhé」">Chương 07 - Cặp đôi người yêu cũ ■■■ với nhau ＜Phần đầu＞ 「Xin hãy lấy hôn nhân ra làm tiền đề để hẹn hò với tớ nhé」</a>
+                  </div>
+                  <div class="chapter-time">01/08/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 08 - Cặp đôi người yêu cũ hẹn hò với nhau ＜Phần sau＞ 「Đồ hoang tưởng」「Đồ Otaku chết bằm」">Chương 08 - Cặp đôi người yêu cũ hẹn hò với nhau ＜Phần sau＞ 「Đồ hoang tưởng」「Đồ Otaku chết bằm」</a>
+                  </div>
+                  <div class="chapter-time">02/08/2020</div>
+                </li>
+
+                <li class="">
+                  <div class="chapter-name">
+                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
+                    <a href="/" title="Chương 09 - Đôi tình nhân trao quà cho nhau 「......Muốn chết quá đi......」">Chương 09 - Đôi tình nhân trao quà cho nhau 「......Muốn chết quá đi......」</a>
+                  </div>
+                  <div class="chapter-time">04/08/2020</div>
+                </li>
+
+                <!-- <div class="mobile-more">
+                  <div class="see_more">
+                    <span>Xem tiếp (5 chương)</span>
+                  </div>
+                </div> -->
+
+              </ul>
+            </div>
+
+
+          </div>
+        </main>
+      </section>
+
+      <section class="basic-section gradual-mobile">
+        <header class="sect-header"><span class="sect-title">Có thể bạn quan tâm</span><span class="mobile-icon"><i class="fa fa-chevron-down"></i></span></header>
+        <main class="d-lg-block">
+          <ul class="others-list">
+            <div class="row">
+
+              <li class="col-12 col-6-m">
+                <div class="others-img no-padding">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/1.jpg')"></div>
+                  </div>
+                </div>
+                <div class="others-info">
+                  <h5 class="others-name"><a href="/">Tôi là mẹ kế nhưng con gái tôi quá dễ thương!</a></h5>
+                  <small>Nhóm dịch: Củ Khoai Tây</small>
+                  <small>Chương 104</small>
+                </div>
+              </li>
+
+              <li class="col-12 col-6-m">
+                <div class="others-img no-padding">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/2.jpg')"></div>
+                  </div>
+                </div>
+                <div class="others-info">
+                  <h5 class="others-name"><a href="/">Em kế người Đức nóng bỏng của tôi tưởng đâu hai đứa đã yêu nhau trọn đời</a></h5>
+                  <small>Nhóm dịch: Một Thành Viên</small>
+                  <small>Chương 3</small>
+                </div>
+              </li>
+
+              <li class="col-12 col-6-m">
+                <div class="others-img no-padding">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/3.jpg')"></div>
+                  </div>
+                </div>
+                <div class="others-info">
+                  <h5 class="others-name"><a href="/">Tất cả những người con gái từng yêu tôi đều đã phản bội tôi... tôi cứ tiếp tục tan vỡ...tôi tự hỏi liệu sẽ có ngày mình được đền đáp xứng đáng</a></h5>
+                  <small>Nhóm dịch: 79Springs</small>
+                  <small>Chương 03 Sự phản bội của người mẹ kế</small>
+                </div>
+              </li>
+
+              <li class="col-12 col-6-m">
+                <div class="others-img no-padding">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/4.jpg')"></div>
+                  </div>
+                </div>
+                <div class="others-info">
+                  <h5 class="others-name"><a href="/">Cháu Thích Cô Chứ Không Phải Con Gái Cô Á!?</a></h5>
+                  <small>Nhóm dịch: 4T n her Slaves</small>
+                  <small>Chương 02</small>
+                </div>
+              </li>
+            </div>
+          </ul>
+
+          <div class="mobile-more none">
+            <div class="see_more">
+              <span>Xem thêm</span>
             </div>
           </div>
         </main>
       </section>
+
     </div>
   </div>
 </div>
