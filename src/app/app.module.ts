@@ -19,6 +19,8 @@ import { ScrollToTopComponent } from './Layouts/scroll-to-top/scroll-to-top.comp
 import { NovelPageComponent } from './Users/novel-page/novel-page.component';
 import { ProfilePageComponent } from './Users/profile-page/profile-page.component';
 import { NovelDetailPageComponent } from './Users/novel-detail-page/novel-detail-page.component';
+import { SearchPageComponent } from './Users/search-page/search-page.component';
+import { CategoryPageComponent } from './Users/category-page/category-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { NovelDetailPageComponent } from './Users/novel-detail-page/novel-detail
     ScrollToTopComponent,
     NovelPageComponent,
     ProfilePageComponent,
-    NovelDetailPageComponent
+    NovelDetailPageComponent,
+    SearchPageComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,

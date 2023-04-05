@@ -127,7 +127,17 @@ img {
   color: #fff;
 }
 
+.button-red {
+  background-color: red;
+  border-color: red;
+  color: #fff;
+}
+
 .button-green i {
+  margin-right: 5px;
+}
+
+.button-red i {
   margin-right: 5px;
 }
 
@@ -143,6 +153,11 @@ img {
 }
 
 .button-green:hover {
+  color: #333;
+  background-color: gainsboro;
+}
+
+.button-red:hover {
   color: #333;
   background-color: gainsboro;
 }

@@ -18,10 +18,12 @@ export class ProfilePageComponent implements OnInit {
     // Lấy phần tử có id là "number"
     const resultElement = document.getElementById('number');
     const resultElement2 = document.getElementById('count');
+    const resultElement3 = document.getElementById('value');
 
     // Thay đổi nội dung HTML của phần tử "number"
     resultElement!.innerHTML = `${count}`;
     resultElement2!.innerHTML = `${count2}`;
+    resultElement3!.innerHTML = `${count2}`;
   }
 
 }
