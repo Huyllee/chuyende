@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
 
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -45,7 +47,8 @@ import { CategoryPageComponent } from './Users/category-page/category-page.compo
     MatSidenavModule,
     MatFormFieldModule,
     CarouselModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

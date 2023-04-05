@@ -566,6 +566,46 @@
         </main>
       </section>
 
+      <section id="series-comments" class="basic-section">
+        <header class="sect-header tab-list">
+          <span class="sect-title tab-title">Bình luận </span>
+        </header>
+
+        <main id="fbcmt_root" class="comment-wrapper d-lg-block clear">
+          <span style="padding: 10px; display: inline-block;">Báo cáo bình luận không phù hợp ở <a href="/" style="color: blue">đây</a></span>
+          <div id="tab-content-1" class="tab-content clear">
+            <section class="ln-comment">
+              <main class="ln-comment-body">
+                <div id="ln-comment-submit" class="ln-comment-form clear">
+                  <form class="comment_form">
+                    <textarea class="comment_content" id="mce_0" style="display: none;" aria-hidden="true"></textarea>
+                    <editor [init]="{
+                      selector: 'textarea',
+                      height: 200,
+                      content_css: 'default',
+                      skin: 'oxide',
+                      branding: false,
+                      menubar: false,
+                      contextmenu: false,
+                      plugins: 'wordcount link image code fullscreen paste emoticons',
+                      toolbar: 'emoticons undo redo | bold italic underline strikethrough forecolor | link image | removeformat | fullscreen',
+                      entities: '160,nbsp,38,amp,60,lt,62,gt',
+                      paste_word_valid_elements: 'b,strong,i,em,u,s,a,p,br,img',
+                      element_format: 'html',
+                      base_url: '/tinymce',
+                      suffix: '.min'
+                    }"></editor>
+                  </form>
+                  <div class="comment_toolkit clear">
+                    <input class="button" type="button" value="Đăng bình luận">
+                  </div>
+                </div>
+              </main>
+            </section>
+          </div>
+
+        </main>
+      </section>
     </div>
   </div>
 </div>
