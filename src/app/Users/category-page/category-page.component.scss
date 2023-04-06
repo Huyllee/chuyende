@@ -1,5 +1,7 @@
 /* banner bg */
 
+@import "~font-awesome/css/font-awesome.min.css";
+
 * {
   font-family: OpenSans, sans-serif;
   font-size: 14px;
@@ -47,10 +49,19 @@ a {
   margin-right: 5px;
 }
 
-.material-icons {
-  line-height: 1.8 !important;
-  font-size: 20px !important;
+.breadcrum-level i {
+  font-size: 17px;
+  margin-right: 5px;
 }
+
+.breadcrum-level i:hover {
+  color: #36a189;
+}
+
+// .material-icons {
+//   line-height: 1.8 !important;
+//   font-size: 20px !important;
+// }
 
 .breadcrum-level a {
   font-size: 14px;

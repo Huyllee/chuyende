@@ -1,3 +1,5 @@
+@import "~font-awesome/css/font-awesome.min.css";
+
 * {
   font-family: OpenSans, sans-serif;
   font-size: 14px;
@@ -12,7 +14,7 @@
 .page-breadcrumb {
   display: inline-block;
   margin-bottom: 20px;
-  padding: 1px 10px;
+  padding: 4px 10px;
 }
 
 .page-breadcrumb {
@@ -31,15 +33,24 @@ a {
   text-decoration: none;
 }
 
+.breadcrum-level i {
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+.breadcrum-level i:hover {
+  color: #36a189;
+}
+
 .next-icon i {
   font-size: 14px;
   margin-right: 5px;
 }
 
-.material-icons {
-  line-height: 1.8 !important;
-  font-size: 20px !important;
-}
+// .material-icons {
+//   line-height: 1.8 !important;
+//   font-size: 20px !important;
+// }
 
 .breadcrum-level a {
   font-size: 14px;
@@ -153,9 +164,10 @@ a {
   margin-bottom: 10px;
 }
 
-.feature-section .series-name {
+.feature-section .series-name a {
   display: block;
   font-weight: 600;
+  font-size: 26px;
 }
 
 .feature-section .series-name, .fs-2, h2 {
@@ -163,9 +175,15 @@ a {
   line-height: 34px;
 }
 
-@media only screen and (max-width: 1300px) and (min-width: 788px) {
+@media only screen and (min-width: 788px) {
 .feature-section .series-information {
     margin-bottom: 80px;
+  }
+}
+
+@media only screen and (max-width: 1800px) and (min-width: 1285px) {
+.feature-section .series-information {
+    margin-bottom: 120px;
   }
 }
 
@@ -179,13 +197,13 @@ a {
   font-size: 14px;
 }
 
-.fa-ellipsis-h:before {
-  content: "\f141";
-}
+// .fa-ellipsis-h:before {
+//   content: "\f141";
+// }
 
 .feature-section .info-item {
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .feature-section .info-item .info-name {
@@ -304,9 +322,9 @@ input {
   display: table;
 }
 
-.fa-star::before {
-  content: "\f005";
-}
+// .fa-star::before {
+//   content: "\f005";
+// }
 
 #open-rating:checked+.series-evaluation {
   display: block;
@@ -384,6 +402,10 @@ input {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
+}
+
+.statistic-list .statistic-value time {
+  font-size: 18px;
 }
 
 .feature-section .summary-wrapper {

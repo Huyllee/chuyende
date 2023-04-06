@@ -23,6 +23,7 @@ import { ProfilePageComponent } from './Users/profile-page/profile-page.componen
 import { NovelDetailPageComponent } from './Users/novel-detail-page/novel-detail-page.component';
 import { SearchPageComponent } from './Users/search-page/search-page.component';
 import { CategoryPageComponent } from './Users/category-page/category-page.component';
+import { NovelCreationPageComponent } from './Users/Dashboard/novel-creation-page/novel-creation-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CategoryPageComponent } from './Users/category-page/category-page.compo
     ProfilePageComponent,
     NovelDetailPageComponent,
     SearchPageComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    NovelCreationPageComponent
   ],
   imports: [
     BrowserModule,
