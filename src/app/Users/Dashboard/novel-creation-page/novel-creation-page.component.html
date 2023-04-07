@@ -1,86 +1,93 @@
-<nav class="navbar navbar-default" style="z-index: 999">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Bảng điều khiển</a>
-    </div>
+<div id="navbar" class="headroom headroom--not-bottom headroom--top headroom--pinned">
+  <div class="container">
+    <div id="sidenav-icon" class="none-xl" (click)="toggleMenu()">
+      <div class="sidenav-icon-content">
+        <span class="sidenav-icon_white"></span>
+        <span class="sidenav-icon_white"></span>
+        <span class="sidenav-icon_white"></span>
+      </div>
 
-    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 0.8px;">
-      <ul class="nav navbar-nav ">
-        <li><a href="/" target="_blank"><i class="fa fa-home"></i><span class="hidden-md hidden-lg"> Cổng Light Novel</span></a></li>
-        <li><a href="/" style="color: red">Thêm Truyện</a></li>
+      <ul class="navbar-menu none hidden-block at-mobile unstyle">
+        <div class="navbar-search block none-m in-navbar-menu">
+          <form class="">
+            <input class="search-input" type="text" placeholder="Tối thiểu 2 kí tự" name="keywords" value="">
+              <button class="search-submit" type="submit" value="Tìm kiếm"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #10b591">Truyện dịch <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/">Truyện đã đăng</a></li>
-            <li><a href="/">Truyện tham gia</a></li>
-          </ul>
-        </li>
+        <li><a class="nav-menu_item" href="/tim-kiem"><span class="">Tìm kiếm</span></a></li>
+        <li><a class="nav-menu_item" href="/thao-luan"><span class="">Thảo luận</span></a></li>
+        <li><a class="nav-menu_item" href="/danh-muc"><span class="">Danh sách</span></a></li>
+        <li class="nav-has-submenu" (click)="toggleSubMenu()">
+          <a class="nav-menu_item">
+            <span class="">Hướng dẫn</span>
+            <i class="fa fa-chevron-down dropdown-icon" style="float: right; margin-top: 6px"></i>
+          </a>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #e3953e">Convert <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/">Convert đã đăng</a></li>
-            <li><a href="/">Convert tham gia</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #1389c6">Sáng tác <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/">OLN đã đăng</a></li>
-            <li><a href="/">OLN tham gia</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Thảo luận <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/">Thêm thảo luận</a></li>
-            <li><a href="/">Thảo luận của bạn</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tiện ích <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/">Thể loại</a></li>
-            <li><a href="/">Thư viện</a></li>
-            <li><a href="/">Minh họa</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nhóm dịch <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/">Nhóm của bạn</a></li>
+          <ul class="nav-submenu list-unstyled none">
+            <li><a href="/"><span>Giới thiệu</span></a></li>
+            <li><a href="/"><span>Góp ý - Báo lỗi</span></a></li>
+            <li><a href="/privacy-policy"><span>Privacy Policy</span></a></li>
           </ul>
         </li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"> </span><span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a>Huylee1807</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/">Đổi Thông Tin</a></li>
-            <li><a href="/">Đổi Mật Khẩu</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/">Đổi Email</a></li>
-            <li><a href="/">Đổi Username</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/">Thoát</a></li>
+      </div>
+        <div class="navbar-logo-wrapper">
+          <a href="/" class="navbar-logo" style="background-image: url('./assets/web_logo.jpg')" title="Trang chủ"></a>
+        </div>
+        <div id="navbar-user">
+          <div class="nav-user_icon">
+            <div class="nav-user_avatar">
+              <img src="https://docln.net/img/noava.png" alt="Your avatar">
+            </div>
+            <div class="at-user_avatar"></div>
+            <ul class="account-sidebar hidden-block unstyled none">
+              <li><a href="/"><i class="fas fa-user"></i><span>Tài khoản</span></a></li>
+              <hr class="none block-l">
+
+              <li><a href="/logout"><i class="fa fa-sign-out-alt"></i><span>Thoát</span></a></li>
+            </ul>
+          </div>
+
+          <div id="series-unread-icon" class="user-sublink appearing">
+            <a class="link-item" href="/ke-sach">
+              <div class="icon-wrapper">
+                <i class="fa fa-heart"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-mainblock">
+          <div class="navbar-search none block-m">
+            <form class="">
+              <input class="search-input" type="text" placeholder="Tối thiểu 2 kí tự" name="keywords" value="">
+              <button class="search-submit" type="submit" value="Tìm kiếm"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+
+          <ul class="navbar-menu at-navbar none d-xl-block unstyled">
+
+            <li><a class="nav-menu_item" href="/tim-kiem"><i class="fa fa-calendar menu-icon"></i><span class="">Tìm kiếm</span></a></li>
+            <li><a class="nav-menu_item" href="/thao-luan"><i class="fa fa-users menu-icon"></i><span class="">Thảo luận</span></a></li>
+            <li><a class="nav-menu_item" href="/danh-sach"><i class="fa fa-th-list menu-icon"></i><span class="">Danh sách</span></a></li>
+            <li [class]="currentClass" (click)="changeClass()">
+              <a class="nav-menu_item">
+                <i class="fa fa-question menu-icon"></i><span class="">Hướng dẫn</span>
+                <i class="fa fa-chevron-down dropdown-icon"></i>
+                <i class="fa fa-chevron-right dropdown-icon"></i>
+              </a>
+
+              <ul [class]="activeClass">
+                <li><a href="/"><span>Giới thiệu</span></a></li>
+                <li><a href="/"><span>Góp ý - Báo lỗi</span></a></li>
+                <li><a href="/privacy-policy"><span>Privacy Policy</span></a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
-    </div>
+        </div>
+
   </div>
-</nav>
+</div>
 

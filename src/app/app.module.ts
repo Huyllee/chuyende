@@ -24,6 +24,7 @@ import { NovelDetailPageComponent } from './Users/novel-detail-page/novel-detail
 import { SearchPageComponent } from './Users/search-page/search-page.component';
 import { CategoryPageComponent } from './Users/category-page/category-page.component';
 import { NovelCreationPageComponent } from './Users/Dashboard/novel-creation-page/novel-creation-page.component';
+import { DiscussionPageComponent } from './Users/discussion-page/discussion-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NovelCreationPageComponent } from './Users/Dashboard/novel-creation-pag
     NovelDetailPageComponent,
     SearchPageComponent,
     CategoryPageComponent,
-    NovelCreationPageComponent
+    NovelCreationPageComponent,
+    DiscussionPageComponent
   ],
   imports: [
     BrowserModule,
