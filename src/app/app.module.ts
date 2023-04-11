@@ -2,14 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { EditorModule } from '@tinymce/tinymce-angular';
+
+import { NgToastModule } from 'ng-angular-popup';
+import { NgConfirmModule } from 'ng-confirm-box';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +38,12 @@ import { SearchPageComponent } from './Users/search-page/search-page.component';
 import { CategoryPageComponent } from './Users/category-page/category-page.component';
 import { NovelCreationPageComponent } from './Users/Dashboard/novel-creation-page/novel-creation-page.component';
 import { DiscussionPageComponent } from './Users/discussion-page/discussion-page.component';
+import { NovelAdminPageComponent } from './Admin/novel-admin-page/novel-admin-page.component';
+import { NovelDetailAdminPageComponent } from './Admin/novel-detail-admin-page/novel-detail-admin-page.component';
+import { DashboardPageComponent } from './Admin/dashboard-page/dashboard-page.component';
+import { CategoriesListComponent } from './Layouts/categories-list/categories-list.component';
+import { LoginPageComponent } from './Users/login-page/login-page.component';
+import { RegisterPageComponent } from './Users/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +58,13 @@ import { DiscussionPageComponent } from './Users/discussion-page/discussion-page
     SearchPageComponent,
     CategoryPageComponent,
     NovelCreationPageComponent,
-    DiscussionPageComponent
+    DiscussionPageComponent,
+    NovelAdminPageComponent,
+    NovelDetailAdminPageComponent,
+    DashboardPageComponent,
+    CategoriesListComponent,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +77,20 @@ import { DiscussionPageComponent } from './Users/discussion-page/discussion-page
     MatFormFieldModule,
     CarouselModule,
     FormsModule,
-    EditorModule
+    EditorModule,
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSlideToggleModule,
+    MatInputModule,
+    MatChipsModule,
+    MatListModule,
+    MatCardModule,
+    ReactiveFormsModule,
+
+    NgToastModule,
+    NgConfirmModule
   ],
   providers: [],
   bootstrap: [AppComponent]

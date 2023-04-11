@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+.justify-content-between {
+  margin-bottom: 20px;
+}
+
+.justify-content-between button {
+  margin-top: 20px;
+}
+
+.filter {
+  margin-top: 20px;
+}
+
+// ng-container {
+
+// }
+
+.ab{
+  width: 100px !important;
+  height: 100px !important;
+}
+
+// .description p {
+//   // background-color: aliceblue;
+//   // white-space: nowrap !important;
+//   overflow: hidden !important;
+//   text-overflow: ellipsis !important;
+//   max-width: 100%;
+// }
+
+td[mat-cell].ab {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

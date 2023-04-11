@@ -17,6 +17,7 @@
 
   <div class="container">
     <div class="row d-block clear">
+
       <div class="col-12 none d-lg-block col-lg-3 float-right filters-wrapper" [style]="currentStyle">
         <div class="none-l pad-bottom-20 text-right pad-top-20">
           <span [class]="closeSpan" (click)="buttonClose()">Tắt bộ lọc</span>
@@ -27,24 +28,8 @@
             <div class="section-title">Phân loại</div>
           </div>
           <div class="section-content">
-            <ul class="filter-type unstyled clear">
-              <li class="filter-type_item"><a href="/">Action</a></li>
-              <li class="filter-type_item"><a href="/">Adapted to Anime</a></li>
-              <li class="filter-type_item"><a href="/">Adapted to Drama CD</a></li>
-              <li class="filter-type_item"><a href="/">Adapted to Manga</a></li>
-              <li class="filter-type_item"><a href="/">Adult</a></li>
-              <li class="filter-type_item"><a href="/">Adventure</a></li>
-              <li class="filter-type_item"><a href="/">Age Gap</a></li>
-              <li class="filter-type_item"><a href="/">Boys Love</a></li>
-              <li class="filter-type_item"><a href="/">Character Growth</a></li>
-              <li class="filter-type_item"><a href="/">Chinese Novel</a></li>
-              <li class="filter-type_item"><a href="/">Comedy</a></li>
-              <li class="filter-type_item"><a href="/">Cooking</a></li>
-              <li class="filter-type_item"><a href="/">Different Social Status</a></li>
-              <li class="filter-type_item"><a href="/">Drama</a></li>
-              <li class="filter-type_item"><a href="/">Ecchi</a></li>
-              <li class="filter-type_item"><a href="/">English Novel</a></li>
-
+            <ul class="filter-type unstyled clear" *ngFor="let category of categories">
+              <li class="filter-type_item"><a routerLink="/category/{{ category.category_name }}" (click)="onCategorySelect()">{{ category.category_name }}</a></li>
             </ul>
           </div>
         </section>
@@ -60,11 +45,11 @@
         </section>
 
         <main class="row">
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2"  *ngFor="let novel of novels">
             <div class="thumb-wrapper ln-tooltip">
               <a href="/" title="Oneshot">
                 <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
+                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/{{ novel.cover_image }}');"></div>
                 </div>
               </a>
               <div class="thumb-detail">
@@ -72,83 +57,10 @@
                 <div class="thumb_attr volume-title">Oneshot</div>
               </div>
             </div>
-            <div class="thumb_attr series-title"><a href="/" title="Don’t take it wrong! That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?">"Don’t take it wrong!" That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?</a></div>
+            <div class="thumb_attr series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></div>
           </div>
 
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Oneshot">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Oneshot"><a href="/" title="Oneshot">Oneshot</a></div>
-                <div class="thumb_attr volume-title">Oneshot</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Don’t take it wrong! That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?">"Don’t take it wrong!" That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?</a></div>
-          </div>
 
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Oneshot">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Oneshot"><a href="/" title="Oneshot">Oneshot</a></div>
-                <div class="thumb_attr volume-title">Oneshot</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Don’t take it wrong! That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?">"Don’t take it wrong!" That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Oneshot">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Oneshot"><a href="/" title="Oneshot">Oneshot</a></div>
-                <div class="thumb_attr volume-title">Oneshot</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Don’t take it wrong! That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?">"Don’t take it wrong!" That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Oneshot">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Oneshot"><a href="/" title="Oneshot">Oneshot</a></div>
-                <div class="thumb_attr volume-title">Oneshot</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Don’t take it wrong! That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?">"Don’t take it wrong!" That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Oneshot">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Oneshot"><a href="/" title="Oneshot">Oneshot</a></div>
-                <div class="thumb_attr volume-title">Oneshot</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Don’t take it wrong! That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?">"Don’t take it wrong!" That's what my childhood friend who gave me love chocolate said, but what does that mean don't take it wrong!?</a></div>
-          </div>
         </main>
 
         <div class="pagination-footer">

@@ -1,45 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { NovelDataService } from 'src/app/Services/novel-data.service';
+import { Novel } from 'src/app/Model/novel';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent {
-  dynamicSlides = [
-    {
-      id: 1,
-      src:'https://via.placeholder.com/600/92c952',
-      alt:'Side 1',
-      title:'Side 1'
-    },
-    {
-      id: 2,
-      src:'https://via.placeholder.com/600/771796',
-      alt:'Side 2',
-      title:'Side 2'
-    },
-    {
-      id: 3,
-      src:'https://via.placeholder.com/600/24f355',
-      alt:'Side 3',
-      title:'Side 3'
-    },
-    {
-      id: 4,
-      src:'https://via.placeholder.com/600/d32776',
-      alt:'Side 4',
-      title:'Side 4'
-    },
-    {
-      id: 5,
-      src:'https://via.placeholder.com/600/f66b97',
-      alt:'Side 5',
-      title:'Side 5'
-    }
-  ]
-
+export class HomePageComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -93,4 +62,13 @@ export class HomePageComponent {
     },
     nav: false
   }
+
+  novels: Novel[] = [];
+
+  constructor(private novelService: NovelDataService) {}
+
+  ngOnInit(): void {
+      this.novelService.getNovels().subscribe(novels => this.novels = novels)
+  }
+
 }

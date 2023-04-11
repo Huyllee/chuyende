@@ -596,6 +596,20 @@ img {
   line-height: 25px;
 }
 
+.list-detail .series-summary {
+  word-wrap: break-word;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 25px;
+  height: 100px;
+}
+
+.list-detail .series-summary {
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+  // white-space: nowrap;
+}
+
 .new-series .list-detail {
   margin-left: 10px;
 }

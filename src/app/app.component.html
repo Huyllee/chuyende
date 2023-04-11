@@ -5,12 +5,12 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-   <div class="logo">My App</div>
+   <div class="logo"><a [routerLink]="['/home']">My App</a></div>
    <div class="nav">
-    <button mat-button>Sáng tác</button>
-    <button mat-button>Danh mục</button>
-    <button mat-button>Thảo luận</button>
-    <button mat-button>Hướng dẫn</button>
+    <a [routerLink]="['/search']"><button mat-button>Tìm kiếm</button></a>
+    <a [routerLink]="['/category']"><button mat-button>Danh mục</button></a>
+    <a [routerLink]="['/discussion']"><button mat-button>Thảo luận</button></a>
+    <a [routerLink]="['/']"><button mat-button>Hướng dẫn</button></a>
    </div>
 
    <span class="spacer"></span>
@@ -66,8 +66,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet></router-outlet>
-      <app-discussion-page></app-discussion-page>
-
+      <!-- <app-discussion-page></app-discussion-page> -->
+      <!-- <app-home-page></app-home-page> -->
 
       <!-- <app-footer></app-footer> -->
     </mat-sidenav-content>
