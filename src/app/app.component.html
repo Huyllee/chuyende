@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isAdmin">
   <mat-toolbar class="primary">
 
     <button class="toggle" mat-icon-button (click)="nav.toggle()">
@@ -7,28 +7,30 @@
 
    <div class="logo"><a [routerLink]="['/home']">My App</a></div>
    <div class="nav">
-    <a [routerLink]="['/search']"><button mat-button>Tìm kiếm</button></a>
-    <a [routerLink]="['/category']"><button mat-button>Danh mục</button></a>
-    <a [routerLink]="['/discussion']"><button mat-button>Thảo luận</button></a>
-    <a [routerLink]="['/']"><button mat-button>Hướng dẫn</button></a>
+    <a routerLink="/search"><button mat-button>Tìm kiếm</button></a>
+    <a routerLink="/category"><button mat-button>Danh mục</button></a>
+    <a routerLink="/discussion"><button mat-button>Thảo luận</button></a>
+    <a routerLink="/"><button mat-button>Hướng dẫn</button></a>
    </div>
 
    <span class="spacer"></span>
 
    <div class="icon-nav">
     <div class="searchbar">
-      <input class="search_input" type="text" name="" placeholder="Search...">
-      <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+      <input class="search_input" type="text" name="search" placeholder="Search...">
+      <a routerLink="/search" class="search_icon" routerLink="/search"><i class="fa fa-search"></i></a>
     </div>
 
-    <div class="icon">
-      <button mat-icon-button class="favorite-icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="user-icon">
-       <mat-icon>account_circle</mat-icon>
-     </button>
+    <a *ngIf="!isAuth" class="login" routerLink="/login"><button mat-button>Đăng nhập</button></a>
+
+    <div *ngIf="isAuth" class="login">
+      <a class="login"><button mat-button>{{user.full_name}} <i class="fa fa-user"></i></button></a>
+      <div class="menu">
+        <a routerLink="/profile">Profile</a>
+        <a (click)="logout()">Logout</a>
+      </div>
     </div>
+
 
    </div>
   </mat-toolbar>
@@ -39,39 +41,33 @@
         <input class="form-control" type="text" placeholder="Search..">
         <i class="fa fa-search"></i>
       </div>
-      <a [routerLink]="['#']">
+      <a routerLink="/search">
         <button mat-button>
-          <!-- <mat-icon>home</mat-icon> -->
-          <span>Sáng tác</span>
+          <span>Tìm kiếm</span>
         </button>
       </a>
-      <a [routerLink]="['#']">
+      <a routerLink="/category">
         <button mat-button>
-          <!-- <mat-icon>home</mat-icon> -->
           <span>Danh mục</span>
         </button>
       </a>
-      <a [routerLink]="['#']">
+      <a routerLink="/discussion">
         <button mat-button>
-          <!-- <mat-icon>home</mat-icon> -->
           <span>Thảo luận</span>
         </button>
       </a>
-      <a [routerLink]="['#']">
+      <a routerLink="/">
         <button mat-button>
-          <!-- <mat-icon>home</mat-icon> -->
           <span>Hướng dẫn</span>
         </button>
       </a>
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet></router-outlet>
-      <!-- <app-discussion-page></app-discussion-page> -->
-      <!-- <app-home-page></app-home-page> -->
 
-      <!-- <app-footer></app-footer> -->
+      <app-footer></app-footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
 
-
+<router-outlet *ngIf="isAdmin"></router-outlet>

@@ -29,7 +29,7 @@
           </div>
           <div class="section-content">
             <ul class="filter-type unstyled clear" *ngFor="let category of categories">
-              <li class="filter-type_item"><a routerLink="/category/{{ category.category_name }}" (click)="onCategorySelect()">{{ category.category_name }}</a></li>
+              <li class="filter-type_item"><a routerLink="/category/{{ category.category_name }}">{{ category.category_name }}</a></li>
             </ul>
           </div>
         </section>

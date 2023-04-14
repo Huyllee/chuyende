@@ -11,6 +11,9 @@ import { NovelAdminPageComponent } from './Admin/novel-admin-page/novel-admin-pa
 import { NovelDetailAdminPageComponent } from './Admin/novel-detail-admin-page/novel-detail-admin-page.component';
 import { LoginPageComponent } from './Users/login-page/login-page.component';
 import { RegisterPageComponent } from './Users/register-page/register-page.component';
+import { UsersAdminPageComponent } from './Admin/users-admin-page/users-admin-page.component';
+import { DashboardPageComponent } from './Admin/dashboard-page/dashboard-page.component';
+import { CreateNovelsPageComponent } from './Admin/create-novels-page/create-novels-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -19,14 +22,20 @@ const routes: Routes = [
   { path: 'novel-detail/:id', component: NovelDetailPageComponent, pathMatch: 'full' },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'search', component: SearchPageComponent },
-  { path: 'category', component: CategoryPageComponent, pathMatch: 'full' },
-  { path: 'category/:genre', component: CategoryPageComponent, pathMatch: 'full' },
+  { path: 'search/:searchTerm', component: SearchPageComponent },
+  { path: 'category', component: CategoryPageComponent },
+  { path: 'category/:genre', component: CategoryPageComponent },
   { path: 'discussion', component: DiscussionPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
 
-  { path: 'admin', component: NovelAdminPageComponent, children: [
-    { path: 'admin-detail', component: NovelDetailAdminPageComponent },
+
+  { path: 'admin/users', component: UsersAdminPageComponent },
+  { path: 'admin/create-novel', component: CreateNovelsPageComponent },
+  { path: 'admin', component: DashboardPageComponent },
+  { path: 'admin/novels', component: NovelAdminPageComponent, children: [
+    // { path: 'users', component: NovelDetailAdminPageComponent },
+
   ]},
 
 

@@ -5,11 +5,11 @@ import { NovelDataService } from 'src/app/Services/novel-data.service';
 import { UserDataService } from 'src/app/Services/user-data.service';
 
 @Component({
-  selector: 'app-dashboard-page',
-  templateUrl: './dashboard-page.component.html',
-  styleUrls: ['./dashboard-page.component.scss']
+  selector: 'app-users-admin-page',
+  templateUrl: './users-admin-page.component.html',
+  styleUrls: ['./users-admin-page.component.scss']
 })
-export class DashboardPageComponent {
+export class UsersAdminPageComponent {
   //Sidebar toggle show hide function
   status = false;
   users: User[] = [];

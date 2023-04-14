@@ -14,7 +14,7 @@ export class AdminApiService {
   }
 
   getNovel(){
-    return this.http.get<Novel[]>(`${'/api/novel/get/novels'}`)
+    return this.http.get<Novel[]>(`${'/api/novel/get/allNovels'}`)
   }
 
   updateNovel(NovelObj: Novel, id: number){

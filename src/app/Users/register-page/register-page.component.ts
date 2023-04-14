@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IUserRegister } from 'src/app/Model/users';
+import { UserDataService } from 'src/app/Services/user-data.service';
 
 @Component({
   selector: 'app-register-page',
@@ -10,19 +12,12 @@ import { Router } from '@angular/router';
 export class RegisterPageComponent {
   myRepass: string = '';
   myPass: string = '';
+  isSubmitted = false;
+  returnUrl = '';
 
-
-  constructor(private router: Router, private buider: FormBuilder) {}
+  constructor(private router: Router, private buider: FormBuilder, private activatedRoute: ActivatedRoute, private registerService: UserDataService) {}
 
   fullname = new FormControl('',[
-    Validators.required,
-  ]);
-
-  cccdNumber = new FormControl('',[
-    Validators.required,
-  ]);
-
-  phoneNumber = new FormControl('',[
     Validators.required,
   ]);
 
@@ -33,21 +28,17 @@ export class RegisterPageComponent {
 
   password = new FormControl('',[
     Validators.required,
-    Validators.minLength(6),
+    Validators.minLength(8),
     Validators.maxLength(25),
-    // Validators.pattern( /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)
   ]);
 
   repassword = new FormControl('',[
     Validators.required,
-    Validators.minLength(6),
-    // Validators.pattern( /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/)
+    Validators.minLength(8),
   ]);
 
   registerForm = this.buider.group({
     fullname: this.fullname,
-    cccdNumber: this.cccdNumber,
-    phoneNumber: this.phoneNumber,
     password: this.password,
     email: this.email
   })
@@ -60,5 +51,25 @@ export class RegisterPageComponent {
     } else {
       this.repassword.setErrors(null);
     }
+  }
+
+  ngOnInit(): void {
+    this.returnUrl= this.activatedRoute.snapshot.queryParams['returnUrl'];
+  }
+
+  submit(){
+    this.isSubmitted = true;
+    if(this.registerForm.invalid) return;
+
+    const user: IUserRegister = {
+      full_name: this.fullname.value!,
+      email: this.email.value!,
+      password: this.password.value!,
+      repassword: this.repassword.value!
+    };
+
+    this.registerService.register(user).subscribe(_ => {
+      this.router.navigateByUrl(this.returnUrl);
+    })
   }
 }

@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Categories, Novel, novelByGenre } from '../Model/novel';
+import { Observable, map } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Categories, Novel, chaptersById, favorites, novelById, tagById, volumeById, volumes } from '../Model/novel';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -22,16 +27,44 @@ export class NovelDataService {
     return this.http.get<Novel[]>(`/api/novel/get/novels/${genre}`);
   }
 
-  getAllFoodsByTag(tag: string): Observable<Novel[]> {
-    return this.http.get<Novel[]>('/api/novel/get/novels/' + tag);
+  getNovelById(id: string): Observable<novelById[]> {
+    return this.http.get<novelById[]>(`/api/novel/get/novel/${id}`);
   }
 
-  getNovelById(id: string): Observable<Novel[]> {
-    return this.http.get<Novel[]>('/api/novel/get/novels/' + id);
+  getTagById(id: string): Observable<tagById[]> {
+    return this.http.get<tagById[]>(`/api/novel/get/novel/tag/${id}`);
   }
 
-  // getUsersById(id: string): Observable<Users> {
-  //   return this.http.get<Users>(`/api/v1/Users/${id}`);
-  // }
+  getVolumeById(id: string): Observable<volumeById[]> {
+    return this.http.get<volumeById[]>(`/api/novel/get/novel/volumes/${id}`);
+  }
+
+  getVolumes(): Observable<volumes[]> {
+    return this.http.get<volumes[]>(`/api/novel/get/volumes`);
+  }
+
+  getChaptersByVolumeId(): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/chapters`);
+  }
+
+  getChapterById(id: string): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/chapter/${id}`);
+  }
+
+  getAllNovelsBySearchTerm(searchTerm: string) {
+    return this.http.get<Novel[]>(`/api/novel/search/${searchTerm}`)
+      .pipe(map(novels => novels.filter(novels => novels.title.toLowerCase()
+        .includes(searchTerm.toLowerCase()))
+      )
+    )
+  }
+
+  postFavorites(user_id: string, novel_id: string): Observable<favorites> {
+    return this.http.post<favorites>(`/api/novel/post/favorites`, {user_id, novel_id});
+  }
+
+  getAllNovels(): Observable<Novel[]> {
+    return this.http.get<Novel[]>(`/api/novel/get/allNovels`);
+  }
 
 }

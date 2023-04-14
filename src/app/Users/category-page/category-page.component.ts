@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Categories, novelByGenre, Novel } from 'src/app/Model/novel';
+import { Categories, Novel } from 'src/app/Model/novel';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { NovelDataService } from 'src/app/Services/novel-data.service';
   templateUrl: './category-page.component.html',
   styleUrls: ['./category-page.component.scss']
 })
-export class CategoryPageComponent implements OnInit {
+export class CategoryPageComponent {
 
   currentStyle: string = "display: none;";
   currentSpan: string = "button button-green js-call-filters-wrapper";
@@ -36,45 +36,41 @@ export class CategoryPageComponent implements OnInit {
 
   categories: Categories[] = [];
 
-  ngOnInit(): void {
-    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
-
-  }
-
   novels: Novel[] = [];
-  novel: Novel[] = [];
 
   constructor(private categoryService: NovelDataService, private activatedRoute: ActivatedRoute, private route: Router) {
 
-    // const genre = this.activatedRoute.snapshot.paramMap.get('genre')!;
-    // this.categoryService.getNovelByCategories(genre).subscribe(novels => this.novels = novels);
+    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
 
-  //   let foodsObservalbe:Observable<Novel[]>;
-  //   activatedRoute.params.subscribe((params) => {
-  //     if(params)
-  //     foodsObservalbe = this.categoryService.getNovelByCategories(params.tag)
-  //     else
-  //     foodsObservalbe = this.categoryService.getNovels();
+    let novelsObservalbe: Observable<Novel[]>;
+    activatedRoute.params.subscribe((params) => {
+      if ((params && params['genre'])) {
+        novelsObservalbe = this.categoryService.getNovelByCategories(params['genre'])
+      }
 
-  //     foodsObservalbe.subscribe((serverFoods) => {
-  //       this.novel = serverFoods;
-  //     })
-  // });
+      else {
+        novelsObservalbe = this.categoryService.getNovels();
+      }
 
+      novelsObservalbe.subscribe((novels) => {
+        this.novels = novels;
+        console.log(novels[0].artist);
 
+      })
+  });
 }
 
-  onCategorySelect() {
-    const genre = this.activatedRoute.snapshot.paramMap.get('genre');
-    if (genre) {
-      // this.route.navigate(['/category/'+ genre]);
-      this.categoryService.getNovelByCategories(genre).subscribe(novels => this.novels = novels);
-      console.log(this.route.navigate(['/category/'+ genre]));
-    }
-    else {
-      this.categoryService.getNovels().subscribe(novels => this.novels = novels);
-    }
-    console.log(genre);
-  }
+  // ngOnInit(): void {
+  //   const genre = this.activatedRoute.snapshot.paramMap.get('genre');
+  //   if (genre) {
+  //     // this.route.navigate(['/category/'+ genre]);
+  //     this.categoryService.getNovelByCategories(genre).subscribe(novels => this.novels = novels);
+  //     console.log(this.route.navigate(['/category/'+ genre]));
+  //   }
+  //   else {
+  //     this.categoryService.getNovels().subscribe(novels => this.novels = novels);
+  //   }
+  //   console.log(genre);
+  // }
 
 }

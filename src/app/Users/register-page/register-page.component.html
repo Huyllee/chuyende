@@ -1,27 +1,13 @@
 <div class="container">
   <div class="title">Register</div>
   <div class="content">
-    <form [formGroup]="registerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
       <div class="user-details">
         <div class="input-box">
-          <label class="details">Họ và tên<span>*</span></label>
-          <input type="text" [formControl]="fullname" name="fullname" placeholder="Nhập họ và tên" required>
+          <label class="details">Fullname<span>*</span></label>
+          <input type="fullname" [formControl]="fullname" name="fullname" placeholder="Nhập fullname" required>
           <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert">
             <span class="error-text" *ngIf="fullname.errors?.['required']">Fullname is required.</span>
-          </div>
-        </div>
-        <div class="input-box">
-          <label class="details">Số CCCD<span>*</span></label>
-          <input type="text" [formControl]="cccdNumber" name="cccdNumber" placeholder="Nhập số CCCD" required>
-          <div *ngIf="cccdNumber.invalid && (cccdNumber.dirty || cccdNumber.touched)" class="alert">
-            <span class="error-text" *ngIf="cccdNumber.errors?.['required']">CCCD number is required.</span>
-          </div>
-        </div>
-        <div class="input-box">
-          <label class="details">Số điện thoại<span>*</span></label>
-          <input type="tel" [formControl]="phoneNumber" name="phoneNumber" placeholder="Nhập số điện thoại" required>
-          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert">
-            <span class="error-text" *ngIf="phoneNumber.errors?.['required']">Phone number is required.</span>
           </div>
         </div>
         <div class="input-box">
@@ -37,7 +23,7 @@
           <input type="password" [formControl]="password" name="password" placeholder="Nhập password" required>
           <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
             <span class="error-text" *ngIf="password.errors?.['required']">Password is required.</span>
-            <span class="error-text" *ngIf="password.errors?.['minlength']">Password must contain at least 6 characters.</span>
+            <span class="error-text" *ngIf="password.errors?.['minlength']">Password must contain at least 8 characters.</span>
             <!-- <div class="error-text" *ngIf="password.errors?.['pattern']">Password cannot contain whitespace</div> -->
           </div>
         </div>

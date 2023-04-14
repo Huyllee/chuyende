@@ -1,0 +1,207 @@
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <a href="#" class="brand">
+    <i class='bx bx-book'></i>
+    <span class="text">Novels</span>
+  </a>
+  <ul class="side-menu top">
+    <li>
+      <a routerLink="/admin">
+        <i class='bx bxs-dashboard' ></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li class="active">
+      <a routerLink="/admin/novels">
+        <i class='bx bx-book'></i>
+        <span class="text">Novels</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin">
+        <i class='bx bxs-doughnut-chart' ></i>
+        <span class="text">Novel Genre</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin">
+        <i class='bx bx-book-content'></i>
+        <span class="text">Chapters</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/users">
+        <i class='bx bxs-user'></i>
+        <span class="text">Users</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <i (click)="addToggle()" class='bx bx-menu' ></i>
+    <a href="#" class="nav-link">Categories</a>
+    <form action="#">
+    </form>
+
+    <a href="#" class="profile">
+      <img src="./assets/user-profile-default.png">
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+  <!-- MAIN -->
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>Create Novel</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a routerLink="/admin/novels">Novels</a>
+          </li>
+          <li><i class='bx bx-chevron-right' ></i></li>
+          <li>
+            <a class="active" routerLink="/admin/create-novel">Create Novel</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-heading">Series</div>
+            <div class="panel-body">
+              <form>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label pt-7 text-right">Tiêu đề</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="title" value="">
+                  </div>
+                </div>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label pt-7 text-right">Tác giả</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="author" value="">
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <label class="col-md-2 control-label pt-7 text-right">Họa sĩ</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="illustrator" value="">
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <label class="col-md-2 control-label pt-7 text-right">Ảnh Bìa</label>
+                  <div class="col-md-8">
+                    <!-- <form> -->
+                      <input class="file" type="file" ng2FileSelect [uploader]="uploader"/><br/>
+                      <!-- <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                        <span class="glyphicon glyphicon-upload"></span> Upload all
+                      </button>
+                      <div>
+                        Queue progress:
+                        <div class="progress" style="margin-bottom: 0;">
+                          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                      </div>
+                    </form> -->
+                  </div>
+                </div>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label pt-7 text-right">Thể loại</label>
+                  <div class="col-md-8">
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="1">Action
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="49">Adapted to Anime
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="51">Adapted to Drama CD
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="50">Adapted to Manga
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="28">Adult
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="2">Adventure
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="52">Age Gap
+                    </label>
+                    <label class="checkbox-inline" style="width: 130px">
+                      <input type="checkbox" name="genres[]" value="60">Boys Love
+                    </label>
+
+                  </div>
+                </div>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label text-right">Tóm tắt</label>
+                  <div class="col-md-10">
+
+                      <form class="comment_form">
+                        <textarea class="comment_content" id="mce_0" style="display: none;" aria-hidden="true"></textarea>
+                        <editor [init]="{
+                          selector: 'textarea',
+                          height: 200,
+                          content_css: 'default',
+                          skin: 'oxide',
+                          branding: false,
+                          menubar: false,
+                          contextmenu: false,
+                          plugins: 'wordcount link image code fullscreen paste emoticons',
+                          toolbar: 'emoticons undo redo | bold italic underline strikethrough forecolor | link image | removeformat | fullscreen',
+                          entities: '160,nbsp,38,amp,60,lt,62,gt',
+                          base_url: '/tinymce',
+                          suffix: '.min'
+                        }"></editor>
+                      </form>
+
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-md-10 col-md-offset-2">
+                    <button type="submit" class="btn btn-primary">Thêm truyện</button>
+                    <a routerLink="/admin/novels" class="btn btn-warning">Quay lại</a>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+

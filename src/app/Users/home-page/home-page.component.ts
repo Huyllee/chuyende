@@ -68,7 +68,7 @@ export class HomePageComponent implements OnInit {
   constructor(private novelService: NovelDataService) {}
 
   ngOnInit(): void {
-      this.novelService.getNovels().subscribe(novels => this.novels = novels)
+    this.novelService.getNovels().subscribe(novels => this.novels = novels)
   }
 
 }

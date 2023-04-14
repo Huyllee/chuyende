@@ -28,7 +28,7 @@
                   </div>
 
                   <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/1.jpg')"></div>
+                    <div class="content img-in-ratio" style="background-image: url('./assets/{{ novels[0].cover_image }}')"></div>
                   </div>
                 </div>
               </div>
@@ -36,31 +36,28 @@
               <div class="col-12 col-md-9">
                 <div class="series-name-group">
                   <span class="series-name">
-                    <a href="/">Con gái mẹ kế là bạn gái cũ của tôi</a>
+                    <a routerLink="/novel/{{ novels[0].novel_id }}">{{ novels[0].title }}</a>
                   </span>
                 </div>
 
                 <div class="series-information">
                   <div class="series-gernes">
-                    <a class="series-gerne-item" href="/">Adapted to Drama CD</a>
-                    <a class="series-gerne-item" href="/">Adapted to Manga</a>
-                    <a class="series-gerne-item" href="/">Comedy</a>
-                    <a class="series-gerne-item" href="/">Ecchi</a>
-                    <a class="series-gerne-item" href="/">Romance</a>
-                    <a class="series-gerne-item" href="/">School Life</a>
-                    <a class="series-gerne-item animation" style="display: none;" href="/">Adapted to Anime</a>
-                    <a class="series-gerne-item animation" style="display: none;" href="/">Drama</a>
+                    <a class="series-gerne-item" routerLink="/category/{{ category.category_name }}"
+                      *ngFor="let category of categories">{{ category.category_name }}</a>
+
+                    <!-- <a class="series-gerne-item animation" style="display: none;" href="/">Adapted to Anime</a>
+                    <a class="series-gerne-item animation" style="display: none;" href="/">Drama</a> -->
                     <a class="series-gerne-item"><i class="fa fa-ellipsis-h"></i></a>
                   </div>
 
                   <div class="info-item">
                     <span class="info-name">Tác giả:</span>
-                    <span class="info-value "><a href="/">Kamishiro Kyousuke</a></span>
+                    <span class="info-value "><a href="/">{{ novels[0].author }}</a></span>
                   </div>
 
                   <div class="info-item">
                     <span class="info-name">Họa sĩ:</span>
-                    <span class="info-value"><a href="/">TakayaKi</a></span>
+                    <span class="info-value"><a href="/">{{ novels[0].artist }}</a></span>
                   </div>
 
                   <div class="info-item">
@@ -72,7 +69,7 @@
                 <div class="side-features">
                   <div class="row">
 
-                    <div class="col-4 col-md feature-item width-auto-xl">
+                    <div class="col-4 col-md feature-item width-auto-xl" (click)="onFavorites()">
                       <a id="collect" class="side-feature-button button-follow followed">
                         <span class="block feature-value"><i class="fa fa-heart"></i></span>
                         <span class="block feature-name"> 7759 </span>
@@ -174,9 +171,9 @@
               <div class="summary-wrapper col-12">
                 <div class="series-summary">
                   <h4>Tóm tắt</h4>
-                  <div class="summary-content">
-                    <p>Thời học trung học, Irido Mizuto và Ayai Yume tình cờ quen nhau và trở thành người yêu của nhau. Nhưng vì vài biến cố nhỏ nhặt mà tình yêu của hai người đành phải kết thúc.</p>
-                    <p>Cái kết thúc đó chưa được bao lâu thì ba của Mizuto và mẹ của Yume lại tái hôn với nhau. Liệu bánh xe định mệnh có lại đưa hai người quay về với nhau?</p>
+                  <div class="summary-content" [innerHTML]="novels[0].description | newLinesToParagraphs">
+                    {{ novels[0].description | newLinesToParagraphs }}
+
                   </div>
 
                   <div id="seeMore" (click)="changeClass()" [class]="currentClass">
@@ -272,7 +269,51 @@
       <div style="text-align: center; margin: 0 auto 10px auto;">
       </div>
 
-      <section class="volume-list at-series basic-section volume-mobile gradual-mobile ">
+      <section class="volume-list at-series basic-section volume-mobile gradual-mobile " *ngFor="let volume of volumes">
+        <header id="volume_11944" class="sect-header">
+          <span class="mobile-icon" (click)="mobileIcon()"><i [class]="currentIcon"></i></span>
+          <span class="sect-title">{{ volume.volume_title }}</span>
+        </header>
+
+        <main class="d-lg-block" [style]="currentStyle">
+          <div class="row">
+
+            <div class="col-12 col-md-2">
+              <div class="volume-cover">
+                <a href="/">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/{{ volume.cover_image }}')"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-10">
+              <ul class="list-chapters at-series" *ngFor="let chapter of chapters">
+                <li class="" *ngIf="volume.volume_id === chapter.volume_id">
+                  <div class="chapter-name">
+                    <!-- <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i> -->
+                    <a routerLink="/novel-detail/{{ chapter.chapter_id }}" title="{{ chapter.title }}">{{ chapter.title }}</a>
+                  </div>
+                  <div class="chapter-time">{{ chapter.updated_at | date: 'dd/MM/yyyy' }}</div>
+                </li>
+
+
+                <!-- <div class="mobile-more">
+                  <div class="see_more">
+                    <span>Xem tiếp (5 chương)</span>
+                  </div>
+                </div> -->
+
+              </ul>
+            </div>
+
+
+          </div>
+        </main>
+      </section>
+
+      <!-- <section class="volume-list at-series basic-section volume-mobile gradual-mobile ">
         <header id="volume_11944" class="sect-header">
           <span class="mobile-icon" (click)="mobileIcon()"><i [class]="currentIcon"></i></span>
           <span class="sect-title">Tập 01 - Tình yêu cũ vẫn chưa chịu kết thúc</span>
@@ -371,11 +412,7 @@
                   <div class="chapter-time">04/08/2020</div>
                 </li>
 
-                <!-- <div class="mobile-more">
-                  <div class="see_more">
-                    <span>Xem tiếp (5 chương)</span>
-                  </div>
-                </div> -->
+
 
               </ul>
             </div>
@@ -383,120 +420,7 @@
 
           </div>
         </main>
-      </section>
-
-      <section class="volume-list at-series basic-section volume-mobile gradual-mobile ">
-        <header id="volume_11944" class="sect-header">
-          <span class="mobile-icon" (click)="mobileIcon()"><i [class]="currentIcon"></i></span>
-          <span class="sect-title">Tập 01 - Tình yêu cũ vẫn chưa chịu kết thúc</span>
-        </header>
-
-        <main class="d-lg-block" [style]="currentStyle">
-          <div class="row">
-
-            <div class="col-12 col-md-2">
-              <div class="volume-cover">
-                <a href="/">
-                  <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/1.jpg')"></div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-10">
-              <ul class="list-chapters at-series">
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Minh họa">Minh họa</a>
-                  </div>
-                  <div class="chapter-time">25/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 01 - Chẳng muốn bị xem là người yêu cũ đâu 「Cho nên tôi mới ghét cậu ở điểm đó đấy」">Chương 01 - Chẳng muốn bị xem là người yêu cũ đâu 「Cho nên tôi mới ghét cậu ở điểm đó đấy」</a>
-                  </div>
-                  <div class="chapter-time">25/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 02 - Cặp đôi người yêu cũ trông nhà 「Đây là nhà của tôi, chuyện này là bình thường thôi mà?」">Chương 02 - Cặp đôi người yêu cũ trông nhà 「Đây là nhà của tôi, chuyện này là bình thường thôi mà?」</a>
-                  </div>
-                  <div class="chapter-time">25/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 03 - Cặp đôi người yêu cũ nhập học 「Cảm thấy cô đơn lắm à?」">Chương 03 - Cặp đôi người yêu cũ nhập học 「Cảm thấy cô đơn lắm à?」</a>
-                  </div>
-                  <div class="chapter-time">25/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <a href="/" title="Chương 04 - Bạn gái cũ và buổi khám sức khỏe 「......Ngửi thấy mùi mồ hôi」">Chương 04 - Bạn gái cũ và buổi khám sức khỏe 「......Ngửi thấy mùi mồ hôi」</a>
-                  </div>
-                  <div class="chapter-time">25/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 05 - Bạn trai cũ thăm bệnh 「Chuyện nhỏ thôi ấy mà」">Chương 05 - Bạn trai cũ thăm bệnh 「Chuyện nhỏ thôi ấy mà」</a>
-                  </div>
-                  <div class="chapter-time">26/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <a href="/" title="Chương 06 - Bạn gái cũ vẫn cứ chờ đợi trong giấc mơ 「Mình bây giờ đang làm cái gì thế này......!?」">Chương 06 - Bạn gái cũ vẫn cứ chờ đợi trong giấc mơ 「Mình bây giờ đang làm cái gì thế này......!?」</a>
-                  </div>
-                  <div class="chapter-time">29/07/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 07 - Cặp đôi người yêu cũ ■■■ với nhau ＜Phần đầu＞ 「Xin hãy lấy hôn nhân ra làm tiền đề để hẹn hò với tớ nhé」">Chương 07 - Cặp đôi người yêu cũ ■■■ với nhau ＜Phần đầu＞ 「Xin hãy lấy hôn nhân ra làm tiền đề để hẹn hò với tớ nhé」</a>
-                  </div>
-                  <div class="chapter-time">01/08/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 08 - Cặp đôi người yêu cũ hẹn hò với nhau ＜Phần sau＞ 「Đồ hoang tưởng」「Đồ Otaku chết bằm」">Chương 08 - Cặp đôi người yêu cũ hẹn hò với nhau ＜Phần sau＞ 「Đồ hoang tưởng」「Đồ Otaku chết bằm」</a>
-                  </div>
-                  <div class="chapter-time">02/08/2020</div>
-                </li>
-
-                <li class="">
-                  <div class="chapter-name">
-                    <i class="fa fa-image" aria-hidden="true" title="Có chứa ảnh"></i>
-                    <a href="/" title="Chương 09 - Đôi tình nhân trao quà cho nhau 「......Muốn chết quá đi......」">Chương 09 - Đôi tình nhân trao quà cho nhau 「......Muốn chết quá đi......」</a>
-                  </div>
-                  <div class="chapter-time">04/08/2020</div>
-                </li>
-
-                <!-- <div class="mobile-more">
-                  <div class="see_more">
-                    <span>Xem tiếp (5 chương)</span>
-                  </div>
-                </div> -->
-
-              </ul>
-            </div>
-
-
-          </div>
-        </main>
-      </section>
+      </section> -->
 
       <section class="basic-section gradual-mobile">
         <header class="sect-header"><span class="sect-title">Có thể bạn quan tâm</span><span class="mobile-icon"><i class="fa fa-chevron-down"></i></span></header>
@@ -571,7 +495,7 @@
           <span class="sect-title tab-title">Bình luận </span>
         </header>
 
-        <main id="fbcmt_root" class="comment-wrapper d-lg-block clear">
+        <!-- <main id="fbcmt_root" class="comment-wrapper d-lg-block clear">
           <span style="padding: 10px; display: inline-block;">Báo cáo bình luận không phù hợp ở <a href="/" style="color: blue">đây</a></span>
           <div id="tab-content-1" class="tab-content clear">
             <section class="ln-comment">
@@ -602,7 +526,7 @@
             </section>
           </div>
 
-        </main>
+        </main> -->
       </section>
     </div>
   </div>

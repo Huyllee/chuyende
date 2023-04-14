@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
+  //Sidebar toggle show hide function
+  status = false;
+  addToggle()
+  {
+    this.status = !this.status;
+  }
 }

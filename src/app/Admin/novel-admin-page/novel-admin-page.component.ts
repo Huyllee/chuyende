@@ -25,6 +25,14 @@ export class NovelAdminPageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
 
+   //Sidebar toggle show hide function
+   status = false;
+
+   addToggle()
+  {
+    this.status = !this.status;
+  }
+
   displayedColumns: string[] = [
     'novel_id',
     'title',

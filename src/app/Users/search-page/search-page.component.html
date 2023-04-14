@@ -16,10 +16,12 @@
 
   <div class="search-form_wrapper">
     <div class="container">
-      <form class="search-form clear" action="tim-kiem" method="get">
+      <form class="search-form clear">
         <div class="row">
-          <input id="search-page-input" class="search-form in col-8 col-md-10 col-lg-10" type="text" placeholder="Tối thiểu 2 kí tự" name="keywords" size="40" value="">
-          <input id="search-go" class="search-go_form search-form submit col-4 col-md-2 col-lg-2" type="submit" value="Tìm kiếm">
+          <input #s id="search-page-input" class="search-form in col-8 col-md-10 col-lg-10" type="text" placeholder="Tối thiểu 2 kí tự" name="keywords" size="40"
+            (keyup.enter)="search(s.value)"
+            [value]="searchTerm">
+          <input (click)="search(s.value)" id="search-go" class="search-go_form search-form submit col-4 col-md-2 col-lg-2" type="submit" value="Tìm kiếm">
         </div>
       </form>
     </div>
@@ -30,185 +32,25 @@
       <main class="sect-body">
         <div class="row">
 
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let novel of novels">
             <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
+              <a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">
                 <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
+                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/{{ novel.cover_image }}');"></div>
                 </div>
               </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
+              <div class="thumb-detail" *ngFor="let chapter of chapters.slice(-1)">
+                <div *ngFor="let volume of volumes.slice(0, 1)">
+                  <div *ngIf="novel.novel_id === volume.volume_id">
+                    <div class="thumb_attr chapter-title" title="{{ chapter.title }}"><a routerLink="/novel-detail/{{ chapter.chapter_id }}" title="{{ chapter.title }}">{{ chapter.title }}</a></div>
+                    <div class="thumb_attr volume-title" *ngIf="chapter.volume_id === volume.volume_id">{{ volume.volume_title }}</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
+            <div class="thumb_attr series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></div>
           </div>
 
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/2.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/3.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/4.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/5.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/6.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/7.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/8.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/1.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/2.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/3.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
-
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2">
-            <div class="thumb-wrapper ln-tooltip">
-              <a href="/" title="Minh họa">
-                <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/4.jpg');"></div>
-                </div>
-              </a>
-              <div class="thumb-detail">
-                <div class="thumb_attr chapter-title" title="Minh họa"><a href="/" title="Minh họa">Minh họa</a></div>
-                <div class="thumb_attr volume-title">Tập 10 - Vươn tay đến là chạm được vào em</div>
-              </div>
-            </div>
-            <div class="thumb_attr series-title"><a href="/" title="Con gái mẹ kế là bạn gái cũ của tôi">Con gái mẹ kế là bạn gái cũ của tôi</a></div>
-          </div>
         </div>
       </main>
 

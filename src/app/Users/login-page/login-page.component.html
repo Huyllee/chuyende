@@ -3,13 +3,13 @@
       <div class="col-left">
           <div class="login-text">
               <h2>Welcome!</h2>
-              <p>Create your account.<br>For Free!</p> <a routerLink="/register" class="btn">Sign Up</a>
+              <p>Create your account.<br>For Free!</p> <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}" class="btn">Sign Up</a>
           </div>
       </div>
       <div class="col-right">
           <div class="login-form">
               <h2>Login</h2>
-              <form [formGroup]="loginForm">
+              <form [formGroup]="loginForm" (ngSubmit)="submit()">
                 <div class="line">
                     <label>Email address<span>*</span></label>
                     <input type="email" name="email" [formControl]="email" placeholder="Email" required>
@@ -23,7 +23,7 @@
                     <input type="password" name="password" [formControl]="password" placeholder="Password" required>
                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
                       <span class="error-text" *ngIf="password.errors?.['required']">Password is required.</span>
-                      <span class="error-text" *ngIf="password.errors?.['minlength']">Password must contain at least 6 characters.</span>
+                      <span class="error-text" *ngIf="password.errors?.['minlength']">Password must contain at least 8 characters.</span>
                       <!-- <div class="error-text" *ngIf="password.errors?.['pattern']">Password cannot contain whitespace</div> -->
                     </div>
                   </div>
