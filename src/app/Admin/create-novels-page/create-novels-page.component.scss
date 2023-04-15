@@ -135,6 +135,17 @@ label {
   margin-top: 10px;
 }
 
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  height: 400px; /* Điều chỉnh chiều cao của textarea */
+  font-size: 14px; /* Điều chỉnh kích thước font chữ */
+  padding: 10px; /* Điều chỉnh khoảng cách giữa nội dung và khung */
+  box-sizing: border-box; /* Đảm bảo kích thước của textarea bao gồm cả phần padding và border */
+}
+
 /* SIDEBAR */
 #sidebar {
   position: fixed;

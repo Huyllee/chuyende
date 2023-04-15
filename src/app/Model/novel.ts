@@ -14,6 +14,19 @@ export class Novel {
   cover_image!: string;
   category_name!: string[];
   categories!: string[];
+  categories_id!: number[];
+  created_at!: string;
+  updated_at!: string
+}
+
+export class newNovel {
+  novel_id!: number;
+  title!: string;
+  author!: string;
+  artist!: string;
+  description!: string;
+  cover_image!: string;
+  categories_id!: number[];
   created_at!: string;
   updated_at!: string
 }

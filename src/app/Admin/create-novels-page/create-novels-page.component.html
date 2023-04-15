@@ -89,26 +89,26 @@
           <div class="panel panel-default">
             <div class="panel-heading">Series</div>
             <div class="panel-body">
-              <form>
+              <form [formGroup]="createNovelForm">
 
                 <div class="form-group clearfix required">
                   <label class="col-md-2 control-label pt-7 text-right">Tiêu đề</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" name="title" value="">
+                    <input type="text" class="form-control" name="title" formControlName="title">
                   </div>
                 </div>
 
                 <div class="form-group clearfix required">
                   <label class="col-md-2 control-label pt-7 text-right">Tác giả</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" name="author" value="">
+                    <input type="text" class="form-control" name="author" formControlName="author">
                   </div>
                 </div>
 
                 <div class="form-group clearfix">
                   <label class="col-md-2 control-label pt-7 text-right">Họa sĩ</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" name="illustrator" value="">
+                    <input type="text" class="form-control" name="artist" formControlName="artist">
                   </div>
                 </div>
 
@@ -116,48 +116,24 @@
                   <label class="col-md-2 control-label pt-7 text-right">Ảnh Bìa</label>
                   <div class="col-md-8">
                     <!-- <form> -->
-                      <input class="file" type="file" ng2FileSelect [uploader]="uploader"/><br/>
-                      <!-- <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
-                        <span class="glyphicon glyphicon-upload"></span> Upload all
-                      </button>
-                      <div>
-                        Queue progress:
-                        <div class="progress" style="margin-bottom: 0;">
-                          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-                        </div>
-                      </div>
-                    </form> -->
+                    <input class="file" type="file" ng2FileSelect (change)="onFileSelected($event)" formControlName="cover_image"/><br/>
+
                   </div>
                 </div>
 
                 <div class="form-group clearfix required">
                   <label class="col-md-2 control-label pt-7 text-right">Thể loại</label>
                   <div class="col-md-8">
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="1">Action
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="49">Adapted to Anime
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="51">Adapted to Drama CD
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="50">Adapted to Manga
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="28">Adult
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="2">Adventure
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="52">Age Gap
-                    </label>
-                    <label class="checkbox-inline" style="width: 130px">
-                      <input type="checkbox" name="genres[]" value="60">Boys Love
-                    </label>
 
+                    <mat-form-field appearance="outline">
+                    <mat-label>Which of the following is important to you ? </mat-label>
+                    <mat-select multiple formControlName="categories_id">
+                      <mat-option *ngFor="let category of categories" [value]="[ category.category_id ]">
+                        {{ category.category_name }}
+                      </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
                   </div>
                 </div>
 
@@ -165,23 +141,10 @@
                   <label class="col-md-2 control-label text-right">Tóm tắt</label>
                   <div class="col-md-10">
 
-                      <form class="comment_form">
-                        <textarea class="comment_content" id="mce_0" style="display: none;" aria-hidden="true"></textarea>
-                        <editor [init]="{
-                          selector: 'textarea',
-                          height: 200,
-                          content_css: 'default',
-                          skin: 'oxide',
-                          branding: false,
-                          menubar: false,
-                          contextmenu: false,
-                          plugins: 'wordcount link image code fullscreen paste emoticons',
-                          toolbar: 'emoticons undo redo | bold italic underline strikethrough forecolor | link image | removeformat | fullscreen',
-                          entities: '160,nbsp,38,amp,60,lt,62,gt',
-                          base_url: '/tinymce',
-                          suffix: '.min'
-                        }"></editor>
-                      </form>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Tóm tắt</mat-label>
+                      <textarea matInput formControlName="description"></textarea>
+                    </mat-form-field>
 
                   </div>
                 </div>
@@ -189,7 +152,8 @@
 
                 <div class="form-group">
                   <div class="col-md-10 col-md-offset-2">
-                    <button type="submit" class="btn btn-primary">Thêm truyện</button>
+                    <button *ngIf="!isUpdateActive" (click)="submit()" type="submit" class="btn btn-primary">Submit</button>
+                    <button *ngIf="isUpdateActive" (click)="update()" type="submit" class="btn btn-primary">Update</button>
                     <a routerLink="/admin/novels" class="btn btn-warning">Quay lại</a>
                   </div>
                 </div>

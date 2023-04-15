@@ -4,7 +4,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 import { EditorModule } from '@tinymce/tinymce-angular';
 
@@ -25,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -96,6 +96,7 @@ import { LimitToPipe } from './Layouts/limit-to.pipe';
     MatChipsModule,
     MatListModule,
     MatCardModule,
+    MatSelectModule,
     ReactiveFormsModule,
 
     NgToastModule,

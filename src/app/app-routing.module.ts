@@ -31,7 +31,8 @@ const routes: Routes = [
 
 
   { path: 'admin/users', component: UsersAdminPageComponent },
-  { path: 'admin/create-novel', component: CreateNovelsPageComponent },
+  { path: 'admin-create-novel', component: CreateNovelsPageComponent },
+  { path: 'admin-update-novel/:id', component: CreateNovelsPageComponent },
   { path: 'admin', component: DashboardPageComponent },
   { path: 'admin/novels', component: NovelAdminPageComponent, children: [
     // { path: 'users', component: NovelDetailAdminPageComponent },

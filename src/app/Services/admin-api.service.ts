@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Novel } from '../Model/novel';
+import { Novel, newNovel } from '../Model/novel';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +10,23 @@ export class AdminApiService {
 
   constructor(private http: HttpClient) { }
 
-  postNovel(NovelObj: Novel){
-    return this.http.post<Novel>(`${'/api/novel/post/novels'}`, NovelObj )
+  postNovel(NovelObj: Novel): Observable<Novel> {
+    return this.http.post<Novel>(`${'/api/novel/post/newNovel'}`, NovelObj )
   }
 
-  getNovel(){
+  getNovel(): Observable<Novel[]>{
     return this.http.get<Novel[]>(`${'/api/novel/get/allNovels'}`)
   }
 
-  updateNovel(NovelObj: Novel, id: number){
-    return this.http.put<Novel>(`${'/api/novel/put/novels'}/${id}`, NovelObj )
+  updateNovel(NovelObj: Novel, id: number): Observable<Novel>{
+    return this.http.put<Novel>(`${'/api/novel/put/novel'}/${id}`, NovelObj )
   }
 
-  deleteNovel(id: number){
+  deleteNovel(id: number): Observable<Novel>{
     return this.http.delete<Novel>(`${'/api/novel/delete/novels'}/${id}` )
   }
 
-  getNovelById(id: number){
-    return this.http.get<Novel>(`${'/api/novel/get/novels'}/${id}` )
+  getNovelById(id: number): Observable<Novel>{
+    return this.http.get<Novel>(`${'/api/novel/get/novelById'}/${id}` )
   }
 }
