@@ -33,4 +33,8 @@ export class AdminApiService {
   getNovelById(id: number): Observable<Novel>{
     return this.http.get<Novel>(`${'/api/novel/get/novelById'}/${id}` )
   }
+
+  getNovelByGenre(id: number): Observable<Novel>{
+    return this.http.get<Novel>(`${'/api/novel/get/novelWithGenre'}/${id}` )
+  }
 }

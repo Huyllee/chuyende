@@ -69,92 +69,105 @@
   <!-- NAVBAR -->
   <!-- MAIN -->
   <main>
-    <!-- <div class="head-title">
+    <div class="head-title">
       <div class="left">
-        <h1>Novels</h1>
+        <h1>Novel Details</h1>
         <ul class="breadcrumb">
           <li>
             <a routerLink="/admin/novels">Novels</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" routerLink="/admin">Home</a>
+            <a class="active" routerLink="/admin/novels">Novel Details</a>
           </li>
         </ul>
       </div>
-    </div> -->
+    </div>
 
     <!-- main content -->
     <div class="container">
-      <mat-card *ngIf="novelDetail" class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{novelDetail.title}}</mat-card-title>
-          <!-- <mat-card-subtitle>{{novelDetail.email}}</mat-card-subtitle> -->
-        </mat-card-header>
+      <mat-card  class="example-card"></mat-card>
 
-        <mat-card-content>
-          <mat-list>
-            <!-- Mobile Number -->
-            <mat-list-item>
-              <div matLine>
-                  Mobile Number :
-                  <!-- <button mat-button>{{novelDetail.mobile}} </button> -->
-              </div>
-            </mat-list-item>
-                <!-- Gender -->
-                <mat-list-item>
-                  <div matLine>
-                     Gender :
-                      <!-- <button mat-button>{{novelDetail.gender}} </button> -->
-                  </div>
-             </mat-list-item>
-                <!--package -->
-                <mat-list-item>
-                  <div matLine>
-                    package :
-                      <!-- <button mat-button>{{novelDetail.package}} </button> -->
-                  </div>
-             </mat-list-item>
-                <!--BMI -->
-                <mat-list-item>
-                  <div matLine>
-                      BMI :
-                      <!-- <button mat-button>{{novelDetail.bmi}} </button> -->
-                  </div>
-             </mat-list-item>
-             <mat-list-item>
-              <div matLine>
-                bmiResult :
-                  <!-- <button mat-button>{{novelDetail.bmiResult}} </button> -->
-              </div>
-         </mat-list-item>
-                <!--trainer Require -->
-                <mat-list-item>
-                  <div matLine>
-                    trainer Require :
-                      <!-- <button mat-button>{{novelDetail.requireTrainer}} </button> -->
-                  </div>
-             </mat-list-item>
-                <!--Goals -->
-                <mat-list-item>
-                  <div matLine>
-                    Goals
-                      <button mat-button>
-                      <!-- <mat-chip-listbox *ngFor="let row of novelDetail.important ">
-                        <ng-container>
-                          <mat-chip-option selected>{{row}}</mat-chip-option>
-                        </ng-container>
-                      </mat-chip-listbox> -->
+      <div class="table-data">
+        <div class="order">
+          <div class="head">
+            <h3>Novel Detail</h3>
+            <!-- <i class='bx bx-search' ></i>
+            <i class='bx bx-filter' ></i> -->
+          </div>
+          <mat-card-header *ngIf="novelDetail">
+            <mat-card-title-group>
+              <img class="img-card" mat-card-lg-image src="./assets/{{ novelDetail.cover_image }}" >
 
-                      </button>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <mat-card-title class="title">{{ novelDetail.title | uppercase }}</mat-card-title>
+              <!-- <mat-card-subtitle>{{novelDetail.novel_id}}</mat-card-subtitle> -->
+            </mat-card-title-group>
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>
+                <div matLine>
+                    Novel ID :
+                    <button mat-button>{{novelDetail.novel_id}} </button>
+                </div>
+              </mat-list-item>
+
+              <mat-list-item>
+                <div matLine>
+                    Author :
+                    <button mat-button>{{novelDetail.author}} </button>
+                </div>
+               </mat-list-item>
+
+                <mat-list-item>
+                  <div matLine>
+                    Artist :
+                    <button mat-button>{{novelDetail.artist}} </button>
                   </div>
-             </mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
+                </mat-list-item>
 
+                <mat-list-item>
+                  <div matLine>
+                    Novel Genre :
+                    <button mat-button>
+                      <mat-chip-listbox class="inline" *ngFor="let row of novelDetail.categories_id ">
+                        <mat-chip-option selected>{{row}}</mat-chip-option>
+                      </mat-chip-listbox>
+                    </button>
+                  </div>
+                </mat-list-item>
 
+                <mat-list-item>
+                  Description :
+                </mat-list-item>
+
+              </mat-list>
+
+            <mat-card-content class="line">{{novelDetail.description}}</mat-card-content>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <button routerLink="/admin/novels" mat-raised-button color="primary">Quay lại</button>
+          </mat-card-actions>
+        </div>
+
+        <div class="todo" >
+          <div class="head">
+            <h3>Volumes</h3>
+            <i class='bx bx-plus' ></i>
+            <i class='bx bx-filter' ></i>
+          </div>
+          <ul class="todo-list">
+            <li class="completed" *ngFor="let volume of volumes">
+              <p routerLink="/admin-volume-detail">{{ volume.title | limitTo: 35 }}</p>
+              <i class='bx bx-dots-vertical-rounded' ></i>
+            </li>
+
+          </ul>
+        </div>
+      </div>
     </div>
 
   </main>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Novel } from 'src/app/Model/novel';
+import { Novel, chaptersById, volumeById } from 'src/app/Model/novel';
 import { ActivatedRoute } from '@angular/router';
 import { AdminApiService } from 'src/app/Services/admin-api.service';
+import { NovelDataService } from 'src/app/Services/novel-data.service';
 
 @Component({
   selector: 'app-novel-detail-admin-page',
@@ -12,6 +13,8 @@ export class NovelDetailAdminPageComponent implements OnInit {
 
   novelID!: number;
   novelDetail!: Novel;
+  volumes: volumeById[] = [];
+  chapters: chaptersById[] = [];
   //Sidebar toggle show hide function
   status = false;
 
@@ -21,18 +24,34 @@ export class NovelDetailAdminPageComponent implements OnInit {
  }
 
 
-  constructor(private activatedroute: ActivatedRoute, private AdminService: AdminApiService) { }
+  constructor(
+    private activatedroute: ActivatedRoute,
+    private AdminService: AdminApiService,
+    private novelService: NovelDataService,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   ngOnInit() {
     this.activatedroute.params.subscribe(val => {
       this.novelID = val['id'];
       this.fetchUserDetail(this.novelID);
     })
+
+    const id = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.novelService.getVolumeById(id).subscribe(volumes => {
+      this.volumes = volumes;
+    });
+
+    this.novelService.getChaptersByVolumeId().subscribe(chapters => {
+      this.chapters = chapters;
+    });
   }
+
   fetchUserDetail(novelID: number) {
-    this.AdminService.getNovelById(novelID).subscribe(res => {
+    this.AdminService.getNovelByGenre(novelID).subscribe(res => {
       this.novelDetail = res;
       console.log(this.novelDetail);
     })
   }
+
 }
