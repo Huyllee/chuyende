@@ -12,6 +12,14 @@ export class NovelDetailAdminPageComponent implements OnInit {
 
   novelID!: number;
   novelDetail!: Novel;
+  //Sidebar toggle show hide function
+  status = false;
+
+  addToggle()
+ {
+   this.status = !this.status;
+ }
+
 
   constructor(private activatedroute: ActivatedRoute, private AdminService: AdminApiService) { }
 

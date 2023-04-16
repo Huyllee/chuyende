@@ -79,25 +79,25 @@ export class NovelAdminPageComponent implements OnInit {
     }
   }
 
-  edit(id: number) {
-    this.router.navigate(['update', id])
+  edit(novel_id: number) {
+    this.router.navigate(['admin-update-novel', novel_id])
   }
 
-  delete(id: number) {
+  delete(novel_id: string) {
     this.confrm.showConfirm(("Are you sure want to delete ?"),
 
-      () => {
-        this.AdminService.deleteNovel(id)
-          .subscribe(res => {
-            this.toast.success({ detail: "Success", summary: "Delete Update", duration: 3000 });
-            this.getNovel()
-          })
-      },
-
-      () => {
-
-      }
-    )
+    () => {
+      this.AdminService.deleteNovel(novel_id).subscribe(res=> {
+        if (res.ok === true) {
+          this.toast.success({ detail: "Success", summary: "Delete Update", duration: 3000 });
+          this.getNovel();
+        } else {
+          console.log("Unknown response from server: ", res);
+        }
+      });
+    },
+    () => {}
+  );
 
   }
 }

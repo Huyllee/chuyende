@@ -20,6 +20,7 @@ export class CreateNovelsPageComponent {
   novelIdUpdate!: number;
   public isUpdateActive: boolean = false;
   categories: Categories[] = [];
+  novel!: Novel;
 
   addToggle()
   {
@@ -66,26 +67,33 @@ export class CreateNovelsPageComponent {
         this.adminService.getNovelById(this.novelIdUpdate).subscribe(res => {
           this.isUpdateActive = true;
           this.fillFormUpdate(res);
+          this.novel = res;
         })
       }
+      console.log(this.novel);
     })
-    console.log(this.novelIdUpdate);
+
   }
 
   submit() {
-    this.adminService.postNovel(this.createNovelForm.value).subscribe(() => {
-      this.toastService.success({ detail: "Success", summary: "Novel created successfully", duration: 3000 });
-      this.createNovelForm.reset();
+    this.adminService.postNovel(this.createNovelForm.value).subscribe(res => {
+      if (res.ok === true) {
+        this.toastService.success({ detail: "Success", summary: "Novel created successfully", duration: 3000 });
+        this.createNovelForm.reset();
+      }
     })
   }
 
 
   update() {
-    this.adminService.updateNovel(this.createNovelForm.value, this.novelIdUpdate).subscribe(() => {
-      this.toastService.success({ detail: "Success", summary: "Novel updated successfully", duration: 3000 });
-      this.createNovelForm.reset();
-      this.router.navigate(['list']);
+    this.adminService.updateNovel(this.createNovelForm.value, this.novelIdUpdate).subscribe(res => {
+      if (res.ok === true) {
+        this.toastService.success({ detail: "Success", summary: "Novel updated successfully", duration: 3000 });
+        this.createNovelForm.reset();
+        this.router.navigate(['admin/novels']);
+      }
     })
+
   }
 
 
@@ -95,7 +103,7 @@ export class CreateNovelsPageComponent {
     this.createNovelForm.get('cover_image')!.setValue(fileName);
   }
 
-  fillFormUpdate(novel: newNovel) {
+  fillFormUpdate(novel: Novel) {
     this.createNovelForm.setValue({
       title: novel.title,
       author: novel.author,

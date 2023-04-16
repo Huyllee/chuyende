@@ -29,15 +29,12 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
 
-
+  { path: 'admin-novel-detail/:id', component: NovelDetailAdminPageComponent },
   { path: 'admin/users', component: UsersAdminPageComponent },
   { path: 'admin-create-novel', component: CreateNovelsPageComponent },
   { path: 'admin-update-novel/:id', component: CreateNovelsPageComponent },
   { path: 'admin', component: DashboardPageComponent },
-  { path: 'admin/novels', component: NovelAdminPageComponent, children: [
-    // { path: 'users', component: NovelDetailAdminPageComponent },
-
-  ]},
+  { path: 'admin/novels', component: NovelAdminPageComponent },
 
 
 ];
