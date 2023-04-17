@@ -19,4 +19,5 @@ export class User{
   role!:number;
   created!:string;
   updated!:string;
+  ok!: boolean;
 }

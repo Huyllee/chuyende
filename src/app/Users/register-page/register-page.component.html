@@ -32,7 +32,7 @@
           <input type="password" [formControl]="repassword" name="repassword" placeholder="Nhập lại password" required>
           <div *ngIf="repassword.invalid && (repassword.dirty || repassword.touched)" class="alert">
             <span class="error-text" *ngIf="repassword.errors?.['required']">Password is required.</span>
-            <span class="error-text" *ngIf="repassword.errors?.['minlength']">Password must contain at least 6 characters.</span>
+            <span class="error-text" *ngIf="repassword.errors?.['minlength']">Password must contain at least 8 characters.</span>
             <span class="error-text" *ngIf="repassword.hasError('mismatch')">Password did not match</span>
             <!-- <div class="error-text" *ngIf="password.errors?.['pattern']">Password cannot contain whitespace</div> -->
           </div>

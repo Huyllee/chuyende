@@ -23,18 +23,16 @@ export class NovelDetailAdminPageComponent implements OnInit {
    this.status = !this.status;
  }
 
-
   constructor(
-    private activatedroute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private AdminService: AdminApiService,
     private novelService: NovelDataService,
-    private activatedRoute: ActivatedRoute
     ) { }
 
   ngOnInit() {
-    this.activatedroute.params.subscribe(val => {
+    this.activatedRoute.params.subscribe(val => {
       this.novelID = val['id'];
-      this.fetchUserDetail(this.novelID);
+      this.fetchNovelDetail(this.novelID);
     })
 
     const id = this.activatedRoute.snapshot.paramMap.get('id')!;
@@ -47,7 +45,7 @@ export class NovelDetailAdminPageComponent implements OnInit {
     });
   }
 
-  fetchUserDetail(novelID: number) {
+  fetchNovelDetail(novelID: number) {
     this.AdminService.getNovelByGenre(novelID).subscribe(res => {
       this.novelDetail = res;
       console.log(this.novelDetail);

@@ -1,41 +1,46 @@
-table {
-  width: 100%;
-  font-size: 14px;
+.example-card {
+  max-width: 700px;
+  display: block;
+  margin: 0 auto;
 }
 
-.justify-content-between {
-  margin-bottom: 20px;
-}
-
-.justify-content-between button {
-  margin-top: 20px;
-}
-
-.filter {
-  margin-top: 20px;
-}
-
-// ng-container {
-
+// .example-header-image {
+//   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//   background-size: cover;
 // }
 
-.ab{
-  width: 100px !important;
-  height: 100px !important;
+.title {
+  font-weight: 600;
+  font-size: 16px;
 }
 
-// .description p {
-//   // background-color: aliceblue;
-//   // white-space: nowrap !important;
-//   overflow: hidden !important;
-//   text-overflow: ellipsis !important;
-//   max-width: 100%;
-// }
+.img-card {
+  width: 152px !important;
+  height: auto !important;
+}
 
-td[mat-cell].ab {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.inline {
+  display: inline-block;
+  margin-right: 10px;
+  align-items: center;
+}
+
+mat-list-item {
+  font-weight: 600;
+}
+
+.genre-label {
+  margin-top: 10px;
+}
+
+.mat-chip-listbox.inline {
+  display: inline-block;
+}
+
+.mat-chip-option {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px !important;
 }
 
 /* SIDEBAR */

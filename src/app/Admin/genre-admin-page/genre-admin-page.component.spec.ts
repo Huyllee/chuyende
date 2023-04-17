@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollToTopComponent } from './scroll-to-top.component';
+import { GenreAdminPageComponent } from './genre-admin-page.component';
 
-describe('ScrollToTopComponent', () => {
-  let component: ScrollToTopComponent;
-  let fixture: ComponentFixture<ScrollToTopComponent>;
+describe('GenreAdminPageComponent', () => {
+  let component: GenreAdminPageComponent;
+  let fixture: ComponentFixture<GenreAdminPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScrollToTopComponent ]
+      declarations: [ GenreAdminPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ScrollToTopComponent);
+    fixture = TestBed.createComponent(GenreAdminPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

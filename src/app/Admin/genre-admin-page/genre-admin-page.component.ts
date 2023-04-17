@@ -3,21 +3,19 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Novel, chaptersById } from 'src/app/Model/novel';
-import { User } from 'src/app/Model/users';
-import { AdminApiService } from 'src/app/Services/admin-api.service';
-// ng-confirm -box
-import { NgConfirmService } from 'ng-confirm-box';
 import { NgToastService } from 'ng-angular-popup';
+import { NgConfirmService } from 'ng-confirm-box';
+import { Categories } from 'src/app/Model/novel';
+import { AdminApiService } from 'src/app/Services/admin-api.service';
 
 @Component({
-  selector: 'app-users-admin-page',
-  templateUrl: './users-admin-page.component.html',
-  styleUrls: ['./users-admin-page.component.scss']
+  selector: 'app-genre-admin-page',
+  templateUrl: './genre-admin-page.component.html',
+  styleUrls: ['./genre-admin-page.component.scss']
 })
-export class UsersAdminPageComponent {
-  public dataSource!: MatTableDataSource<User>
-  public users!: User[]
+export class GenreAdminPageComponent {
+  public dataSource!: MatTableDataSource<Categories>
+  public genre!: Categories[]
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
@@ -31,11 +29,9 @@ export class UsersAdminPageComponent {
   }
 
   displayedColumns: string[] = [
-    'user_id',
-    'full_name',
-    'email',
-    'password',
-    'role',
+    'category_id',
+    'category_name',
+    'description',
     'created_at',
     'updated_at',
     'action'
@@ -48,19 +44,19 @@ export class UsersAdminPageComponent {
   ) { }
 
   ngOnInit() {
-    this.getUsers();
-    console.log(this.getUsers());
+    this.getGenre();
+    console.log(this.getGenre());
 
   }
 
-  getUsers() {
-    this.AdminService.getUsers()
+  getGenre() {
+    this.AdminService.getGenre()
       .subscribe(res => {
-        this.users = res;
-        this.dataSource = new MatTableDataSource(this.users)
+        this.genre = res;
+        this.dataSource = new MatTableDataSource(this.genre)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(this.users);
+        console.log(this.genre);
 
       })
 
@@ -75,18 +71,18 @@ export class UsersAdminPageComponent {
     }
   }
 
-  // edit(user_id: number) {
-  //   this.router.navigate(['admin-update-user', user_id])
-  // }
+  edit(category_id: number) {
+    this.router.navigate(['admin-update-genre', category_id])
+  }
 
-  delete(user_id: string) {
+  delete(category_id: string) {
     this.confrm.showConfirm(("Are you sure want to delete ?"),
 
     () => {
-      this.AdminService.deleteUser(user_id).subscribe(res=> {
+      this.AdminService.deleteGenre(category_id).subscribe(res=> {
         if (res.ok === true) {
           this.toast.success({ detail: "Success", summary: "Delete Update", duration: 3000 });
-          this.getUsers();
+          this.getGenre();
         } else {
           console.log("Unknown response from server: ", res);
         }
@@ -96,5 +92,4 @@ export class UsersAdminPageComponent {
   );
 
   }
-
 }

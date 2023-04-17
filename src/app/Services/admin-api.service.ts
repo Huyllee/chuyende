@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Novel, newNovel } from '../Model/novel';
+import { Categories, Novel, newNovel } from '../Model/novel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../Model/users';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -37,4 +38,45 @@ export class AdminApiService {
   getNovelByGenre(id: number): Observable<Novel>{
     return this.http.get<Novel>(`${'/api/novel/get/novelWithGenre'}/${id}` )
   }
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${'/api/users/get/users'}`)
+  }
+
+  getUserById(id: number): Observable<User>{
+    return this.http.get<User>(`${'/api/users/get/userById'}/${id}` )
+  }
+
+  postUser(UserObj: User): Observable<User> {
+    return this.http.post<User>(`${'/api/users/post/newUser'}`, UserObj, httpOptions )
+  }
+
+  updateUser(UserObj: User, id: number): Observable<User>{
+    return this.http.put<User>(`${'/api/users/put/user'}/${id}`, UserObj, httpOptions )
+  }
+
+  deleteUser(id: string): Observable<User>{
+    return this.http.delete<User>(`${'/api/users/delete/user'}/${id}`, httpOptions )
+  }
+
+  getGenre(): Observable<Categories[]>{
+    return this.http.get<Categories[]>(`${'/api/novel/get/categories'}`)
+  }
+
+  postGenre(GenreObj: Categories): Observable<Categories> {
+    return this.http.post<Categories>(`${'/api/novel/post/newGenre'}`, GenreObj, httpOptions )
+  }
+
+  getGenreById(id: number): Observable<Categories>{
+    return this.http.get<Categories>(`${'/api/novel/get/genreById'}/${id}` )
+  }
+
+  updateGenre(GenreObj: Categories, id: number): Observable<Categories>{
+    return this.http.put<Categories>(`${'/api/novel/put/genre'}/${id}`, GenreObj, httpOptions )
+  }
+
+  deleteGenre(id: string): Observable<Categories>{
+    return this.http.delete<Categories>(`${'/api/novel/delete/genre'}/${id}`, httpOptions )
+  }
+
 }

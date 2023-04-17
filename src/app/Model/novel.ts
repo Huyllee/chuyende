@@ -1,8 +1,10 @@
 export class Categories {
   category_id!: number;
   category_name!: string;
+  description!: string;
   created_at!: string;
-  updated_at!: string
+  updated_at!: string;
+  ok!: boolean
 }
 
 export class Novel {

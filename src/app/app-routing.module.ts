@@ -14,8 +14,13 @@ import { RegisterPageComponent } from './Users/register-page/register-page.compo
 import { UsersAdminPageComponent } from './Admin/users-admin-page/users-admin-page.component';
 import { DashboardPageComponent } from './Admin/dashboard-page/dashboard-page.component';
 import { CreateNovelsPageComponent } from './Admin/create-novels-page/create-novels-page.component';
+import { CreateUsersPageComponent } from './Admin/create-users-page/create-users-page.component';
+import { UserDeitailAdminPageComponent } from './Admin/user-deitail-admin-page/user-deitail-admin-page.component';
+import { GenreAdminPageComponent } from './Admin/genre-admin-page/genre-admin-page.component';
+import { CreateGenrePageComponent } from './Admin/create-genre-page/create-genre-page.component';
 
 const routes: Routes = [
+  /* route user */
   {path: '', component: HomePageComponent},
   {path: 'home', component: HomePageComponent},
   { path: 'novel/:id', component: NovelPageComponent, pathMatch: 'full' },
@@ -29,14 +34,22 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
 
+  /* route admin */
+  { path: 'admin', component: DashboardPageComponent },
+
+  { path: 'admin/novels', component: NovelAdminPageComponent },
   { path: 'admin-novel-detail/:id', component: NovelDetailAdminPageComponent },
-  { path: 'admin/users', component: UsersAdminPageComponent },
   { path: 'admin-create-novel', component: CreateNovelsPageComponent },
   { path: 'admin-update-novel/:id', component: CreateNovelsPageComponent },
-  { path: 'admin', component: DashboardPageComponent },
-  { path: 'admin/novels', component: NovelAdminPageComponent },
 
+  { path: 'admin/users', component: UsersAdminPageComponent },
+  { path: 'admin-create-user', component: CreateUsersPageComponent },
+  // { path: 'admin-update-user/:id', component: CreateUsersPageComponent },
+  { path: 'admin-user-detail/:id', component: UserDeitailAdminPageComponent },
 
+  { path: 'admin/genre', component: GenreAdminPageComponent },
+  { path: 'admin-create-genre', component: CreateGenrePageComponent },
+  { path: 'admin-update-genre', component: CreateGenrePageComponent },
 ];
 
 @NgModule({

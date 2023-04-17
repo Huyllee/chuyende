@@ -11,7 +11,7 @@
         <span class="text">Dashboard</span>
       </a>
     </li>
-    <li class="active">
+    <li>
       <a routerLink="/admin/novels">
         <i class='bx bx-book'></i>
         <span class="text">Novels</span>
@@ -35,7 +35,7 @@
         <span class="text">Chapters</span>
       </a>
     </li>
-    <li>
+    <li class="active">
       <a routerLink="/admin/users">
         <i class='bx bxs-user'></i>
         <span class="text">Users</span>
@@ -76,14 +76,14 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Create Novel</h1>
+        <h1>Create Novel Genre</h1>
         <ul class="breadcrumb">
           <li>
-            <a routerLink="/admin/novels">Novels</a>
+            <a routerLink="/admin/genre">Novel Genre</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" routerLink="/admin/create-novel">Create Novel</a>
+            <a class="active" routerLink="/admin-create-genre">Create Novel Genre</a>
           </li>
         </ul>
       </div>
@@ -93,53 +93,17 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="panel panel-default">
-            <div class="panel-heading">Series</div>
+            <div class="panel-heading">Novel Genre</div>
             <div class="panel-body">
-              <form [formGroup]="createNovelForm">
+              <form [formGroup]="createGenreForm">
 
                 <div class="form-group clearfix required">
-                  <label class="col-md-2 control-label pt-7 text-right">Tiêu đề</label>
+                  <label class="col-md-2 control-label pt-7 text-right">Genre name</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" name="title" formControlName="title">
-                  </div>
-                </div>
-
-                <div class="form-group clearfix required">
-                  <label class="col-md-2 control-label pt-7 text-right">Tác giả</label>
-                  <div class="col-md-8">
-                    <input type="text" class="form-control" name="author" formControlName="author">
-                  </div>
-                </div>
-
-                <div class="form-group clearfix">
-                  <label class="col-md-2 control-label pt-7 text-right">Họa sĩ</label>
-                  <div class="col-md-8">
-                    <input type="text" class="form-control" name="artist" formControlName="artist">
-                  </div>
-                </div>
-
-                <div class="form-group clearfix">
-                  <label class="col-md-2 control-label pt-7 text-right">Ảnh Bìa</label>
-                  <div class="col-md-8">
-                    <!-- <form> -->
-                    <input class="file" type="file" ng2FileSelect (change)="onFileSelected($event)" formControlName="cover_image"/><br/>
-
-                  </div>
-                </div>
-
-                <div class="form-group clearfix required">
-                  <label class="col-md-2 control-label pt-7 text-right">Thể loại</label>
-                  <div class="col-md-8">
-
-                    <mat-form-field appearance="outline">
-                      <mat-label>Which of the following is important to you ? </mat-label>
-                      <mat-select multiple formControlName="categories_id">
-                        <mat-option *ngFor="let category of categories" [value]="[ category.category_id ]">
-                          {{ category.category_name }}
-                        </mat-option>
-                      </mat-select>
-
-                    </mat-form-field>
+                    <input type="text" class="form-control" name="category_name" formControlName="category_name" required>
+                    <div *ngIf="category_name.invalid && (category_name.dirty || category_name.touched)" class="alert">
+                      <span class="error-text" *ngIf="category_name.errors?.['required']">Genre name is required.</span>
+                    </div>
                   </div>
                 </div>
 
@@ -150,17 +114,19 @@
                     <mat-form-field appearance="fill">
                       <mat-label>Tóm tắt</mat-label>
                       <textarea matInput formControlName="description"></textarea>
+                      <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+                        <span class="error-text" *ngIf="description.errors?.['required']">Description is required.</span>
+                      </div>
                     </mat-form-field>
 
                   </div>
                 </div>
 
-
                 <div class="form-group">
                   <div class="col-md-10 col-md-offset-2">
                     <button *ngIf="!isUpdateActive" (click)="submit()" class="btn btn-primary">Submit</button>
                     <button *ngIf="isUpdateActive" (click)="update()" class="btn btn-primary">Update</button>
-                    <a routerLink="/admin/novels" class="btn btn-warning">Quay lại</a>
+                    <a routerLink="/admin/genre" class="btn btn-warning">Quay lại</a>
                   </div>
                 </div>
 

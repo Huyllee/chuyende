@@ -32,7 +32,6 @@ import { NavbarComponent } from './Layouts/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './Layouts/footer/footer.component';
 import { HomePageComponent } from './Users/home-page/home-page.component';
-import { ScrollToTopComponent } from './Layouts/scroll-to-top/scroll-to-top.component';
 import { NovelPageComponent } from './Users/novel-page/novel-page.component';
 import { ProfilePageComponent } from './Users/profile-page/profile-page.component';
 import { NovelDetailPageComponent } from './Users/novel-detail-page/novel-detail-page.component';
@@ -48,6 +47,10 @@ import { RegisterPageComponent } from './Users/register-page/register-page.compo
 import { NewLinesToParagraphsPipe } from './Layouts/new-lines-to-paragraphs.pipe';
 import { UsersAdminPageComponent } from './Admin/users-admin-page/users-admin-page.component';
 import { CreateNovelsPageComponent } from './Admin/create-novels-page/create-novels-page.component';
+import { CreateUsersPageComponent } from './Admin/create-users-page/create-users-page.component';
+import { UserDeitailAdminPageComponent } from './Admin/user-deitail-admin-page/user-deitail-admin-page.component';
+import { GenreAdminPageComponent } from './Admin/genre-admin-page/genre-admin-page.component';
+import { CreateGenrePageComponent } from './Admin/create-genre-page/create-genre-page.component';
 import { LimitToPipe } from './Layouts/limit-to.pipe';
 
 
@@ -57,7 +60,6 @@ import { LimitToPipe } from './Layouts/limit-to.pipe';
     NavbarComponent,
     FooterComponent,
     HomePageComponent,
-    ScrollToTopComponent,
     NovelPageComponent,
     ProfilePageComponent,
     NovelDetailPageComponent,
@@ -73,6 +75,10 @@ import { LimitToPipe } from './Layouts/limit-to.pipe';
     NewLinesToParagraphsPipe,
     UsersAdminPageComponent,
     CreateNovelsPageComponent,
+    CreateUsersPageComponent,
+    UserDeitailAdminPageComponent,
+    GenreAdminPageComponent,
+    CreateGenrePageComponent,
     LimitToPipe
   ],
   imports: [
