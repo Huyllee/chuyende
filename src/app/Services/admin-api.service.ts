@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Categories, Novel, newNovel } from '../Model/novel';
+import { Categories, Novel, newNovel, volumes } from '../Model/novel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../Model/users';
@@ -77,6 +77,26 @@ export class AdminApiService {
 
   deleteGenre(id: string): Observable<Categories>{
     return this.http.delete<Categories>(`${'/api/novel/delete/genre'}/${id}`, httpOptions )
+  }
+
+  getVolumes(): Observable<volumes[]>{
+    return this.http.get<volumes[]>(`${'/api/novel/get/volumes'}`)
+  }
+
+  postVolume(VolumeObj: volumes): Observable<volumes> {
+    return this.http.post<volumes>(`${'/api/novel/post/newVolume'}`, VolumeObj, httpOptions )
+  }
+
+  getVolumeById(id: number): Observable<volumes>{
+    return this.http.get<volumes>(`${'/api/novel/get/volumeById'}/${id}` )
+  }
+
+  updateVolume(VolumeObj: volumes, id: number): Observable<volumes>{
+    return this.http.put<volumes>(`${'/api/novel/put/volume'}/${id}`, VolumeObj, httpOptions )
+  }
+
+  deleteVolume(id: string): Observable<volumes>{
+    return this.http.delete<volumes>(`${'/api/novel/delete/vokume'}/${id}`, httpOptions )
   }
 
 }

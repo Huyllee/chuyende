@@ -18,6 +18,9 @@ import { CreateUsersPageComponent } from './Admin/create-users-page/create-users
 import { UserDeitailAdminPageComponent } from './Admin/user-deitail-admin-page/user-deitail-admin-page.component';
 import { GenreAdminPageComponent } from './Admin/genre-admin-page/genre-admin-page.component';
 import { CreateGenrePageComponent } from './Admin/create-genre-page/create-genre-page.component';
+import { GenreDetailAdminPageComponent } from './Admin/genre-detail-admin-page/genre-detail-admin-page.component';
+import { VolumeAdminPageComponent } from './Admin/volume-admin-page/volume-admin-page.component';
+import { CreateVolumePageComponent } from './Admin/create-volume-page/create-volume-page.component';
 
 const routes: Routes = [
   /* route user */
@@ -49,7 +52,11 @@ const routes: Routes = [
 
   { path: 'admin/genre', component: GenreAdminPageComponent },
   { path: 'admin-create-genre', component: CreateGenrePageComponent },
-  { path: 'admin-update-genre', component: CreateGenrePageComponent },
+  { path: 'admin-update-genre/:id', component: CreateGenrePageComponent },
+  { path: 'admin-genre-detail/:id', component: GenreDetailAdminPageComponent },
+
+  { path: 'admin/volumes', component: VolumeAdminPageComponent },
+  { path: 'admin-create-volume', component: CreateVolumePageComponent },
 ];
 
 @NgModule({

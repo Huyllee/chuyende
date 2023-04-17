@@ -51,6 +51,9 @@ import { CreateUsersPageComponent } from './Admin/create-users-page/create-users
 import { UserDeitailAdminPageComponent } from './Admin/user-deitail-admin-page/user-deitail-admin-page.component';
 import { GenreAdminPageComponent } from './Admin/genre-admin-page/genre-admin-page.component';
 import { CreateGenrePageComponent } from './Admin/create-genre-page/create-genre-page.component';
+import { GenreDetailAdminPageComponent } from './Admin/genre-detail-admin-page/genre-detail-admin-page.component';
+import { VolumeAdminPageComponent } from './Admin/volume-admin-page/volume-admin-page.component';
+import { CreateVolumePageComponent } from './Admin/create-volume-page/create-volume-page.component';
 import { LimitToPipe } from './Layouts/limit-to.pipe';
 
 
@@ -79,6 +82,9 @@ import { LimitToPipe } from './Layouts/limit-to.pipe';
     UserDeitailAdminPageComponent,
     GenreAdminPageComponent,
     CreateGenrePageComponent,
+    GenreDetailAdminPageComponent,
+    VolumeAdminPageComponent,
+    CreateVolumePageComponent,
     LimitToPipe
   ],
   imports: [

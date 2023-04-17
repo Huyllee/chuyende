@@ -32,7 +32,6 @@ export class UserDeitailAdminPageComponent {
       this.fetchUserDetail(this.userID);
     })
 
-    const id = this.activatedRoute.snapshot.paramMap.get('id')!;
   }
 
   fetchUserDetail(userID: number) {

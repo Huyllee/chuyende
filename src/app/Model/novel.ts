@@ -64,6 +64,9 @@ export class volumes {
   novel_id!: number;
   volume_title!: string;
   cover_image!: string;
+  created_at!: string;
+  updated_at!: string;
+  ok!: boolean
 }
 
 export class chaptersById {
