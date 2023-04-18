@@ -37,13 +37,13 @@ export class CreateVolumePageComponent {
 
   }
 
-  novel_id = new FormControl('',[Validators.required]);
+  novels_id = new FormControl('',[Validators.required]);
   volume_title = new FormControl('',[Validators.required]);
   cover_image = new FormControl('',[Validators.required]);
 
   ngOnInit() {
     this.createVolumeForm = this.fb.group({
-      novel_id: this.novel_id,
+      novels: this.novels,
       volume_title: this.volume_title,
       cover_image: this.cover_image,
     })
@@ -79,21 +79,22 @@ export class CreateVolumePageComponent {
       if (res.ok === true) {
         this.toastService.success({ detail: "Success", summary: "Volume updated successfully", duration: 3000 });
         this.createVolumeForm.reset();
-        this.router.navigate(['admin/novels']);
+        this.router.navigate(['admin/volumes']);
       }
     })
 
   }
 
   onFileSelected(event: any) {
-    const file = event.target.files[0];
-    const fileName = file.name;
+    const file: File = event.target.files[0];
+    const fileName: string = file.name;
     this.createVolumeForm.get('cover_image')!.setValue(fileName);
+    console.log(fileName);
   }
 
   fillFormUpdate(volumes: volumes) {
     this.createVolumeForm.setValue({
-      novel_id: volumes.novel_id,
+      novels: volumes.novels,
       volume_title: volumes.volume_title,
       cover_image: volumes.cover_image,
     })

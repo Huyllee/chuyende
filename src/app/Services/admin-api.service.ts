@@ -96,7 +96,7 @@ export class AdminApiService {
   }
 
   deleteVolume(id: string): Observable<volumes>{
-    return this.http.delete<volumes>(`${'/api/novel/delete/vokume'}/${id}`, httpOptions )
+    return this.http.delete<volumes>(`${'/api/novel/delete/volume'}/${id}`, httpOptions )
   }
 
 }

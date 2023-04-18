@@ -43,6 +43,10 @@ export class NovelDataService {
     return this.http.get<volumes[]>(`/api/novel/get/volumes`);
   }
 
+  getChapters(): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/chapters`);
+  }
+
   getChaptersByVolumeId(): Observable<chaptersById[]> {
     return this.http.get<chaptersById[]>(`/api/novel/get/chapters`);
   }
@@ -65,6 +69,10 @@ export class NovelDataService {
 
   getAllNovels(): Observable<Novel[]> {
     return this.http.get<Novel[]>(`/api/novel/get/allNovels`);
+  }
+
+  getChapterByVolume(id: string): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/chaptersByVolumeId/${id}`);
   }
 
 }

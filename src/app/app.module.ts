@@ -54,6 +54,8 @@ import { CreateGenrePageComponent } from './Admin/create-genre-page/create-genre
 import { GenreDetailAdminPageComponent } from './Admin/genre-detail-admin-page/genre-detail-admin-page.component';
 import { VolumeAdminPageComponent } from './Admin/volume-admin-page/volume-admin-page.component';
 import { CreateVolumePageComponent } from './Admin/create-volume-page/create-volume-page.component';
+import { VolumeDetailAdminPageComponent } from './Admin/volume-detail-admin-page/volume-detail-admin-page.component';
+import { ChaptersAdminPageComponent } from './Admin/chapters-admin-page/chapters-admin-page.component';
 import { LimitToPipe } from './Layouts/limit-to.pipe';
 
 
@@ -85,6 +87,8 @@ import { LimitToPipe } from './Layouts/limit-to.pipe';
     GenreDetailAdminPageComponent,
     VolumeAdminPageComponent,
     CreateVolumePageComponent,
+    VolumeDetailAdminPageComponent,
+    ChaptersAdminPageComponent,
     LimitToPipe
   ],
   imports: [

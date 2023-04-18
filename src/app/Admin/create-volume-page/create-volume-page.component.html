@@ -11,7 +11,7 @@
         <span class="text">Dashboard</span>
       </a>
     </li>
-    <li class="active">
+    <li>
       <a routerLink="/admin/novels">
         <i class='bx bx-book'></i>
         <span class="text">Novels</span>
@@ -23,7 +23,7 @@
         <span class="text">Novel Genre</span>
       </a>
     </li>
-    <li>
+    <li class="active">
       <a routerLink="/admin/volumes">
         <i class='bx bx-book-content'></i>
         <span class="text">Volumes</span>
@@ -76,14 +76,16 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Create Novel</h1>
+        <h1 *ngIf="!isUpdateActive">Create Volume</h1>
+        <h1 *ngIf="isUpdateActive">Update Volume</h1>
         <ul class="breadcrumb">
           <li>
-            <a routerLink="/admin/novels">Novels</a>
+            <a routerLink="/admin/volumes">Volumes</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" routerLink="/admin/create-novel">Create Novel</a>
+            <a *ngIf="!isUpdateActive" class="active" routerLink="/admin/create-volume">Create Volume</a>
+            <a *ngIf="isUpdateActive" class="active" routerLink="/admin/update-volume">Update Volume</a>
           </li>
         </ul>
       </div>
@@ -103,7 +105,7 @@
 
                     <mat-form-field appearance="outline">
                       <mat-label>Which of the following is important to you ? </mat-label>
-                      <mat-select formControlName="novel_id">
+                      <mat-select formControlName="novels">
                         <mat-option *ngFor="let novel of novels" [value]="[ novel.novel_id ]">
                           {{ novel.title }}
                         </mat-option>
