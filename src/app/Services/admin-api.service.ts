@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Categories, Novel, newNovel, volumes } from '../Model/novel';
+import { Categories, Novel, chaptersById, newNovel, volumes } from '../Model/novel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../Model/users';
@@ -99,4 +99,23 @@ export class AdminApiService {
     return this.http.delete<volumes>(`${'/api/novel/delete/volume'}/${id}`, httpOptions )
   }
 
+  getChapters(): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/chapters`);
+  }
+
+  postChapter(ChapterObj: chaptersById): Observable<chaptersById> {
+    return this.http.post<chaptersById>(`${'/api/novel/post/newChapter'}`, ChapterObj, httpOptions )
+  }
+
+  getChapterById(id: number): Observable<chaptersById> {
+    return this.http.get<chaptersById>(`/api/novel/get/chapterById/${id}`);
+  }
+
+  updateChapter(ChapterObj: chaptersById, id: number): Observable<chaptersById>{
+    return this.http.put<chaptersById>(`${'/api/novel/put/chapter'}/${id}`, ChapterObj, httpOptions )
+  }
+
+  deleteChapter(id: string): Observable<chaptersById>{
+    return this.http.delete<chaptersById>(`${'/api/novel/delete/chapter'}/${id}`, httpOptions )
+  }
 }

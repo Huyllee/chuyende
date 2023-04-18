@@ -1,46 +1,153 @@
-.example-card {
-  max-width: 700px;
-  display: block;
-  margin: 0 auto;
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 2000px;
+  font-size: 14px;
 }
 
-// .example-header-image {
-//   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-//   background-size: cover;
-// }
-
-.title {
-  font-weight: 600;
-  font-size: 16px;
+.container::before, .row::before, .panel-body::before, .clearfix::before {
+  content: " ";
+  display: table;
 }
 
-.img-card {
-  width: 152px !important;
-  height: auto !important;
+.panel-default {
+  border-color: #dddddd;
 }
 
-.inline {
+.panel {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-default > .panel-heading {
+  color: #333333;
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
   display: inline-block;
-  margin-right: 10px;
-  align-items: center;
+  max-width: 100%;
+  margin-bottom: 5px;
 }
 
-mat-list-item {
-  font-weight: 600;
+.form-group.required .control-label:after {
+  content: " * ";
+  color: red;
 }
 
-.genre-label {
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 300;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+}
+
+.btn-warning {
+  color: #ffffff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  margin-left: 10px;
+}
+
+.checkbox-inline {
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.btn-warning:hover {
+  opacity: 0.8;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.comment_form {
+  margin-top: 15px;
+}
+
+.file {
   margin-top: 10px;
 }
 
-.mat-chip-listbox.inline {
-  display: inline-block;
+mat-form-field {
+  width: 100%;
 }
 
-.mat-chip-option {
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 14px !important;
+textarea {
+  height: 400px; /* Điều chỉnh chiều cao của textarea */
+  font-size: 14px; /* Điều chỉnh kích thước font chữ */
+  padding: 10px; /* Điều chỉnh khoảng cách giữa nội dung và khung */
+  box-sizing: border-box; /* Đảm bảo kích thước của textarea bao gồm cả phần padding và border */
+}
+
+.btn-bottom {
+  margin-top: 50px;
 }
 
 /* SIDEBAR */
@@ -150,6 +257,7 @@ mat-list-item {
   display: flex;
   justify-content: center;
 }
+
 /* SIDEBAR */
 /* CONTENT */
 #content {

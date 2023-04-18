@@ -18,7 +18,7 @@
         <span class="text">Novels</span>
       </a>
     </li>
-    <li class="active">
+    <li>
       <a routerLink="/admin/genre">
         <i class='bx bxs-doughnut-chart' ></i>
         <span class="text">Novel Genre</span>
@@ -30,7 +30,7 @@
         <span class="text">Volumes</span>
       </a>
     </li>
-    <li>
+    <li class="active">
       <a routerLink="/admin/chapters">
         <i class='bx bx-book-content'></i>
         <span class="text">Chapters</span>
@@ -77,14 +77,14 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Genre Details</h1>
+        <h1>Chapter Details</h1>
         <ul class="breadcrumb">
           <li>
-            <a routerLink="/admin/genre">Genre</a>
+            <a routerLink="/admin/chapter">Chapters</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" routerLink="/admin/genre">Genre Details</a>
+            <a class="active" routerLink="/admin/chapters">Chapter Details</a>
           </li>
         </ul>
       </div>
@@ -92,14 +92,14 @@
 
     <!-- main content -->
     <div class="container">
-      <mat-card  class="example-card" *ngIf="genreDetail">
+      <mat-card  class="example-card" *ngIf="chapterDetail">
 
         <mat-card-header>
           <mat-card-title-group>
             <!-- <img class="img-card" mat-card-lg-image src="./assets/user-profile-default.png" > -->
 
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title class="title">{{ genreDetail.category_name }}</mat-card-title>
+            <mat-card-title class="title">{{ chapterDetail.title }}</mat-card-title>
             <!-- <mat-card-subtitle>{{novelDetail.novel_id}}</mat-card-subtitle> -->
           </mat-card-title-group>
         </mat-card-header>
@@ -108,36 +108,43 @@
           <mat-list>
             <mat-list-item>
               <div matLine>
-                  Genre ID :
-                  <button mat-button>{{genreDetail.category_id}} </button>
+                  Chapter ID :
+                  <button mat-button>{{chapterDetail.chapter_id}} </button>
+              </div>
+            </mat-list-item>
+
+            <mat-list-item>
+              <div matLine>
+                  Volume Name :
+                  <button mat-button>{{chapterDetail.volume_title}} </button>
               </div>
             </mat-list-item>
 
               <mat-list-item>
                 <div matLine>
                   Created at :
-                  <button mat-button>{{genreDetail.created_at | date: 'dd/MM/yyyy HH:mm:ss'}} </button>
+                  <button mat-button>{{chapterDetail.created_at | date: 'dd/MM/yyyy HH:mm:ss'}} </button>
                 </div>
               </mat-list-item>
 
               <mat-list-item>
                 <div matLine>
                   Updated at :
-                  <button mat-button>{{genreDetail.updated_at | date: 'dd/MM/yyyy HH:mm:ss'}} </button>
+                  <button mat-button>{{chapterDetail.updated_at | date: 'dd/MM/yyyy HH:mm:ss'}} </button>
                 </div>
               </mat-list-item>
 
               <mat-list-item>
-                Description :
+                Content :
               </mat-list-item>
 
             </mat-list>
 
-            <mat-card-content class="line">{{genreDetail.description}}</mat-card-content>
+            <mat-card-content class="line">{{chapterDetail.content | limitTo: 1000 }}</mat-card-content>
 
         </mat-card-content>
         <mat-card-actions>
-          <button routerLink="/admin/genre" mat-raised-button color="primary">Quay lại</button>
+          <button routerLink="/admin/chapters" mat-raised-button color="primary">Quay lại</button>
         </mat-card-actions>
 
       </mat-card>

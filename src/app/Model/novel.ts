@@ -73,8 +73,10 @@ export class volumes {
 export class chaptersById {
   chapter_id!: number;
   volume_id!: number;
+  volume_title!: string;
   title!: string;
   content!: string;
+  volume!: number;
   created_at!: string;
   updated_at!: string;
   ok!: boolean

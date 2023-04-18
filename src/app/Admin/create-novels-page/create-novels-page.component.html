@@ -18,14 +18,14 @@
       </a>
     </li>
     <li>
-      <a routerLink="/admin">
+      <a routerLink="/admin/genre">
         <i class='bx bxs-doughnut-chart' ></i>
         <span class="text">Novel Genre</span>
       </a>
     </li>
     <li>
       <a routerLink="/admin/volumes">
-        <i class='bx bx-book-content'></i>
+        <i class='bx bx-list-ul'></i>
         <span class="text">Volumes</span>
       </a>
     </li>
@@ -76,14 +76,16 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Create Novel</h1>
+        <h1 *ngIf="!isUpdateActive">Create Novel</h1>
+        <h1 *ngIf="isUpdateActive">Update Novel</h1>
         <ul class="breadcrumb">
           <li>
             <a routerLink="/admin/novels">Novels</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" routerLink="/admin/create-novel">Create Novel</a>
+            <a *ngIf="!isUpdateActive" class="active" routerLink="/admin/create-novel">Create Novel</a>
+            <a *ngIf="isUpdateActive" class="active" routerLink="/admin/update-novel">Update Novel</a>
           </li>
         </ul>
       </div>
@@ -132,7 +134,7 @@
                   <div class="col-md-8">
 
                     <mat-form-field appearance="outline">
-                      <mat-label>Which of the following is important to you ? </mat-label>
+                      <mat-label>Chọn thể loại </mat-label>
                       <mat-select multiple formControlName="categories_id">
                         <mat-option *ngFor="let category of categories" [value]="[ category.category_id ]">
                           {{ category.category_name }}

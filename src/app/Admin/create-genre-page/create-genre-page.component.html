@@ -17,15 +17,15 @@
         <span class="text">Novels</span>
       </a>
     </li>
-    <li>
-      <a routerLink="/admin">
+    <li class="active">
+      <a routerLink="/admin/genre">
         <i class='bx bxs-doughnut-chart' ></i>
         <span class="text">Novel Genre</span>
       </a>
     </li>
     <li>
       <a routerLink="/admin/volumes">
-        <i class='bx bx-book-content'></i>
+        <i class='bx bx-list-ul'></i>
         <span class="text">Volumes</span>
       </a>
     </li>
@@ -35,7 +35,7 @@
         <span class="text">Chapters</span>
       </a>
     </li>
-    <li class="active">
+    <li>
       <a routerLink="/admin/users">
         <i class='bx bxs-user'></i>
         <span class="text">Users</span>
@@ -76,14 +76,16 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Create Novel Genre</h1>
+        <h1 *ngIf="!isUpdateActive">Create Novel Genre</h1>
+        <h1 *ngIf="isUpdateActive">Update Novel Genre</h1>
         <ul class="breadcrumb">
           <li>
             <a routerLink="/admin/genre">Novel Genre</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" routerLink="/admin-create-genre">Create Novel Genre</a>
+            <a *ngIf="!isUpdateActive" class="active" routerLink="/admin-create-genre">Create Novel Genre</a>
+            <a *ngIf="isUpdateActive" class="active" routerLink="/admin-update-genre">Update Novel Genre</a>
           </li>
         </ul>
       </div>
