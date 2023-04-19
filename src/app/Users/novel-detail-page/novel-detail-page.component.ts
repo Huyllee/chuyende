@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TextToSpeechClient } from '@google-cloud/text-to-speech';
-import { chaptersById, volumeById, volumes } from 'src/app/Model/novel';
+import { Observable } from 'rxjs';
+import { Audio, chaptersById, volumeById, volumes } from 'src/app/Model/novel';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class NovelDetailPageComponent {
   isSpeaking = false; // khởi tạo biến để lưu trạng thái đang đọc hay không
   chapters: chaptersById[] = [];
   volumes: volumes[] = [];
+  audio: Audio[] = [];
 
   startReading() {
     const paragraphs = Array.from(document.querySelectorAll('p')).map(p => p.textContent);
@@ -32,9 +34,28 @@ export class NovelDetailPageComponent {
       console.log(this.chapters[0]);
     });
 
+    let novelsObservalbe: Observable<chaptersById[]>;
+    activatedRoute.params.subscribe((params) => {
+      if ((params && params['id'])) {
+        novelsObservalbe = this.novelService.getChapterById(params['id']);
+        this.novelService.getAudio(params['id']).subscribe(audio => {
+          this.audio = audio;
+          console.log(this.audio[0]);
+        });
+      }
+
+      novelsObservalbe.subscribe((chapters) => {
+        this.chapters = chapters;
+        console.log(chapters[0]);
+
+      })
+    });
+
     this.novelService.getVolumes().subscribe(volumes => {
       this.volumes = volumes;
       console.log(this.volumes);
     });
+
   }
+
 }

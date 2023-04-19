@@ -82,6 +82,16 @@ export class chaptersById {
   ok!: boolean
 }
 
+export class Audio {
+  audio_id!: number;
+  chapter_id!: number;
+  title!: string;
+  url!: string;
+  created_at!: string;
+  updated_at!: string;
+  ok!: boolean
+}
+
 export class favorites {
   user_id!: number;
   novel_id!: number;

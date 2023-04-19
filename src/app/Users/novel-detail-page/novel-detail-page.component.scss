@@ -195,3 +195,15 @@ img {
 .text-center {
   text-align: center!important;
 }
+
+.disabled, [disabled] {
+  cursor: not-allowed;
+  opacity: .5;
+  pointer-events: none;
+}
+
+/* audio content */
+
+.audio {
+  display: inline-block;
+}

@@ -25,6 +25,7 @@ import { ChaptersAdminPageComponent } from './Admin/chapters-admin-page/chapters
 import { VolumeDetailAdminPageComponent } from './Admin/volume-detail-admin-page/volume-detail-admin-page.component';
 import { CreateChapterPageComponent } from './Admin/create-chapter-page/create-chapter-page.component';
 import { ChapterDetailAdminPageComponent } from './Admin/chapter-detail-admin-page/chapter-detail-admin-page.component';
+import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   /* route user */
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'discussion', component: DiscussionPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  {path: '**', component: PageNotFoundComponent},
 
   /* route admin */
   { path: 'admin', component: DashboardPageComponent },

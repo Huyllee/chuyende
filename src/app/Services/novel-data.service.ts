@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Categories, Novel, chaptersById, favorites, novelById, tagById, volumeById, volumes } from '../Model/novel';
+import { Audio, Categories, Novel, chaptersById, favorites, novelById, tagById, volumeById, volumes } from '../Model/novel';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -73,6 +73,10 @@ export class NovelDataService {
 
   getChapterByVolume(id: string): Observable<chaptersById[]> {
     return this.http.get<chaptersById[]>(`/api/novel/get/chaptersByVolumeId/${id}`);
+  }
+
+  getAudio(id: string): Observable<Audio[]> {
+    return this.http.get<Audio[]>(`/api/novel/get/audio/${id}`);
   }
 
 }

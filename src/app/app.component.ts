@@ -14,6 +14,8 @@ export class AppComponent {
   user!: User;
   users!: User[];
   isAdmin = false;
+  showFooter = false;
+  showBanner = false
 
   constructor(private userService: UserDataService, private router: Router, private activatedRoute: ActivatedRoute) {
     userService.userObservable.subscribe((newUser) => {
@@ -37,10 +39,9 @@ export class AppComponent {
       //   this.showBanner = true;
       //   this.showFooter = true;
       //   break;
-      // case url === '/login' || url.startsWith('/login'):
-      //   this.showFooter = false;
-      //   this.showBanner = false;
-      //   break;
+      case url === '/novel-detail' || url.startsWith('/novel-detail'):
+        this.isAdmin = true;
+        break;
       // case url === '/register'|| url.startsWith('/register'):
       //   this.showBanner = false;
       //   this.showFooter = false;

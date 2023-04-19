@@ -59,6 +59,7 @@ import { ChaptersAdminPageComponent } from './Admin/chapters-admin-page/chapters
 import { CreateChapterPageComponent } from './Admin/create-chapter-page/create-chapter-page.component';
 import { ChapterDetailAdminPageComponent } from './Admin/chapter-detail-admin-page/chapter-detail-admin-page.component';
 import { LimitToPipe } from './Layouts/limit-to.pipe';
+import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -93,7 +94,8 @@ import { LimitToPipe } from './Layouts/limit-to.pipe';
     ChaptersAdminPageComponent,
     CreateChapterPageComponent,
     ChapterDetailAdminPageComponent,
-    LimitToPipe
+    LimitToPipe,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
