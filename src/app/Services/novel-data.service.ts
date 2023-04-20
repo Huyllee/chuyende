@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Audio, Categories, Novel, chaptersById, favorites, novelById, tagById, volumeById, volumes } from '../Model/novel';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Audio, Categories, Novel, chaptersById, favorites, novelById, rating, tagById, volumeById, volumes } from '../Model/novel';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -63,8 +63,28 @@ export class NovelDataService {
     )
   }
 
-  postFavorites(user_id: string, novel_id: string): Observable<favorites> {
+  postFavorites(user_id: string, novel_id: number): Observable<favorites> {
     return this.http.post<favorites>(`/api/novel/post/favorites`, {user_id, novel_id});
+  }
+
+  getFavorites(id: string): Observable<favorites[]> {
+    return this.http.get<favorites[]>(`/api/novel/get/favorites/${id}`);
+  }
+
+  postRating(user_id: string, novel_id: number, rating_value: number): Observable<rating> {
+    return this.http.post<rating>(`/api/novel/post/rating`, {user_id, novel_id, rating_value});
+  }
+
+  // getRating(id: string): Observable<rating[]> {
+  //   return this.http.get<rating[]>(`/api/novel/get/ratings/${id}`);
+  // }
+
+  getRating(novelId: number, userId: number): Observable<rating> {
+    const params = new HttpParams()
+      .set('novel_id', novelId.toString())
+      .set('user_id', userId.toString());
+
+    return this.http.get<rating>(`/api/novel/get/ratings/`, { params });
   }
 
   getAllNovels(): Observable<Novel[]> {

@@ -64,19 +64,27 @@
                     <span class="info-name">Tình trạng:</span>
                     <span class="info-value"><a href="/">Đang tiến hành</a></span>
                   </div>
+
+                  <div class="info-item rating-container">
+                    <span class="info-name">Đánh giá: {{ rating }}</span>
+                    <span class="info-value">
+                      <app-rating [selectedStar]="2" (onRating)="Handle($event)"></app-rating>
+                    </span>
+
+                  </div>
                 </div>
 
                 <div class="side-features">
                   <div class="row">
 
                     <div class="col-4 col-md feature-item width-auto-xl" (click)="onFavorites()">
-                      <a id="collect" class="side-feature-button button-follow followed">
+                      <a id="collect" class="side-feature-button button-follow follow">
                         <span class="block feature-value"><i class="fa fa-heart"></i></span>
-                        <span class="block feature-name"> 7759 </span>
+                        <span class="block feature-name"> {{ count }} </span>
                       </a>
                     </div>
 
-                    <div class="col-4 col-md feature-item width-auto-xl">
+                    <!-- <div class="col-4 col-md feature-item width-auto-xl">
                       <div class="series-rating rated">
                         <label for="open-rating" class="side-feature-button button-rate">
                           <span class="block feature-value"><i class="fa fa-star"></i></span>
@@ -92,7 +100,7 @@
                           <span class="star-evaluate-item star-1" data-value="1"><i class="fa fa-star"></i></span>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-4 col-md feature-item width-auto-xl">
                       <div class="catalog-icon side-feature-button">

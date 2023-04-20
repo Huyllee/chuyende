@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'discussion', component: DiscussionPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
-  {path: '**', component: PageNotFoundComponent},
+
 
   /* route admin */
   { path: 'admin', component: DashboardPageComponent },
@@ -70,6 +70,8 @@ const routes: Routes = [
   { path: 'admin-create-chapter', component: CreateChapterPageComponent },
   { path: 'admin-update-chapter/:id', component: CreateChapterPageComponent },
   { path: 'admin-chapter-detail/:id', component: ChapterDetailAdminPageComponent },
+
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

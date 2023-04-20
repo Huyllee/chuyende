@@ -233,7 +233,7 @@ a {
   width: 100%;
 }
 
-.button-follow .feature-value, .button-follow.followed .feature-value { /* if followed set color .feature-value */
+.button-follow .feature-value, .button-follow.followed .feature-value {
   color: #e22590;
 }
 
@@ -979,3 +979,12 @@ textarea {
 .ln-comment-form input.button:hover {
   opacity: 0.6;
 }
+
+
+/* rating */
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+

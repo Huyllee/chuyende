@@ -24,6 +24,7 @@
     "@tinymce/tinymce-angular": "^7.0.0",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
+    "igniteui-webcomponents": "^4.2.3",
     "jquery": "^3.6.4",
     "ng-angular-popup": "^0.2.0",
     "ng-confirm-box": "0.0.6",

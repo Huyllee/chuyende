@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
@@ -60,6 +60,7 @@ import { CreateChapterPageComponent } from './Admin/create-chapter-page/create-c
 import { ChapterDetailAdminPageComponent } from './Admin/chapter-detail-admin-page/chapter-detail-admin-page.component';
 import { LimitToPipe } from './Layouts/limit-to.pipe';
 import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.component';
+import { RatingComponent } from './Layouts/rating/rating.component';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.com
     CreateChapterPageComponent,
     ChapterDetailAdminPageComponent,
     LimitToPipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -125,6 +127,7 @@ import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.com
     NgConfirmModule,
     FileUploadModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

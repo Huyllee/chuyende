@@ -11,7 +11,7 @@ export interface IUserRegister{
 }
 
 export class User{
-  user_id!:string;
+  user_id!: any;
   email!:string;
   password!:string;
   full_name!:string;

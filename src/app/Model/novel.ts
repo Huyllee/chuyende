@@ -96,6 +96,16 @@ export class favorites {
   user_id!: number;
   novel_id!: number;
   created_at!: string;
-  updated_at!: string
+  updated_at!: string;
+  ok!: boolean
 }
 
+export class rating {
+  rating_id!: number;
+  user_id!: number;
+  novel_id!: number;
+  rating_value!: number;
+  created_at!: string;
+  updated_at!: string;
+  ok!: boolean
+}

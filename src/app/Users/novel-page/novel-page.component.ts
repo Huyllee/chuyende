@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
-import { Novel, Categories, novelById, tagById, volumeById, chaptersById, favorites } from 'src/app/Model/novel';
+import { Novel, Categories, novelById, tagById, volumeById, chaptersById, favorites, rating } from 'src/app/Model/novel';
 import { User } from 'src/app/Model/users';
 import { UserDataService } from 'src/app/Services/user-data.service';
+import { NgToastService } from 'ng-angular-popup';
+import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
+
+defineComponents(IgcRatingComponent);
 
 @Component({
   selector: 'app-novel-page',
@@ -48,19 +52,22 @@ export class NovelPageComponent {
   user!: User;
   users!: User[];
   favorites!: favorites;
+  ratings!: rating;
+  rating_value!: rating;
+  count: number = 0;
   user_id: number = 0;
   novel_id: number = 0;
+  id: number = 0;
+  rating: number = 0;
 
-  constructor(private novelService: NovelDataService, private userService: UserDataService, private activatedRoute: ActivatedRoute) {
+  constructor(private novelService: NovelDataService, private userService: UserDataService, private activatedRoute: ActivatedRoute, private toastService: NgToastService,) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
 
     })
 
     userService.getUsersByEmail(this.user.email).subscribe((users) => {
-      // console.log(this.user.email);
       this.users = users;
-      // console.log(this.users[0].user_id);
     })
 
   }
@@ -83,14 +90,53 @@ export class NovelPageComponent {
       this.chapters = chapters;
     });
 
+    this.novelService.getRating(this.users[0].user_id, this.id).subscribe(rating => {
+      this.rating_value = rating;
+      console.log(this.rating_value);
+    });
+
+    this.novelService.getFavorites(id).subscribe(favorite => this.count = favorite.length);
+
+
+  }
+
+  Handle(event: number) {
+    this.rating = event;
+    this.activatedRoute.params.subscribe(val => {
+      this.id = val['id'];
+      if (val && val['id']) {
+        this.novelService.postRating(this.users[0].user_id, this.id, this.rating).subscribe(ratings => {
+          this.ratings = ratings;
+          this.toastService.success({ detail: "Success", summary: `Bạn đã đánh giá ${event} sao`, duration: 3000 });
+          if (ratings.ok === false) {
+            // update
+            this.toastService.success({ detail: "Success", summary: `Bạn đã đánh giá ${event} sao`, duration: 3000 });
+          }
+        })
+      }
+    })
   }
 
   onFavorites(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.novelService.postFavorites(this.users[0].user_id, id).subscribe(favorites => {
-      this.favorites = favorites;
-      alert('Đã thêm truyện vào danh sách yêu thích!');
-    });
+    this.activatedRoute.params.subscribe(val => {
+      this.id = val["id"];
+      if (val && val["id"]) {
+      // const id = this.activatedRoute.snapshot.paramMap.get('id')!;
+      this.novelService.postFavorites(this.users[0].user_id, this.id).subscribe(favorites => {
+        this.favorites = favorites;
+        if (favorites.ok === false) {
+          this.toastService.warning({ detail: "Warning", summary: "Truyện đã được theo dõi!", duration: 3000 });
+        }
+
+        else {
+          this.toastService.success({ detail: "Success", summary: "Bạn đã theo dõi truyện!", duration: 3000 });
+        }
+      });
+      console.log(this.id);
+      }
+    })
   }
+
+
 
 }
