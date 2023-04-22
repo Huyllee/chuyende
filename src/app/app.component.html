@@ -5,7 +5,7 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-   <div class="logo"><a [routerLink]="['/home']">My App</a></div>
+   <div class="logo"><a [routerLink]="['/home']"><img src="./assets/logo.png" width="80px"></a></div>
    <div class="nav">
     <a routerLink="/search"><button mat-button>Tìm kiếm</button></a>
     <a routerLink="/category"><button mat-button>Danh mục</button></a>
@@ -24,10 +24,10 @@
     <a *ngIf="!isAuth" class="login" routerLink="/login"><button mat-button>Đăng nhập</button></a>
 
     <div *ngIf="isAuth" class="login">
-      <a class="login"><button mat-button>{{user.full_name}} <i class="fa fa-user"></i></button></a>
+      <a class="login"><button mat-button>{{user.full_name}} <i class="fa fa-user-circle-o"></i></button></a>
       <div class="menu">
         <a routerLink="/profile">Profile</a>
-        <a (click)="logout()">Logout</a>
+        <a (click)="logout()" style="color: red;">Logout</a>
       </div>
     </div>
 

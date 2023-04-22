@@ -66,9 +66,9 @@
                   </div>
 
                   <div class="info-item rating-container">
-                    <span class="info-name">Đánh giá: {{ rating }}</span>
+                    <span class="info-name">Đánh giá:</span>
                     <span class="info-value">
-                      <app-rating [selectedStar]="2" (onRating)="Handle($event)"></app-rating>
+                      <app-rating [selectedStar]="ratingValue[0]?.rating_value || 0" (onRating)="Handle($event)"></app-rating>
                     </span>
 
                   </div>

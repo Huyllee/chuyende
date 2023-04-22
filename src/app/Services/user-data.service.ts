@@ -69,8 +69,8 @@ export class UserDataService {
     return new User();
   }
 
-  getUsersByEmail(email: string): Observable<User[]> {
-    return this.http.get<User[]>(`/api/users/get/user/${email}`);
+  getUsersByEmail(email: string): Observable<User> {
+    return this.http.get<User>(`/api/users/get/user/${email}`);
   }
 
   getUsers(): Observable<User[]> {

@@ -53,7 +53,7 @@ export class NovelPageComponent {
   users!: User[];
   favorites!: favorites;
   ratings!: rating;
-  rating_value!: rating;
+  ratingValue!: rating[];
   count: number = 0;
   user_id: number = 0;
   novel_id: number = 0;
@@ -63,13 +63,7 @@ export class NovelPageComponent {
   constructor(private novelService: NovelDataService, private userService: UserDataService, private activatedRoute: ActivatedRoute, private toastService: NgToastService,) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
-
     })
-
-    userService.getUsersByEmail(this.user.email).subscribe((users) => {
-      this.users = users;
-    })
-
   }
 
   ngOnInit(): void {
@@ -90,26 +84,30 @@ export class NovelPageComponent {
       this.chapters = chapters;
     });
 
-    this.novelService.getRating(this.users[0].user_id, this.id).subscribe(rating => {
-      this.rating_value = rating;
-      console.log(this.rating_value);
+    this.novelService.getRating(id, this.user.user_id).subscribe(rating => {
+      this.ratingValue = rating;
     });
 
     this.novelService.getFavorites(id).subscribe(favorite => this.count = favorite.length);
-
 
   }
 
   Handle(event: number) {
     this.rating = event;
+    console.log(event);
+
     this.activatedRoute.params.subscribe(val => {
       this.id = val['id'];
       if (val && val['id']) {
-        this.novelService.postRating(this.users[0].user_id, this.id, this.rating).subscribe(ratings => {
+        this.novelService.postRating(this.user.user_id, this.id, this.rating).subscribe(ratings => {
           this.ratings = ratings;
-          this.toastService.success({ detail: "Success", summary: `Bạn đã đánh giá ${event} sao`, duration: 3000 });
           if (ratings.ok === false) {
-            // update
+            this.novelService.updateRating(event, this.id, this.user.user_id).subscribe(res => {
+              this.toastService.success({ detail: "Success", summary: `Bạn update đánh giá ${event} sao`, duration: 3000 });
+            })
+          }
+
+          else {
             this.toastService.success({ detail: "Success", summary: `Bạn đã đánh giá ${event} sao`, duration: 3000 });
           }
         })
@@ -122,7 +120,7 @@ export class NovelPageComponent {
       this.id = val["id"];
       if (val && val["id"]) {
       // const id = this.activatedRoute.snapshot.paramMap.get('id')!;
-      this.novelService.postFavorites(this.users[0].user_id, this.id).subscribe(favorites => {
+      this.novelService.postFavorites(this.user.user_id, this.id).subscribe(favorites => {
         this.favorites = favorites;
         if (favorites.ok === false) {
           this.toastService.warning({ detail: "Warning", summary: "Truyện đã được theo dõi!", duration: 3000 });

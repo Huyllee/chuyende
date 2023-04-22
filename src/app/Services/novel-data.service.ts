@@ -71,20 +71,24 @@ export class NovelDataService {
     return this.http.get<favorites[]>(`/api/novel/get/favorites/${id}`);
   }
 
+  getFavoriteById(id: string): Observable<Novel[]> {
+    return this.http.get<Novel[]>(`/api/novel/get/favoriteById/${id}`);
+  }
+
+  deleteFavorites(id: number): Observable<favorites> {
+    return this.http.delete<favorites>(`/api/novel/delete/favorite/${id}`);
+  }
+
   postRating(user_id: string, novel_id: number, rating_value: number): Observable<rating> {
     return this.http.post<rating>(`/api/novel/post/rating`, {user_id, novel_id, rating_value});
   }
 
-  // getRating(id: string): Observable<rating[]> {
-  //   return this.http.get<rating[]>(`/api/novel/get/ratings/${id}`);
-  // }
+  getRating(novelId: string, userId: number): Observable<rating[]> {
+    return this.http.get<rating[]>(`/api/novel/get/ratings/${novelId}/${userId}`);
+  }
 
-  getRating(novelId: number, userId: number): Observable<rating> {
-    const params = new HttpParams()
-      .set('novel_id', novelId.toString())
-      .set('user_id', userId.toString());
-
-    return this.http.get<rating>(`/api/novel/get/ratings/`, { params });
+  updateRating(RatingObj: number, novelId: number, userId: string): Observable<rating[]> {
+    return this.http.put<rating[]>(`/api/novel/update/ratings/${novelId}/${userId}`, RatingObj);
   }
 
   getAllNovels(): Observable<Novel[]> {

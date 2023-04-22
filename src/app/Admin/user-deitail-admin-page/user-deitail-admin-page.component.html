@@ -92,9 +92,16 @@
 
     <!-- main content -->
     <div class="container">
-      <mat-card  class="example-card" *ngIf="userDetail">
+      <mat-card  class="example-card"></mat-card>
 
-        <mat-card-header>
+    <div class="table-data">
+      <div class="order">
+        <div class="head">
+          <h3>User Detail</h3>
+          <!-- <i class='bx bx-search' ></i>
+          <i class='bx bx-filter' ></i> -->
+        </div>
+        <mat-card-header *ngIf="userDetail">
           <mat-card-title-group>
             <img class="img-card" mat-card-lg-image src="./assets/user-profile-default.png" >
 
@@ -115,8 +122,8 @@
 
             <mat-list-item>
               <div matLine>
-                  Email :
-                  <button mat-button>{{userDetail.email}} </button>
+                Email :
+                <button mat-button>{{userDetail.email}} </button>
               </div>
              </mat-list-item>
 
@@ -126,17 +133,6 @@
                   <button mat-button>{{userDetail.password | limitTo: 50}} </button>
                 </div>
               </mat-list-item>
-
-              <!-- <mat-list-item>
-                <div matLine>
-                  Novel Genre :
-                  <button mat-button>
-                    <mat-chip-listbox class="inline">
-                      <mat-chip-option selected>{{userDetail.role}}</mat-chip-option>
-                    </mat-chip-listbox>
-                  </button>
-                </div>
-              </mat-list-item> -->
 
               <mat-list-item>
                 <div matLine>
@@ -161,16 +157,29 @@
 
             </mat-list>
 
-          <!-- <mat-card-content class="line">{{novelDetail.description}}</mat-card-content> -->
-
         </mat-card-content>
         <mat-card-actions>
-          <button routerLink="/admin/users" mat-raised-button color="primary">Quay lại</button>
+          <button routerLink="/admin/novels" mat-raised-button color="primary">Quay lại</button>
         </mat-card-actions>
+      </div>
 
-      </mat-card>
+      <div class="todo" >
+        <div class="head">
+          <h3>Favorite novels</h3>
+          <i class='bx bx-plus' ></i>
+          <i class='bx bx-filter' ></i>
+        </div>
+        <ul class="todo-list">
+          <li class="completed" *ngFor="let favorite of favorites">
+            <p routerLink="/admin-novel-detail/{{ favorite.novel_id }}">{{ favorite.title | limitTo: 35 }}</p>
+            <i class='bx bx-dots-vertical-rounded' ></i>
+          </li>
 
+        </ul>
+      </div>
     </div>
+
+  </div>
 
   </main>
   <!-- MAIN -->

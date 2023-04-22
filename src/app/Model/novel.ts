@@ -9,6 +9,7 @@ export class Categories {
 
 export class Novel {
   novel_id!: number;
+  favorite_id!: number;
   title!: string;
   author!: string;
   artist!: string;

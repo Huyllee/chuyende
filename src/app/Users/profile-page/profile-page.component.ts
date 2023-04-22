@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Novel, favorites } from 'src/app/Model/novel';
 import { User } from 'src/app/Model/users';
+import { NovelDataService } from 'src/app/Services/novel-data.service';
 import { UserDataService } from 'src/app/Services/user-data.service';
+import { NgToastService } from 'ng-angular-popup';
+import { NgConfirmService } from 'ng-confirm-box';
 
 @Component({
   selector: 'app-profile-page',
@@ -9,34 +13,53 @@ import { UserDataService } from 'src/app/Services/user-data.service';
 })
 export class ProfilePageComponent implements OnInit {
 
-  ngOnInit(): void {
-    // Lấy danh sách các phần tử có class là ".showcase-item"
-    const elements = document.querySelectorAll('.count-1');
-    const elements2 = document.querySelectorAll('.count-2');
-
-    // Đếm số lượng phần tử
-    const count = elements.length;
-    const count2 = elements2.length;
-    // Lấy phần tử có id là "number"
-    const resultElement = document.getElementById('number');
-    const resultElement2 = document.getElementById('count');
-    const resultElement3 = document.getElementById('value');
-    const resultElement4 = document.getElementById('history');
-
-    // Thay đổi nội dung HTML của phần tử "number"
-    resultElement!.innerHTML = `${count}`;
-    resultElement2!.innerHTML = `${count2}`;
-    resultElement3!.innerHTML = `${count2}`;
-    resultElement4!.innerHTML = `${count}`;
-  }
-
   user!: User;
+  users!: User;
+  favorites!: Novel[];
+  novels!: Novel[];
+  count!: number;
 
-  constructor(private userService: UserDataService) {
+  constructor(private userService: UserDataService, private novelService: NovelDataService, private confrm: NgConfirmService, private toast: NgToastService) {
     userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
     })
-    console.log(this.user.full_name);
+
+    userService.getUsersByEmail(this.user.email).subscribe(res => {
+      this.users = res;
+      console.log(this.users);
+    })
+
+  }
+
+  ngOnInit() {
+    this.getFavorites();
+    console.log(this.getFavorites());
+  }
+
+  getFavorites() {
+    this.novelService.getFavoriteById(this.user.user_id).subscribe(res => {
+      this.favorites = res;
+      this.count = res.length;
+      console.log(this.favorites[0].novel_id);
+    })
+  }
+
+  delete(favories_id: number) {
+    this.confrm.showConfirm(("Bạn có muốn xóa không ?"),
+
+    () => {
+      this.novelService.deleteFavorites(favories_id).subscribe(res=> {
+        if (res.ok === true) {
+          this.toast.success({ detail: "Success", summary: "Đã xóa khỏi danh sách yêu thích!", duration: 3000 });
+          this.getFavorites();
+        } else {
+          console.log("Unknown response from server: ", res);
+        }
+      });
+    },
+    () => {}
+  );
+
   }
 
 }

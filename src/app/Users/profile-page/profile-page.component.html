@@ -3,14 +3,14 @@
     <div class="profile-feature">
       <div class="profile-cover">
         <div class="fourone-ratio">
-          <div class="content img-in-ratio" style="background-image: url('./assets/bg.jpg');"></div>
+          <div class="content img-in-ratio" style="background-image: url('./assets/banner-book.jpg');"></div>
         </div>
         <div id="profile-changer_cover" class="profile-changer none block-m"></div>
       </div>
       <div class="profile-nav">
         <div class="profile-ava-wrapper">
           <div class="profile-ava">
-            <img src="./assets/profile.png">
+            <img src="./assets/user-profile-default.png">
           </div>
         </div>
         <div class="profile-function at-desktop none block-m">
@@ -35,7 +35,7 @@
       <section class="basic-section clear">
         <ul class="statistic-top row">
           <li class="col-6">
-            <div id="history" class="statistic-value">0</div>
+            <div id="history" class="statistic-value">{{ count }}</div>
             <div class="statistic-name">Đang theo dõi</div>
           </li>
 
@@ -60,10 +60,10 @@
             <span class="info-name"><i class="fa fa-pencil"></i> Nghề nghiệp: </span><span class="info-value">IT</span>
           </div>
           <div class="profile-info-item">
-            <span class="info-name"><i class="fa fa-star"></i> Sở thích: </span><span class="info-value">None</span>
+            <span class="info-name"><i class="fa fa-send"></i> Email: </span><span class="info-value">{{ users.email }}</span>
           </div>
           <div class="profile-info-item">
-            <span class="info-name"><i class="fa fa-calendar"></i> Tham gia: </span><span class="info-value">27/07/2017</span>
+            <span class="info-name"><i class="fa fa-calendar"></i> Tham gia: </span><span class="info-value">{{ users.created | date: 'dd/MM/yyyy' }}</span>
           </div>
 
         </main>
@@ -73,17 +73,17 @@
     <div class="col-12 col-md-12 col-lg-9 col-xl-9">
       <section class="profile-showcase">
         <header>
-          <span id="number" class="number"></span>
+          <span id="number" class="number">{{ count }}</span>
           <span class="showcase-title">Danh sách yêu thích</span>
         </header>
         <div class="row">
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" *ngFor="let favorite of favorites">
             <div class="showcase-item count-1">
               <div class="row">
                 <div class="series-cover col-4">
                   <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/1.jpg')"></div>
+                    <div class="content img-in-ratio" style="background-image: url('./assets/{{ favorite.cover_image }}')"></div>
                   </div>
                 </div>
                 <div class="col-8">
@@ -91,189 +91,39 @@
                     <div class="series-type-wrapper">
                       <small class="series-type type-translation">Truyện dịch</small>
                     </div>
-                    <h5 class="series-name"><a href="/">Con gái mẹ kế là bạn gái cũ của tôi</a></h5>
+                    <h5 class="series-name"><a routerLink="/novel/{{ favorite.novel_id }}">{{ favorite.title }}</a></h5>
                   </div>
                   <div class="series-status">
-                    <div class="status-item">
-                      <span class="status-name">Tình trạng:</span>
-                      <span class="status-value">Đang tiến hành</span>
-                    </div>
-                    <div class="status-item">
-                      <span class="status-name">Lần cuối:</span>
-                      <span class="status-value"><time class="timeago" title="31/03/2023 22:26:00" datetime="2023-03-31T22:26:00+07:00">4 ngày</time> </span>
-                    </div>
-                    <!-- <div class="delete-btn">
-                      <a href="/" class="button to-contact button-red"><i class="fa fa-close"></i> Xoá</a>
-                    </div> -->
+                  <!-- <div class="status-item">
+                    <span class="status-name">Tình trạng:</span>
+                    <span class="status-value">Đang tiến hành</span>
+                  </div> -->
+                  <!-- <div class="status-item">
+                    <span class="status-name">Lần cuối:</span>
+                    <span class="status-value"><time class="timeago" title="{{ novel.updated_at | date: 'dd/MM/yyyy - HH:mm:ss' }}">{{ novel.updated_at | date: 'dd/MM/yyyy' }}</time> </span>
+                  </div> -->
+                  <div class="delete-btn">
+                    <a (click)="delete(favorite.favorite_id)" class="button to-contact button-red"><i class="fa fa-close"></i> Xoá</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-12 col-md-6">
-            <div class="showcase-item count-1">
-              <div class="row">
-                <div class="series-cover col-4">
-                  <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/2.jpg')"></div>
-                  </div>
-                </div>
-                <div class="col-8">
-                  <div class="series-info">
-                    <div class="series-type-wrapper">
-                      <small class="series-type type-translation">Truyện dịch</small>
-                    </div>
-                    <h5 class="series-name"><a href="/">Kết hôn với đứa con gái mà tôi cực ghét trong lớp.</a></h5>
-                  </div>
-                  <div class="series-status">
-                    <div class="status-item">
-                      <span class="status-name">Tình trạng:</span>
-                      <span class="status-value">Đang tiến hành</span>
-                    </div>
-                    <div class="status-item">
-                      <span class="status-name">Lần cuối:</span>
-                      <span class="status-value"><time class="timeago" title="28/03/2023 18:48:38" datetime="2023-03-28T18:48:38+07:00">7 ngày</time> </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="showcase-item count-1">
-              <div class="row">
-                <div class="series-cover col-4">
-                  <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/3.jpg')"></div>
-                  </div>
-                </div>
-                <div class="col-8">
-                  <div class="series-info">
-                    <div class="series-type-wrapper">
-                      <small class="series-type type-translation">Truyện dịch</small>
-                    </div>
-                    <h5 class="series-name"><a href="/">Có nhỏ vợ cũ hồi xuân trong lớp tôi</a></h5>
-                  </div>
-                  <div class="series-status">
-                    <div class="status-item">
-                      <span class="status-name">Tình trạng:</span>
-                      <span class="status-value">Đã hoàn thành</span>
-                    </div>
-                    <div class="status-item">
-                      <span class="status-name">Lần cuối:</span>
-                      <span class="status-value"><time class="timeago" title="30/01/2023 18:58:12" datetime="2023-01-30T18:58:12+07:00">2 tháng</time> </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="showcase-item count-1">
-              <div class="row">
-                <div class="series-cover col-4">
-                  <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/4.jpg')"></div>
-                  </div>
-                </div>
-                <div class="col-8">
-                  <div class="series-info">
-                    <div class="series-type-wrapper">
-                      <small class="series-type type-translation">Truyện dịch</small>
-                    </div>
-                    <h5 class="series-name"><a href="/">Tsukishiro lạnh lùng chỉ ngượng ngùng và dễ thương với mỗi mình tôi</a></h5>
-                  </div>
-                  <div class="series-status">
-                    <div class="status-item">
-                      <span class="status-name">Tình trạng:</span>
-                      <span class="status-value">Đang tiến hành</span>
-                    </div>
-                    <div class="status-item">
-                      <span class="status-name">Lần cuối:</span>
-                      <span class="status-value"><time class="timeago" title="29/01/2023 17:58:12" datetime="2023-01-29T17:58:12+07:00">2 tháng</time> </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
 
         </div>
       </section>
 
-      <section class="profile-showcase">
+      <!-- <section class="profile-showcase">
         <header>
-          <span id="count" class="number"></span>
+          <span id="count" class="number">0</span>
           <span class="showcase-title">Lịch sử đọc</span>
         </header>
         <div class="row">
+          <span>Không có truyện nào</span>
 
-          <div class="col-12 col-md-6">
-            <div class="showcase-item count-2">
-              <div class="row flex">
-                <div class="series-cover col-4">
-                  <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/5.jpg')"></div>
-                  </div>
-                </div>
-                <div class="col-8">
-                  <div class="series-info">
-                    <div class="series-type-wrapper">
-                      <small class="series-type type-translation">Truyện dịch</small>
-                    </div>
-                    <h5 class="series-name"><a href="/">Ryoushin no Shakkin wo Katagawari shite Morau Jouken wa Nihon Ichi</a></h5>
-                  </div>
-                  <div class="series-status">
-                    <div class="status-item">
-
-                      <a href="/" class="button to-contact button-red"><i class="fa fa-close"></i> Xoá</a>
-
-                    </div>
-                    <!-- <div class="status-item">
-                      <span class="status-name">Lần cuối:</span>
-                      <span class="status-value"><time class="timeago" title="27/02/2023 02:08:10" datetime="2023-02-27T02:08:10+07:00">1 tháng</time> </span>
-                    </div> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="showcase-item count-2">
-              <div class="row flex">
-                <div class="series-cover col-4">
-                  <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/6.jpg')"></div>
-                  </div>
-                </div>
-                <div class="col-8">
-                  <div class="series-info">
-                    <div class="series-type-wrapper">
-                      <small class="series-type type-translation">Truyện dịch</small>
-                    </div>
-                    <h5 class="series-name"><a href="/">Bạn cùng lớp không biết tôi, một tên mờ nhạt, làm tình trong phòng cậu</a></h5>
-                  </div>
-                  <div class="series-status">
-                    <div class="status-item">
-                      <a href="/" class="button to-contact button-red"><i class="fa fa-close"></i> Xoá</a>
-                      <!-- <span class="status-name">Tình trạng:</span>
-                      <span class="status-value">Tạm ngưng</span> -->
-                    </div>
-                    <!-- <div class="status-item">
-                      <span class="status-name">Lần cuối:</span>
-                      <span class="status-value"><time class="timeago" title="31/03/2022 22:33:22" datetime="2022-03-31T22:33:22+07:00">1 năm</time> </span>
-                    </div> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+      </section> -->
     </div>
   </div>
 
