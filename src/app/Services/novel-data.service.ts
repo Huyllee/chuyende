@@ -87,8 +87,16 @@ export class NovelDataService {
     return this.http.post<rating>(`/api/novel/post/rating`, {user_id, novel_id, rating_value});
   }
 
+  getAllRatings(): Observable<rating[]> {
+    return this.http.get<rating[]>(`/api/novel/get/allRatings`);
+  }
+
   getRating(novelId: string, userId: number): Observable<rating[]> {
     return this.http.get<rating[]>(`/api/novel/get/ratings/${novelId}/${userId}`);
+  }
+
+  getTopRatings(): Observable<Novel[]> {
+    return this.http.get<Novel[]>(`/api/novel/get/topRatings`);
   }
 
   updateRating(RatingObj: number, novelId: number, userId: string): Observable<rating[]> {

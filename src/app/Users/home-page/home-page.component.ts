@@ -65,6 +65,7 @@ export class HomePageComponent implements OnInit {
   }
 
   novels: Novel[] = [];
+  topNovels: Novel[] = [];
   newNovel: Novel[] = [];
   volumes: volumes[] = [];
   chapters: chaptersById[] = [];
@@ -74,9 +75,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.novelService.getNovels().subscribe(novels => this.novels = novels);
 
-    // this.novelService.getVolumes().subscribe(volumes => {
-    //   this.volumes = volumes;
-    // });
+    this.novelService.getTopRatings().subscribe(res => {
+      this.topNovels = res;
+    });
 
     this.novelService.getNewChapters().subscribe(chapters => {
       this.chapters = chapters;
@@ -94,31 +95,7 @@ export class HomePageComponent implements OnInit {
       console.log(this.newNovel);
     })
 
-    // this.novelService.getVolumes().subscribe(res => {
-    //   this.volumes = res;
-    //   this.volumes.sort((a, b) => {
-    //     if (a.updated_at && b.updated_at) {
-    //       return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
-    //     } else {
-    //       return 0;
-    //     }
-    //   });
-    //   console.log(this.volumes);
 
-    // })
-
-    // this.novelService.getChaptersByVolumeId().subscribe(res => {
-    //   this.chapters = res;
-    //   this.chapters.sort((a, b) => {
-    //     if (a.updated_at && b.updated_at) {
-    //       return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
-    //     } else {
-    //       return 0;
-    //     }
-    //   });
-    //   console.log(this.chapters);
-
-    // })
   }
 
 }

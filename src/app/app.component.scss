@@ -26,12 +26,16 @@
 
 .nav > button {
   margin: 0 5px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .toggle {
   // margin-left: 120px;
   display: none;
+}
+
+a button {
+  font-weight: 600;
 }
 
 .searchbar{
@@ -107,7 +111,7 @@ a {
   margin-left: 10px;
   text-decoration: none;
   border-bottom: brown;
-  font-weight: 600;
+  font-weight: 700;
   color: #000;
 }
 

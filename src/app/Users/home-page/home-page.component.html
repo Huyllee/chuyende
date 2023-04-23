@@ -573,11 +573,11 @@
       <div class="col-12 col-md-4 col-lg-3">
         <section class="index-section rank-cirle most-followed">
           <header class="section-title">
-            <span class="sts-bold">Theo dõi</span><span class="sts-empty">nhiều</span>
+            <span class="sts-bold">Đánh giá</span><span class="sts-empty">nhiều</span>
           </header>
 
           <main>
-            <div class="rank-circle-item" *ngFor="let novel of novels.slice(0,3)">
+            <div class="rank-circle-item" *ngFor="let novel of topNovels.slice(0,3)">
               <span class="rank-number">{{ novel.novel_id }}</span>
               <div class="series-detail clear">
                 <div class="series-cover">
@@ -585,16 +585,16 @@
                     <div class="img-contain-ratio content" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
                   </div>
                 </div>
-                <h5 class="series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></h5>
-                <small class="rank-count">11,393 theo dõi</small>
+                <h5 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+                <small class="rank-count">{{ novel.avg_rating }} điểm đánh giá</small>
               </div>
             </div>
 
-            <div class="rank-circle-item" *ngFor="let novel of novels.slice(3,10)">
+            <div class="rank-circle-item" *ngFor="let novel of topNovels.slice(3,10)">
               <span class="rank-number">{{ novel.novel_id }}</span>
               <div class="series-detail clear">
-                <h5 class="series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></h5>
-                <small class="rank-count">11,393 theo dõi</small>
+                <h5 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+                <small class="rank-count">{{ novel.avg_rating }} điểm đánh giá</small>
               </div>
             </div>
 

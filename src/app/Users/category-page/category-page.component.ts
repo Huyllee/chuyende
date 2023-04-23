@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Categories, Novel } from 'src/app/Model/novel';
+import { Categories, Novel, chaptersById } from 'src/app/Model/novel';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
 
 @Component({
@@ -35,7 +35,7 @@ export class CategoryPageComponent {
   }
 
   categories: Categories[] = [];
-
+  chapters: chaptersById[] = [];
   novels: Novel[] = [];
 
   constructor(private categoryService: NovelDataService, private activatedRoute: ActivatedRoute, private route: Router) {
@@ -47,16 +47,17 @@ export class CategoryPageComponent {
       if ((params && params['genre'])) {
         novelsObservalbe = this.categoryService.getNovelByCategories(params['genre'])
       }
-
       else {
         novelsObservalbe = this.categoryService.getNovels();
       }
-
       novelsObservalbe.subscribe((novels) => {
         this.novels = novels;
         console.log(novels[0].artist);
-
       })
+
+      this.categoryService.getNewChapters().subscribe(chapters => {
+        this.chapters = chapters;
+      });
   });
 }
 

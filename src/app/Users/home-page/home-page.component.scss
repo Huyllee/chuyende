@@ -620,6 +620,12 @@ img {
   white-space: nowrap;
 }
 
+.thumb-item-flow .thumb_attr.chapter-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .list-detail .series-title a {
   font-size: 18px;
   color: black;

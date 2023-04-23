@@ -13,6 +13,7 @@ export class Novel {
   title!: string;
   author!: string;
   artist!: string;
+  avg_rating!: number;
   description!: string;
   cover_image!: string;
   category_name!: string[];
