@@ -1,0 +1,179 @@
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <a href="#" class="brand">
+    <i class='bx bx-book'></i>
+    <span class="text">Novels</span>
+  </a>
+  <ul class="side-menu top">
+    <li>
+      <a routerLink="/admin">
+        <i class='bx bxs-dashboard' ></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li class="active">
+      <a routerLink="/admin/novels">
+        <i class='bx bx-book'></i>
+        <span class="text">Novels</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/genre">
+        <i class='bx bxs-doughnut-chart' ></i>
+        <span class="text">Novel Genre</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/volumes">
+        <i class='bx bx-list-ul'></i>
+        <span class="text">Volumes</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/chapters">
+        <i class='bx bx-book-content'></i>
+        <span class="text">Chapters</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/users">
+        <i class='bx bxs-user'></i>
+        <span class="text">Users</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <i (click)="addToggle()" class='bx bx-menu' ></i>
+    <a href="#" class="nav-link">Categories</a>
+    <form action="#">
+    </form>
+
+    <a href="#" class="profile">
+      <img src="./assets/user-profile-default.png">
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+  <!-- MAIN -->
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1 *ngIf="!isUpdateActive">Create Novel</h1>
+        <h1 *ngIf="isUpdateActive">Update Novel</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a routerLink="/admin/novels">Novels</a>
+          </li>
+          <li><i class='bx bx-chevron-right' ></i></li>
+          <li>
+            <a *ngIf="!isUpdateActive" class="active" routerLink="/admin/create-novel">Create Novel</a>
+            <a *ngIf="isUpdateActive" class="active" routerLink="/admin/update-novel">Update Novel</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-heading">Series</div>
+            <div class="panel-body">
+              <form [formGroup]="createNovelForm">
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label pt-7 text-right">Tiêu đề</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="title" formControlName="title">
+                  </div>
+                </div>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label pt-7 text-right">Tác giả</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="author" formControlName="author">
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <label class="col-md-2 control-label pt-7 text-right">Họa sĩ</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="artist" formControlName="artist">
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <label class="col-md-2 control-label pt-7 text-right">Ảnh Bìa</label>
+                  <div class="col-md-8">
+                    <!-- <form> -->
+                    <input class="file" type="file" ng2FileSelect (change)="onFileSelected($event)" formControlName="cover_image"/><br/>
+
+                  </div>
+                </div>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label pt-7 text-right">Thể loại</label>
+                  <div class="col-md-8">
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>Chọn thể loại </mat-label>
+                      <mat-select multiple formControlName="categories_id">
+                        <mat-option *ngFor="let category of categories" [value]="[ category.category_id ]">
+                          {{ category.category_name }}
+                        </mat-option>
+                      </mat-select>
+
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="form-group clearfix required">
+                  <label class="col-md-2 control-label text-right">Tóm tắt</label>
+                  <div class="col-md-10">
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Tóm tắt</mat-label>
+                      <textarea matInput formControlName="description"></textarea>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-md-10 col-md-offset-2">
+                    <button *ngIf="!isUpdateActive" (click)="submit()" class="btn btn-primary">Submit</button>
+                    <button *ngIf="isUpdateActive" (click)="update()" class="btn btn-primary">Update</button>
+                    <a routerLink="/admin/novels" class="btn btn-warning">Quay lại</a>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+

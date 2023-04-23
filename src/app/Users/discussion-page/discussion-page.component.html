@@ -1,0 +1,181 @@
+<div class="page-top-group ">
+  <a href="/">
+    <div class="index-background d-none d-lg-block" style="background-image: url('./assets/bg.png')"></div>
+    <div class="index-background d-lg-none" style="background-image: url('./assets/bg.jpg'); background-size: cover"></div>
+  </a>
+</div>
+
+<div id="mainpart" class="page-board" style="background: none; min-height: 640px;">
+  <header class="page-title">
+    <div class="page-name_wrapper">
+      <div class="container relative">
+        <span class="page-name">
+          <a href="thao-luan"><i class="fa fa-circle"></i>Thảo luận</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container clear">
+    <section class="board-toolkit clear">
+      <div class="board_categ-list">
+        <ul [class]="currentClass" (click)="toggleSubmenu()">
+          <li class="l-l-d_item">Chuyên mục <i class="fa fa-caret-down"></i></li>
+        </ul>
+        <ul [class]="currentText" style="width: 158.4px;">
+          <li class="l-l-o_item"><a href="/"><i class="fa fa-circle" aria-hidden="true" style="color: black"></i> Tất cả</a></li>
+          <li class="l-l-o_item"><a href="/"><i class="fa fa-circle" aria-hidden="true" style="color: #eb1d57"></i> Thông báo</a></li>
+          <li class="l-l-o_item"><a href="/"><i class="fa fa-circle" aria-hidden="true" style="color: #e01bb4"></i> Tin tức</a></li>
+          <li class="l-l-o_item"><a href="/"><i class="fa fa-circle" aria-hidden="true" style="color: #252eef"></i> Hỏi đáp</a></li>
+          <li class="l-l-o_item"><a href="/"><i class="fa fa-circle" aria-hidden="true" style="color: #28e1e8"></i> Đánh giá</a></li>
+          <li class="l-l-o_item"><a href="/"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i> Thảo luận</a></li>
+        </ul>
+      </div>
+      <a class="button button-newpost button-green" href="/"><i class="fa fa-plus"></i> Thêm</a>
+    </section>
+
+    <section class="board-list has-pagination" style="margin-top: 20px;">
+      <table class="broad-table table table-borderless">
+        <thead>
+          <tr class="d-flex">
+            <th class="col-8 col-md-4 col-lg-4 col-xl-4">Chủ đề</th>
+            <th class="col-md-3 col-lg-2 d-none d-md-block">Chuyên mục</th>
+            <th class="col-1 d-none col-lg-2 d-lg-block">Bình luận</th>
+            <!-- <th class="col-md-2 col-lg-1 d-none d-lg-block">Lượt xem</th> -->
+            <th class="col-md-2 col-lg-2 d-none d-md-block">Gần nhất</th>
+            <th class="col-4 col-md-3 col-lg-2 text-right">Người đăng cuối</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="d-flex">
+
+            <td class="col-8 col-md-4 col-lg-4 col-xl-4">
+              <a class="topic-title" href="/"><i class="fa fa-star"></i> Thảo luận cho tác giả OLN</a>
+                <div class="subtitle-category none-m">
+                  <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                  <a href="//">Thảo luận</a>
+                </div>
+            </td>
+
+            <td class="col-md-3 col-lg-2 d-none d-md-block">
+              <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                <a href="/">Thảo luận</a>
+            </td>
+
+            <td class="col-1 d-none col-lg-2 d-lg-block">7090</td>
+            <!-- <td class="col-md-2 col-lg-1 d-none d-lg-block">474.700</td> -->
+            <td class="col-md-2 col-lg-2 d-none d-md-block">
+              <time class="topic-time timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+            </td>
+            <td class="col-4 col-md-3 col-lg-2 text-right">
+              <div class="topic-avatar none block-m">
+                <img src="./assets/1.jpg">
+              </div>
+              <div class="topic-username block-m">
+                <a href="/">Piggy</a>
+                <time class="topic-time block none-m timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="d-flex">
+
+            <td class="col-8 col-md-4 col-lg-4 col-xl-4">
+              <a class="topic-title" href="/"><i class="fa fa-star"></i> Thảo luận cho tác giả OLN</a>
+                <div class="subtitle-category none-m">
+                  <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                  <a href="//">Thảo luận</a>
+                </div>
+            </td>
+
+            <td class="col-md-3 col-lg-2 d-none d-md-block">
+              <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                <a href="/">Thảo luận</a>
+            </td>
+
+            <td class="col-1 d-none col-lg-2 d-lg-block">7090</td>
+            <!-- <td class="col-md-2 col-lg-1 d-none d-lg-block">474.700</td> -->
+            <td class="col-md-2 col-lg-2 d-none d-md-block">
+              <time class="topic-time timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+            </td>
+            <td class="col-4 col-md-3 col-lg-2 text-right">
+              <div class="topic-avatar none block-m">
+                <img src="./assets/1.jpg">
+              </div>
+              <div class="topic-username block-m">
+                <a href="/">Piggy</a>
+                <time class="topic-time block none-m timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="d-flex">
+
+            <td class="col-8 col-md-4 col-lg-4 col-xl-4">
+              <a class="topic-title" href="/"><i class="fa fa-star"></i> Thảo luận cho tác giả OLN</a>
+                <div class="subtitle-category none-m">
+                  <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                  <a href="//">Thảo luận</a>
+                </div>
+            </td>
+
+            <td class="col-md-3 col-lg-2 d-none d-md-block">
+              <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                <a href="/">Thảo luận</a>
+            </td>
+
+            <td class="col-1 d-none col-lg-2 d-lg-block">7090</td>
+            <!-- <td class="col-md-2 col-lg-1 d-none d-lg-block">474.700</td> -->
+            <td class="col-md-2 col-lg-2 d-none d-md-block">
+              <time class="topic-time timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+            </td>
+            <td class="col-4 col-md-3 col-lg-2 text-right">
+              <div class="topic-avatar none block-m">
+                <img src="./assets/1.jpg">
+              </div>
+              <div class="topic-username block-m">
+                <a href="/">Piggy</a>
+                <time class="topic-time block none-m timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="d-flex">
+
+            <td class="col-8 col-md-4 col-lg-4 col-xl-4">
+              <a class="topic-title" href="/"><i class="fa fa-star"></i> Thảo luận cho tác giả OLN</a>
+                <div class="subtitle-category none-m">
+                  <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                  <a href="//">Thảo luận</a>
+                </div>
+            </td>
+
+            <td class="col-md-3 col-lg-2 d-none d-md-block">
+              <span class="category-circle"><i class="fa fa-circle" aria-hidden="true" style="color: #1ee865"></i></span>
+                <a href="/">Thảo luận</a>
+            </td>
+
+            <td class="col-1 d-none col-lg-2 d-lg-block">7090</td>
+            <!-- <td class="col-md-2 col-lg-1 d-none d-lg-block">474.700</td> -->
+            <td class="col-md-2 col-lg-2 d-none d-md-block">
+              <time class="topic-time timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+            </td>
+            <td class="col-4 col-md-3 col-lg-2 text-right">
+              <div class="topic-avatar none block-m">
+                <img src="./assets/1.jpg">
+              </div>
+              <div class="topic-username block-m">
+                <a href="/">Piggy</a>
+                <time class="topic-time block none-m timeago" title="07-04-2023 13:31:13" datetime="2023-04-07T13:31:13+07:00">2 giờ</time>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+

@@ -1,0 +1,394 @@
+/* background and avatar */
+
+.profile-feature-wrapper {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.profile-feature {
+  background-color: hsla(0,0%,100%,.9);
+  border-color: #e4e5e7 #dadbdd hsla(210,4%,80%,.8);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+}
+
+.profile-feature .profile-cover {
+  background-color: #fff;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+}
+
+.fourone-ratio {
+  position: relative;
+}
+
+.fourone-ratio::before {
+  content: "";
+  display: block;
+  padding-top: 25%;
+  width: 100%;
+}
+
+.profile-feature .profile-cover .img-in-ratio {
+  background-position: inherit;
+  background-size: 100% auto;
+}
+
+.fourone-ratio>.content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.img-in-ratio {
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.img-in-ratio {
+  background-size: 100% 100%;
+}
+
+#profile-changer_cover {
+  top: 0;
+}
+.profile-changer {
+  color: #fff;
+  cursor: pointer;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 0 0 4px #999;
+  width: 100%;
+  z-index: 9;
+}
+
+// .none {
+//   display: none;
+// }
+
+.profile-feature .profile-nav {
+  padding: 10px;
+  position: relative;
+}
+
+.profile-feature .profile-ava-wrapper {
+  bottom: 10px;
+  left: 20px;
+  position: absolute;
+}
+
+.profile-feature .profile-ava {
+  background-color: #fff;
+  border-radius: 100px;
+  box-shadow: 0 0 4px #333;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+}
+
+.profile-feature .profile-ava img {
+  display: block;
+  width: 100%;
+}
+
+img, svg {
+  vertical-align: middle;
+}
+
+img {
+  border-style: none;
+}
+
+.profile-feature .profile-function.at-desktop {
+  float: right;
+  line-height: 60px;
+  padding-left: 20px;
+}
+
+.profile-feature .profile-function.at-desktop .button:last-child {
+  margin-right: 0;
+}
+
+.profile-feature .profile-function.at-desktop .button {
+  margin-right: 10px;
+}
+
+.button-green {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+}
+
+.button-red {
+  background-color: red;
+  border-color: red;
+  color: #fff;
+}
+
+.button-green i {
+  margin-right: 5px;
+}
+
+.button-red i {
+  margin-right: 5px;
+}
+
+.button {
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: normal;
+  padding: 6px 20px;
+  transition: all .3s;
+}
+
+.button-green:hover {
+  color: #333;
+  background-color: gainsboro;
+}
+
+.button-red:hover {
+  color: #333;
+  background-color: gainsboro;
+}
+
+a {
+  -webkit-text-decoration-skip: objects;
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.profile-feature .profile-intro {
+  color: #fff;
+  padding-left: 180px;
+}
+
+h3 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+  font-size: 22px;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.profile-feature .profile-intro_role {
+  background-color: #36a189;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 20px;
+}
+
+.profile-feature .profile-function.at-mobile {
+  border-top: 1px solid #d4dae2;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 788px) {
+  .none-m {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 789px) {
+  .none {
+    display: none;
+  }
+}
+
+/* info left side */
+
+.basic-section {
+  margin-bottom: 20px;
+}
+
+.basic-section {
+  background-color: hsla(0,0%,100%,.9);
+  border-color: #e4e5e7 #dadbdd hsla(210,4%,80%,.8);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+}
+
+.clear::before {
+  content: " ";
+  display: table;
+}
+
+.statistic-top {
+  border-bottom: 1px solid #d4dae2;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.statistic-top .statistic-value {
+  font-weight: 600;
+  text-align: center;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.statistic-top .statistic-name {
+  color: rgba(0,0,0,.4);
+  text-align: center;
+  font-size: 14px;
+}
+
+section.basic-section main {
+  padding: 10px;
+}
+
+.profile-info-item {
+  padding-bottom: 4px;
+}
+
+.profile-info-item .info-name {
+  color: rgba(0,0,0,.4);
+  font-size: 14px;
+}
+
+.profile-info-item .info-value {
+  font-size: 14px;
+}
+
+.profile-info-item .info-name i {
+  text-align: center;
+  width: 20px;
+}
+
+/* main content */
+
+.profile-showcase {
+  margin-bottom: 20px;
+}
+
+.profile-showcase header {
+  border-bottom: 4px solid #111;
+  margin-bottom: 20px;
+}
+
+.profile-showcase header span.number {
+  background-color: #111;
+  color: #fff;
+  margin-right: 10px;
+  padding: 6px 10px;
+}
+
+.profile-showcase header span {
+  display: inline-block;
+  font-weight: 600;
+}
+
+.profile-showcase header span {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.showcase-item {
+  margin-bottom: 20px;
+  background-color: hsla(0,0%,100%,.9);
+  border-color: #e4e5e7 #dadbdd hsla(210,4%,80%,.8);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+}
+
+.a6-ratio {
+  position: relative;
+}
+
+.a6-ratio::before {
+  content: "";
+  display: block;
+  padding-top: 143.3333333333%;
+  width: 100%;
+}
+
+.a6-ratio>.content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.img-contain-ratio, .img-in-ratio {
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.img-in-ratio {
+  background-size: 100% 100%;
+}
+
+.showcase-item .series-info {
+  padding: 10px 10px 10px 0;
+}
+
+.showcase-item .series-type-wrapper {
+  margin-bottom: 4px;
+}
+
+.showcase-item .series-type.type-translation {
+  background-color: #36a189;
+}
+
+.showcase-item small.series-type {
+  border-radius: 2px;
+  color: #fff;
+  padding: 0 10px;
+}
+
+small {
+  font-size: 14px;
+  line-height: 18px;
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.showcase-item .series-name {
+  max-height: 48px;
+  overflow: hidden;
+}
+
+h5 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.1em;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.showcase-item .series-status {
+  // margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.showcase-item .series-status .status-name {
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.showcase-item .series-status .status-item {
+  margin-top: 5px;
+}

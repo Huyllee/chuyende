@@ -1,0 +1,41 @@
+<div class="wrapper login">
+  <div class="container">
+      <div class="col-left">
+          <div class="login-text">
+              <h2>Welcome!</h2>
+              <p>Create your account.<br>For Free!</p> <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}" class="btn">Sign Up</a>
+          </div>
+      </div>
+      <div class="col-right">
+          <div class="login-form">
+              <h2>Login</h2>
+              <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="line">
+                    <label>Email address<span>*</span></label>
+                    <input type="email" name="email" [formControl]="email" placeholder="Email" required>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                      <span class="error-text" *ngIf="email.errors?.['required']">Email is required.</span>
+                      <span class="error-text" *ngIf="email.errors?.['email']">Please enter a valid email.</span>
+                    </div>
+                  </div>
+                  <div class="line">
+                    <label>Password<span>*</span></label>
+                    <input type="password" name="password" [formControl]="password" placeholder="Password" required>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+                      <span class="error-text" *ngIf="password.errors?.['required']">Password is required.</span>
+                      <span class="error-text" *ngIf="password.errors?.['minlength']">Password must contain at least 8 characters.</span>
+                      <!-- <div class="error-text" *ngIf="password.errors?.['pattern']">Password cannot contain whitespace</div> -->
+                    </div>
+                  </div>
+                  <div class="submit-btn">
+                    <button class="btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+                  </div>
+                  <div class="forgot-pass">
+                    <a routerLink="/">Forgot password?</a>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+

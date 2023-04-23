@@ -1,0 +1,72 @@
+<div class="page-top-group ">
+  <a href="/">
+    <div class="index-background d-none d-lg-block" style="background-image: url('./assets/bg.png')"></div>
+    <div class="index-background d-lg-none" style="background-image: url('./assets/bg.jpg'); background-size: cover"></div>
+  </a>
+</div>
+
+<div id="mainpart" class="search-page" style="min-height: 640px;">
+  <header class="page-title">
+    <div class="page-name_wrapper">
+      <div class="container">
+        <span class="page-name"><i class="fa fa-circle"></i>Tìm kiếm</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-form_wrapper">
+    <div class="container">
+      <form class="search-form clear">
+        <div class="row">
+          <input #s id="search-page-input" class="search-form in col-8 col-md-10 col-lg-10" type="text" placeholder="Tối thiểu 2 kí tự" name="keywords" size="40"
+            (keyup.enter)="search(s.value)"
+            [value]="searchTerm">
+          <input (click)="search(s.value)" id="search-go" class="search-go_form search-form submit col-4 col-md-2 col-lg-2" type="submit" value="Tìm kiếm">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="basic-section has-pagination">
+      <main class="sect-body">
+        <div class="row">
+
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let novel of novels">
+            <div class="thumb-wrapper ln-tooltip">
+              <a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">
+                <div class="a6-ratio">
+                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/{{ novel.cover_image }}');"></div>
+                </div>
+              </a>
+              <div class="thumb-detail" *ngFor="let chapter of chapters.slice(-1)">
+                <div *ngFor="let volume of volumes.slice(0, 1)">
+                  <div *ngIf="novel.novel_id === volume.volume_id">
+                    <div class="thumb_attr chapter-title" title="{{ chapter.title }}"><a routerLink="/novel-detail/{{ chapter.chapter_id }}" title="{{ chapter.title }}">{{ chapter.title }}</a></div>
+                    <div class="thumb_attr volume-title" *ngIf="chapter.volume_id === volume.volume_id">{{ volume.volume_title }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="thumb_attr series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></div>
+          </div>
+
+        </div>
+      </main>
+
+      <div class="pagination-footer">
+        <div class="pagination_wrap">
+
+        <a href="/" class="paging_item paging_prevnext prev  disabled ">Đầu</a>
+        <a href="/" class="paging_item page_num  current ">1</a>
+        <a href="/" class="paging_item page_num ">2</a>
+        <a href="/" class="paging_item page_num ">3</a>
+        <a href="/" class="paging_item page_num ">4</a>
+        <a href="/" class="paging_item page_num ">5</a>
+
+        <a href="/" class="paging_item paging_prevnext next ">Cuối</a>
+        </div>
+        </div>
+    </section>
+  </div>
+</div>

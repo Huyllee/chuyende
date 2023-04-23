@@ -1,0 +1,130 @@
+<div class="profile-feature-wrapper">
+  <div class="container">
+    <div class="profile-feature">
+      <div class="profile-cover">
+        <div class="fourone-ratio">
+          <div class="content img-in-ratio" style="background-image: url('./assets/banner-book.jpg');"></div>
+        </div>
+        <div id="profile-changer_cover" class="profile-changer none block-m"></div>
+      </div>
+      <div class="profile-nav">
+        <div class="profile-ava-wrapper">
+          <div class="profile-ava">
+            <img src="./assets/user-profile-default.png">
+          </div>
+        </div>
+        <div class="profile-function at-desktop none block-m">
+          <a href="/" class="button to-contact button-green"><i class="fa fa-paper-plane"></i> Liên hệ</a>
+        </div>
+        <div class="profile-intro">
+          <h3 class="profile-intro_name">{{ user.full_name }}</h3>
+          <span class="profile-intro_role role-mem">Members</span>
+        </div>
+        <div class="profile-function at-mobile none-m">
+          <a href="/" class="button to-contact button-green"><i class="fa fa-paper-plane"></i> Liên hệ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-3">
+
+      <section class="basic-section clear">
+        <ul class="statistic-top row">
+          <li class="col-6">
+            <div id="history" class="statistic-value">{{ count }}</div>
+            <div class="statistic-name">Đang theo dõi</div>
+          </li>
+
+          <li class="col-6">
+            <div id="value" class="statistic-value">0</div>
+            <div class="statistic-name">Truyện đã đọc</div>
+          </li>
+        </ul>
+
+        <main class="sect-body">
+          <!-- <div class="profile-info-item">
+            <span class="info-name"><i class="fa fa-history"></i> Tên cũ:</span>
+            <ul style="margin: 5px 0; font-size: 14px;">
+              <li>dragonfist31</li>
+            </ul>
+          </div> -->
+
+          <div class="profile-info-item">
+            <span class="info-name"><i class="fa fa-calendar"></i> Ngày sinh: </span><span class="info-value">18/07/2001</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="info-name"><i class="fa fa-pencil"></i> Nghề nghiệp: </span><span class="info-value">IT</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="info-name"><i class="fa fa-send"></i> Email: </span><span class="info-value">{{ users.email }}</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="info-name"><i class="fa fa-calendar"></i> Tham gia: </span><span class="info-value">{{ users.created | date: 'dd/MM/yyyy' }}</span>
+          </div>
+
+        </main>
+      </section>
+    </div>
+
+    <div class="col-12 col-md-12 col-lg-9 col-xl-9">
+      <section class="profile-showcase">
+        <header>
+          <span id="number" class="number">{{ count }}</span>
+          <span class="showcase-title">Danh sách yêu thích</span>
+        </header>
+        <div class="row">
+
+          <div class="col-12 col-md-6" *ngFor="let favorite of favorites">
+            <div class="showcase-item count-1">
+              <div class="row">
+                <div class="series-cover col-4">
+                  <div class="a6-ratio">
+                    <div class="content img-in-ratio" style="background-image: url('./assets/{{ favorite.cover_image }}')"></div>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="series-info">
+                    <div class="series-type-wrapper">
+                      <small class="series-type type-translation">Truyện dịch</small>
+                    </div>
+                    <h5 class="series-name"><a routerLink="/novel/{{ favorite.novel_id }}">{{ favorite.title }}</a></h5>
+                  </div>
+                  <div class="series-status">
+                  <!-- <div class="status-item">
+                    <span class="status-name">Tình trạng:</span>
+                    <span class="status-value">Đang tiến hành</span>
+                  </div> -->
+                  <!-- <div class="status-item">
+                    <span class="status-name">Lần cuối:</span>
+                    <span class="status-value"><time class="timeago" title="{{ novel.updated_at | date: 'dd/MM/yyyy - HH:mm:ss' }}">{{ novel.updated_at | date: 'dd/MM/yyyy' }}</time> </span>
+                  </div> -->
+                  <div class="delete-btn">
+                    <a (click)="delete(favorite.favorite_id)" class="button to-contact button-red"><i class="fa fa-close"></i> Xoá</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </section>
+
+      <!-- <section class="profile-showcase">
+        <header>
+          <span id="count" class="number">0</span>
+          <span class="showcase-title">Lịch sử đọc</span>
+        </header>
+        <div class="row">
+          <span>Không có truyện nào</span>
+
+        </div>
+      </section> -->
+    </div>
+  </div>
+
+</div>

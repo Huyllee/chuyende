@@ -1,0 +1,633 @@
+<!-- <main id="mainpart" class="at-index" style="min-height: 640px;"></main> -->
+<div class="container">
+  <div class="row">
+    <div class="no-push col-12 push-2-l col-8-l">
+      <div id="announcements" class="index-top_notification">
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Cải tiến về Tìm kiếm</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  Cyan">Giới thiệu truyện bạn trên fanpage Hako.re của CLN</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  Orange">BÌNH CHỌN TRUYỆN SÁNG TÁC 2.0 KỲ 8</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Donate hỗ trợ Cổng LN</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Không đăng Manga</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  blue">(HAKO FAQs) NHỮNG CÂU HỎI THƯỜNG GẶP TRÊN HAKO</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color: #eee;">Thử nghiệm thông báo chương mới</a>
+        </div>
+        <div class="annoucement-item">
+          <a routerLink="/" style=" color:  red">Quy định chung đối với các dự án đăng tại Cổng Light Novel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <div class="daily-recent_views">
+
+        <header class="title">
+          <span class="top-tab_title title-active"><i class="fa fa-trophy"></i> Nổi bật</span>
+          <span class="top-tab_title"><a routerLink="/">Top tháng</a></span>
+          <span class="top-tab_title"><a routerLink="/">Toàn t/gian</a></span>
+        </header>
+
+        <owl-carousel-o [options]="customOptions">
+          <ng-container id="tns1">
+            <ng-template carouselSlide *ngFor="let novel of novels.slice(0,8)">
+              <div class="slide mainBlock">
+                <a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">
+                  <div class="content img-in-ratio" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+                  <div class="imgText">
+                    <p>{{ novel.title }}</p>
+                  </div>
+                </a>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+
+    </div>
+    </div>
+
+    <div class="col-12 col-lg-3">
+      <section class="last-topics index-section">
+        <header class="section-title">
+          <a href=""><span class="sts-bold">Thảo</span><span class="sts-empty">Luận</span></a>
+        </header>
+
+        <main>
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #28e1e8; margin-right: 4px;"></i>
+                <a href="/">"Con game R18 này thật điên rồ!" - World build độc đáo và những giả thuyết của một độc giả qua đường</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="31-03-2023 14:30:43" datetime="2023-03-31T14:30:43+07:00">1 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #1ee865; margin-right: 4px;"></i>
+                <a href="" title="Thảo luận cho tác giả OLN">Thảo luận cho tác giả OLN</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="31-03-2023 14:20:02" datetime="2023-03-31T14:20:02+07:00">1 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #1ee865; margin-right: 4px;"></i>
+                <a href="/" title="Hỏi Truyện từ A>Z. Góc 8 nhảm cho dịch giả 2.0">Hỏi Truyện từ A&gt;Z. Góc 8 nhảm cho dịch giả 2.0</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="31-03-2023 12:16:13" datetime="2023-03-31T12:16:13+07:00">3 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #eb1d57; margin-right: 4px;"></i>
+                <a href="/" title="Quy Định Đối Với Truyện Sáng Tác - OLN">Quy Định Đối Với Truyện Sáng Tác - OLN</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="31-03-2023 06:12:10" datetime="2023-03-31T06:12:10+07:00">9 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #e01bb4; margin-right: 4px;"></i>
+                <a href="/" title="Give away for my homies !!!">Give away for my homies !!!</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="31-03-2023 01:51:27" datetime="2023-03-31T01:51:27+07:00">14 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #eb1d57; margin-right: 4px;"></i>
+                <a href="/" title="Báo cáo bình luận">Báo cáo bình luận</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="30-03-2023 22:40:43" datetime="2023-03-30T22:40:43+07:00">17 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #28e1e8; margin-right: 4px;"></i>
+                <a href="/" title="R18 - Siêu phẩm OLN game trên Hako hay là Bom xịt Clickbait với minh họa G cup?">R18 - Siêu phẩm OLN game trên Hako hay là Bom xịt Clickbait với minh họa G cup?</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="30-03-2023 22:16:06" datetime="2023-03-30T22:16:06+07:00">17 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #1ee865; margin-right: 4px;"></i>
+                <a href="/" title="Phòng hỗ trợ dịch thuật">Phòng hỗ trợ dịch thuật</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="30-03-2023 20:58:10" datetime="2023-03-30T20:58:10+07:00">19 giờ</time>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-item">
+            <div class="row">
+              <div class="col-9 line-ellipsis">
+                <i class="fa fa-circle" style="color: #eb1d57; margin-right: 4px;"></i>
+                <a href="/" title="Trang yêu cầu xóa truyện/tập/chương">Trang yêu cầu xóa truyện/tập/chương</a>
+              </div>
+              <div class="col-3 topic-data text-right">
+                <time class="timeago" title="30-03-2023 19:17:41" datetime="2023-03-30T19:17:41+07:00">20 giờ</time>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <section class="index-sections thumb-section-flow last-chapter translation three-row">
+
+        <header class="section-title">
+          <span class="sts-bold">Chương</span><span class="sts-empty">mới nhất</span>
+        </header>
+
+        <main class="row">
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let chapter of chapters.slice(0, 16)">
+            <div class="mainBlocks">
+              <a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">
+                <div class="content img-in-ratio" style="background-image: url('./assets/{{ chapter.cover_image }}')"></div>
+                  <div class="imgTexts">
+                    <p style="text-align: left;">{{ chapter.title }}</p>
+                    <p class="volume-title" style="text-align: left;">{{ chapter.volume_title }}</p>
+                  </div>
+              </a>
+            </div>
+            <div class="thumb_attr series-title"><a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">{{ chapter.novel_title }}</a></div>
+          </div>
+
+
+          <div class="thumb-item-flow col-4 col-lg-2 see-more">
+            <div class="mainBlocks">
+              <div class="a6-ratio">
+                <div class="content img-in-ratio" style="background-image: url('');"></div>
+              </div>
+                <a href="/">
+                  <div class="thumb-see-more">
+                    <div class="see-more-inside">
+                      <div class="see-more-content">
+                        <div class="see-more-icon"><i class="fa fa-arrow-circle-right"></i></div>
+                        <div class="see-more-text">Xem thêm</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            </div>
+          </div>
+
+        </main>
+      </section>
+
+      <section class="index-sections thumb-section-flow last-chapter original one-row">
+        <header class="section-title"><span class="sts-bold">Sáng tác</span><span class="sts-empty">Mới Nhất</span></header>
+
+        <main class="row">
+          <div class="thumb-item-flow col-4 col-lg-2" *ngFor="let novel of novels.slice(0,5)">
+            <div class="mainBlocks">
+              <a routerLink="/novel/{{ novel.novel_id }}"  title="{{ novel.title }}">
+                <div class="content img-in-ratio" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+                <div class="imgTexts">
+                  <p>Try to write a short paragraph here as a long paragraph will cover most of the image area and covering the entire image with text is not praise worthy.</p>
+                  <p class="volume-titles">Type your text here that you want to place over an image.</p>
+                </div>
+              </a>
+            </div>
+            <div class="thumb_attr series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></div>
+          </div>
+
+
+          <div class="thumb-item-flow col-4 col-lg-2 see-more">
+            <div class="mainBlocks">
+              <div class="a6-ratio">
+                <div class="content img-in-ratio" style="background-image: url('');"></div>
+              </div>
+                <a href="/">
+                  <div class="thumb-see-more">
+                    <div class="see-more-inside">
+                      <div class="see-more-content">
+                        <div class="see-more-icon"><i class="fa fa-arrow-circle-right"></i></div>
+                        <div class="see-more-text">Xem thêm</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            </div>
+          </div>
+
+        </main>
+      </section>
+    </div>
+
+    <div class="col-12 col-lg-3">
+      <div class="d-none d-lg-block">
+        <section id="reading-history" class="index-section">
+
+          <header class="section-title">
+            <a href="/">
+              <span class="sts-bold">Truyện</span><span class="sts-empty">vừa đọc</span>
+            </a>
+          </header>
+
+          <main class="sect-body">
+
+            <div class="row ml-1 mb-3">
+              <div class="col-2 col-md-1 col-lg-2 a6-ratio">
+                <div class="img-contain-ratio content" style="background-image: url('./assets/1.jpg')"></div>
+              </div>
+              <div class="col-8 col-md-9 col-lg-8">
+                <a href="/" class="text-truncate block font-weight-bold">Tensei shitara doragon no tamago datta ~ saikyō igai mezasane ~e ~</a>
+                <div class="small mb-3 text-truncate">Quyển 15</div>
+                <a href="/" class="text-truncate block">Chương 699 – Cô gái và hướng đi cho Thành phố thánh (Góc nhìn từ Miria)</a>
+              </div>
+            </div>
+
+            <div class="row ml-1 mb-3">
+              <div class="col-2 col-md-1 col-lg-2 a6-ratio">
+                <div class="img-contain-ratio content" style="background-image: url('./assets/2.jpg')"></div>
+              </div>
+              <div class="col-8 col-md-9 col-lg-8">
+                <a href="/" class="text-truncate block font-weight-bold">Joshiryou no Kanrinin wo suru koto ni natta Ore, Sunderu Joshi no Reberu ga tonikaku Takasugiru Ken. Konna no Najimeru wake ga nai</a>
+                <div class="small mb-3 text-truncate">WN</div>
+                <a href="" class="text-truncate block">Chương 2: Những thành viên của ký túc xá nữ</a>
+              </div>
+            </div>
+
+            <div class="row ml-1 mb-3">
+              <div class="col-2 col-md-1 col-lg-2 a6-ratio">
+                <div class="img-contain-ratio content" style="background-image: url('./assets/3.jpg')"></div>
+              </div>
+              <div class="col-8 col-md-9 col-lg-8">
+                <a href="/" class="text-truncate block font-weight-bold">Joshiryou no Kanrinin wo suru koto ni natta Ore, Sunderu Joshi no Reberu ga tonikaku Takasugiru Ken. Konna no Najimeru wake ga nai</a>
+                <div class="small mb-3 text-truncate">WN</div>
+                <a href="" class="text-truncate block">Chương 2: Những thành viên của ký túc xá nữ</a>
+              </div>
+            </div>
+
+            <div class="row ml-1 mb-3">
+              <div class="col-2 col-md-1 col-lg-2 a6-ratio">
+                <div class="img-contain-ratio content" style="background-image: url('./assets/5.jpg')"></div>
+              </div>
+              <div class="col-8 col-md-9 col-lg-8">
+                <a href="/" class="text-truncate block font-weight-bold">Joshiryou no Kanrinin wo suru koto ni natta Ore, Sunderu Joshi no Reberu ga tonikaku Takasugiru Ken. Konna no Najimeru wake ga nai</a>
+                <div class="small mb-3 text-truncate">WN</div>
+                <a href="" class="text-truncate block">Chương 2: Những thành viên của ký túc xá nữ</a>
+              </div>
+            </div>
+
+          </main>
+        </section>
+      </div>
+
+
+      <section id="recent-comments" class="index-section">
+        <header class="section-title">
+          <span class="sts-bold">Bình luận</span><span class="sts-empty">gần đây</span>
+        </header>
+
+        <main class="sect-body pr-5">
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="comment-item-at-index">
+            <div class="comment-info">
+              <span class="series-name"><a href="/">Có Vẻ Như Cô Em Gái Thằng Bạn Thân Sẽ Trở Thành Hình Mẫu Lý Tưởng Cho Bộ Truyện Khiêu Dâm Của Tôi</a></span>
+              <div class="comment-content">
+                Thua
+              </div>
+
+              <div class="comment-top">
+                <div class="comment-user_ava">
+                  <a href="/"><img src="./assets/1.jpg" alt="Commenter's avatar"></a>
+                </div>
+                <a href="/" rel="nofollow" class="comment-user_name strong">NNT-GÀ</a>
+                <small class="comment-location">
+                  <a href="/"><time class="timeago" title="01-04-2023 09:36:56" datetime="2023-04-01T09:36:56+07:00">37 phút</time></a>
+                </small>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-part at-index">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 col-lg-9">
+        <section class="index-sections new-series">
+          <header class="section-title"><span class="sts-bold">Truyện</span><span class="sts-empty">Vừa Đăng</span></header>
+
+          <main class="sect-body">
+            <div class="row">
+
+              <article class="list-item col-12 col-lg-6" *ngFor="let novel of newNovel.slice(0,8)">
+                <div class="row">
+                  <div class="col-4 col-md-3 col-lg-4 a6-ratio">
+                    <div class="series-cover">
+                      <a routerLink="/novel/{{ novel.novel_id }}">
+                        <div class="img-contain-ratio content" style="background-image: url('./assets/{{novel.cover_image}}')"></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-8 col-md-9 col-lg-8">
+                    <div class="list-detail">
+                      <h4 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}">{{ novel.title }}</a></h4>
+                      <div class="series-summary">{{ novel.description }}</div>
+                      <div class="lastest-chapter"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </main>
+
+
+          <div class="see-more_cover">
+            <a class="see-more" href="/">
+              <i class="fa fa-hand-o-right"></i>Xem thêm
+            </a>
+          </div>
+        </section>
+      </div>
+
+
+      <div class="col-12 col-md-4 col-lg-3">
+        <section class="index-section rank-cirle most-followed">
+          <header class="section-title">
+            <span class="sts-bold">Theo dõi</span><span class="sts-empty">nhiều</span>
+          </header>
+
+          <main>
+            <div class="rank-circle-item" *ngFor="let novel of novels.slice(0,3)">
+              <span class="rank-number">{{ novel.novel_id }}</span>
+              <div class="series-detail clear">
+                <div class="series-cover">
+                  <div class="a6-ratio">
+                    <div class="img-contain-ratio content" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+                  </div>
+                </div>
+                <h5 class="series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+                <small class="rank-count">11,393 theo dõi</small>
+              </div>
+            </div>
+
+            <div class="rank-circle-item" *ngFor="let novel of novels.slice(3,10)">
+              <span class="rank-number">{{ novel.novel_id }}</span>
+              <div class="series-detail clear">
+                <h5 class="series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+                <small class="rank-count">11,393 theo dõi</small>
+              </div>
+            </div>
+
+          </main>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pad-top-40">
+  <section class="index-sections js-finished-series">
+    <header class="section-title">
+      <span class="sts-bold">Truyện</span><span class="sts-empty">đã hoàn thành</span>
+    </header>
+
+    <owl-carousel-o [options]="customOptions2">
+      <ng-container id="tns1">
+        <ng-template class="series-slide" carouselSlide *ngFor="let novel of novels.slice(0,16)">
+          <div class="slide slide-mainBlock">
+            <a routerLink="/"  title="{{ novel.title }}">
+              <div class="content img-in-ratio" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+              <div class="imgTexts">
+                <p>Try to write a short paragraph here as a long paragraph will cover most of the image area and covering the entire image with text is not praise worthy.</p>
+                <p class="volume-titles">Type your text here that you want to place over an image.</p>
+              </div>
+            </a>
+          </div>
+        <div class="thumb_attr series-titles"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></div>
+        </ng-template>
+
+      </ng-container>
+    </owl-carousel-o>
+
+    </section>
+</div>

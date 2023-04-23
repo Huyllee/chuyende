@@ -1,0 +1,83 @@
+<div class="page-top-group ">
+  <a href="/">
+    <div class="index-background d-none d-lg-block" style="background-image: url('./assets/bg.png')"></div>
+    <div class="index-background d-lg-none" style="background-image: url('./assets/bg.jpg'); background-size: cover"></div>
+  </a>
+</div>
+
+<div id="mainpart" class="browser-page" style="min-height: 1040px;">
+  <div style="text-align: center; margin: 0 auto 10px auto;"></div>
+  <div class="container">
+    <div class="page-breadcrumb">
+      <span class="breadcrum-level"><a routerLink="/"><i class="fa fa-home"></i></a></span>
+      <span class="next-icon"><i class="fa fa-chevron-right"></i></span>
+      <span class="breadcrum-level"><a routerLink="/">Danh sách</a></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row d-block clear">
+
+      <div class="col-12 none d-lg-block col-lg-3 float-right filters-wrapper" [style]="currentStyle">
+        <div class="none-l pad-bottom-20 text-right pad-top-20">
+          <span [class]="closeSpan" (click)="buttonClose()">Tắt bộ lọc</span>
+        </div>
+
+        <section class="sub-index-style">
+          <div class="title-wrapper">
+            <div class="section-title">Phân loại</div>
+          </div>
+          <div class="section-content">
+            <ul class="filter-type unstyled clear" *ngFor="let category of categories">
+              <li class="filter-type_item"><a routerLink="/category/{{ category.category_name }}">{{ category.category_name }}</a></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-12 float-left col-lg-9">
+        <section class="thumb-section-flow">
+          <div class="filter-container pad-bottom-10">
+            <div class="text-right inline-block-m right-m none-l">
+              <span [class]="currentSpan" (click)="changeClass()"><i class="fa fa-filter" style="margin-right: 10px;"></i>Bộ lọc</span>
+            </div>
+          </div>
+        </section>
+
+        <main class="row">
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2"  *ngFor="let novel of novels">
+            <div class="thumb-wrapper ln-tooltip">
+              <a href="/" title="Oneshot">
+                <div class="a6-ratio">
+                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/{{ novel.cover_image }}');"></div>
+                </div>
+              </a>
+              <div class="thumb-detail">
+                <div class="thumb_attr chapter-title" title="Oneshot"><a href="/" title="Oneshot">Oneshot</a></div>
+                <div class="thumb_attr volume-title">Oneshot</div>
+              </div>
+            </div>
+            <div class="thumb_attr series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></div>
+          </div>
+
+
+        </main>
+
+        <!-- <div class="pagination-footer">
+          <div class="pagination_wrap">
+
+          <a href="/" class="paging_item paging_prevnext prev disabled ">Đầu</a>
+          <a href="/" class="paging_item page_num  current ">1</a>
+          <a href="/" class="paging_item page_num ">2</a>
+          <a href="/" class="paging_item page_num ">3</a>
+          <a href="/" class="paging_item page_num ">4</a>
+          <a href="/" class="paging_item page_num ">5</a>
+
+          <a href="/" class="paging_item paging_prevnext next">Cuối</a>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</div>

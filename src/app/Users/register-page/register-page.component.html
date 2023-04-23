@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="title">Register</div>
+  <div class="content">
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <div class="user-details">
+        <div class="input-box">
+          <label class="details">Fullname<span>*</span></label>
+          <input type="fullname" [formControl]="fullname" name="fullname" placeholder="Nhập fullname" required>
+          <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert">
+            <span class="error-text" *ngIf="fullname.errors?.['required']">Fullname is required.</span>
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="details">Email<span>*</span></label>
+          <input type="email" [formControl]="email" name="email" placeholder="Nhập email" required>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+            <span class="error-text" *ngIf="email.errors?.['required']">Email is required.</span>
+            <span class="error-text" *ngIf="email.errors?.['email']">Please enter a valid email.</span>
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="details">Password<span>*</span></label>
+          <input type="password" [formControl]="password" name="password" placeholder="Nhập password" required>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+            <span class="error-text" *ngIf="password.errors?.['required']">Password is required.</span>
+            <span class="error-text" *ngIf="password.errors?.['minlength']">Password must contain at least 8 characters.</span>
+            <!-- <div class="error-text" *ngIf="password.errors?.['pattern']">Password cannot contain whitespace</div> -->
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="details">Confirm Password<span>*</span></label>
+          <input type="password" [formControl]="repassword" name="repassword" placeholder="Nhập lại password" required>
+          <div *ngIf="repassword.invalid && (repassword.dirty || repassword.touched)" class="alert">
+            <span class="error-text" *ngIf="repassword.errors?.['required']">Password is required.</span>
+            <span class="error-text" *ngIf="repassword.errors?.['minlength']">Password must contain at least 8 characters.</span>
+            <span class="error-text" *ngIf="repassword.hasError('mismatch')">Password did not match</span>
+            <!-- <div class="error-text" *ngIf="password.errors?.['pattern']">Password cannot contain whitespace</div> -->
+          </div>
+        </div>
+      </div>
+      <div class="button">
+        <button class="btn" type="submit" [disabled]="registerForm.invalid">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
