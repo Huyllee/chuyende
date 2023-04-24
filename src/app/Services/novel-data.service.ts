@@ -111,6 +111,10 @@ export class NovelDataService {
     return this.http.get<chaptersById[]>(`/api/novel/get/chaptersByVolumeId/${id}`);
   }
 
+  getNovelsByTag(tag: string): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/novelByTag/${tag}`);
+  }
+
   getAudio(id: string): Observable<Audio[]> {
     return this.http.get<Audio[]>(`/api/novel/get/audio/${id}`);
   }

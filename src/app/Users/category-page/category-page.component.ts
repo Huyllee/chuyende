@@ -42,22 +42,22 @@ export class CategoryPageComponent {
 
     this.categoryService.getCategories().subscribe(categories => this.categories = categories);
 
-    let novelsObservalbe: Observable<Novel[]>;
+    let novelsObservalbe: Observable<chaptersById[]>;
     activatedRoute.params.subscribe((params) => {
       if ((params && params['genre'])) {
-        novelsObservalbe = this.categoryService.getNovelByCategories(params['genre'])
+        novelsObservalbe = this.categoryService.getNovelsByTag(params['genre'])
       }
       else {
-        novelsObservalbe = this.categoryService.getNovels();
+        novelsObservalbe = this.categoryService.getNewChapters();
       }
-      novelsObservalbe.subscribe((novels) => {
-        this.novels = novels;
-        console.log(novels[0].artist);
+      novelsObservalbe.subscribe((res) => {
+        this.chapters = res;
+        // console.log(novels[0].artist);
       })
 
-      this.categoryService.getNewChapters().subscribe(chapters => {
-        this.chapters = chapters;
-      });
+      // this.categoryService.getNewChapters().subscribe(chapters => {
+      //   this.chapters = chapters;
+      // });
   });
 }
 
