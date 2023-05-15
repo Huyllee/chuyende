@@ -48,4 +48,8 @@ export class VolumeDetailAdminPageComponent {
       console.log(this.volumeDetail);
     })
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }

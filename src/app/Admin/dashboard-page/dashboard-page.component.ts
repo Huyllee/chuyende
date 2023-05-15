@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Novel, chaptersById, rating } from 'src/app/Model/novel';
 import { User } from 'src/app/Model/users';
+import { AdminApiService } from 'src/app/Services/admin-api.service';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
 import { UserDataService } from 'src/app/Services/user-data.service';
 
@@ -24,7 +25,7 @@ export class DashboardPageComponent {
     this.status = !this.status;
   }
 
-  constructor(private userService: UserDataService, private novelService: NovelDataService) {
+  constructor(private userService: UserDataService, private adminService: AdminApiService, private novelService: NovelDataService) {
     userService.getUsers().subscribe((users) => {
       const totalUsers = users.reduce((sum: number, user: User) => {
         return sum + 1;
@@ -79,4 +80,7 @@ export class DashboardPageComponent {
     })
   }
 
+  logout(){
+    this.adminService.logout();
+  }
 }

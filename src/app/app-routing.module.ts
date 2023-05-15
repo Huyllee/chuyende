@@ -26,6 +26,8 @@ import { VolumeDetailAdminPageComponent } from './Admin/volume-detail-admin-page
 import { CreateChapterPageComponent } from './Admin/create-chapter-page/create-chapter-page.component';
 import { ChapterDetailAdminPageComponent } from './Admin/chapter-detail-admin-page/chapter-detail-admin-page.component';
 import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
+import { AuthAdminGuard } from './Auth/Guards/auth-admin.guard';
 
 const routes: Routes = [
   /* route user */
@@ -41,35 +43,35 @@ const routes: Routes = [
   { path: 'discussion', component: DiscussionPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
-
+  { path: 'admin/login', component: AdminLoginComponent },
 
   /* route admin */
-  { path: 'admin', component: DashboardPageComponent },
+  { path: 'admin', component: DashboardPageComponent, canActivate: [AuthAdminGuard] },
 
-  { path: 'admin/novels', component: NovelAdminPageComponent },
-  { path: 'admin-novel-detail/:id', component: NovelDetailAdminPageComponent },
-  { path: 'admin-create-novel', component: CreateNovelsPageComponent },
-  { path: 'admin-update-novel/:id', component: CreateNovelsPageComponent },
+  { path: 'admin/novels', component: NovelAdminPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-novel-detail/:id', component: NovelDetailAdminPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-create-novel', component: CreateNovelsPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-update-novel/:id', component: CreateNovelsPageComponent, canActivate: [AuthAdminGuard] },
 
-  { path: 'admin/users', component: UsersAdminPageComponent },
-  { path: 'admin-create-user', component: CreateUsersPageComponent },
+  { path: 'admin/users', component: UsersAdminPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-create-user', component: CreateUsersPageComponent, canActivate: [AuthAdminGuard] },
   // { path: 'admin-update-user/:id', component: CreateUsersPageComponent },
-  { path: 'admin-user-detail/:id', component: UserDeitailAdminPageComponent },
+  { path: 'admin-user-detail/:id', component: UserDeitailAdminPageComponent, canActivate: [AuthAdminGuard] },
 
-  { path: 'admin/genre', component: GenreAdminPageComponent },
-  { path: 'admin-create-genre', component: CreateGenrePageComponent },
-  { path: 'admin-update-genre/:id', component: CreateGenrePageComponent },
-  { path: 'admin-genre-detail/:id', component: GenreDetailAdminPageComponent },
+  { path: 'admin/genre', component: GenreAdminPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-create-genre', component: CreateGenrePageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-update-genre/:id', component: CreateGenrePageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-genre-detail/:id', component: GenreDetailAdminPageComponent, canActivate: [AuthAdminGuard] },
 
-  { path: 'admin/volumes', component: VolumeAdminPageComponent },
-  { path: 'admin-create-volume', component: CreateVolumePageComponent },
-  { path: 'admin-update-volume/:id', component: CreateVolumePageComponent },
-  { path: 'admin-volume-detail/:id', component: VolumeDetailAdminPageComponent },
+  { path: 'admin/volumes', component: VolumeAdminPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-create-volume', component: CreateVolumePageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-update-volume/:id', component: CreateVolumePageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-volume-detail/:id', component: VolumeDetailAdminPageComponent, canActivate: [AuthAdminGuard] },
 
-  { path: 'admin/chapters', component: ChaptersAdminPageComponent },
-  { path: 'admin-create-chapter', component: CreateChapterPageComponent },
-  { path: 'admin-update-chapter/:id', component: CreateChapterPageComponent },
-  { path: 'admin-chapter-detail/:id', component: ChapterDetailAdminPageComponent },
+  { path: 'admin/chapters', component: ChaptersAdminPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-create-chapter', component: CreateChapterPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-update-chapter/:id', component: CreateChapterPageComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-chapter-detail/:id', component: ChapterDetailAdminPageComponent, canActivate: [AuthAdminGuard] },
 
   {path: '**', component: PageNotFoundComponent},
 ];

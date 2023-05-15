@@ -82,6 +82,7 @@ export class chaptersById {
   cover_image!: string;
   content!: string;
   volume!: number;
+  audio!: string;
   created_at!: string;
   updated_at!: string;
   ok!: boolean

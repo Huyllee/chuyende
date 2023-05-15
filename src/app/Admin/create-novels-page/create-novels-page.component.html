@@ -124,7 +124,7 @@
                   <label class="col-md-2 control-label pt-7 text-right">Ảnh Bìa</label>
                   <div class="col-md-8">
                     <!-- <form> -->
-                    <input class="file" type="file" ng2FileSelect (change)="onFileSelected($event)" formControlName="cover_image"/><br/>
+                    <input class="file" type="file" (change)="onFileSelected($event)"/><br/>
 
                   </div>
                 </div>
@@ -136,7 +136,7 @@
                     <mat-form-field appearance="outline">
                       <mat-label>Chọn thể loại </mat-label>
                       <mat-select multiple formControlName="categories_id">
-                        <mat-option *ngFor="let category of categories" [value]="[ category.category_id ]">
+                        <mat-option *ngFor="let category of categories" [value]="category.category_id">
                           {{ category.category_name }}
                         </mat-option>
                       </mat-select>

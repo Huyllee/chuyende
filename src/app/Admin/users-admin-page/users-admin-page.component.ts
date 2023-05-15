@@ -97,4 +97,7 @@ export class UsersAdminPageComponent {
 
   }
 
+  logout(){
+    this.AdminService.logout();
+  }
 }

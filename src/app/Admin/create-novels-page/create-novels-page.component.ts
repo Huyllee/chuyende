@@ -6,6 +6,7 @@ import { AdminApiService } from 'src/app/Services/admin-api.service';
 import { NgToastService } from 'ng-angular-popup';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
 import { Categories, Novel, newNovel } from 'src/app/Model/novel';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-create-novels-page',
@@ -21,6 +22,7 @@ export class CreateNovelsPageComponent {
   public isUpdateActive: boolean = false;
   categories: Categories[] = [];
   novel!: Novel;
+  fileTemp: any;
 
   addToggle()
   {
@@ -35,7 +37,8 @@ export class CreateNovelsPageComponent {
     private novelService: NovelDataService,
     private router: Router,
     private toastService: NgToastService,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
+    private fireStogre: AngularFireStorage,
     ) {
     // this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
     //   console.log('FileUpload:uploaded:', item, status, response);
@@ -75,8 +78,20 @@ export class CreateNovelsPageComponent {
 
   }
 
-  submit() {
-    this.adminService.postNovel(this.createNovelForm.value).subscribe(res => {
+  async submit() {
+    const file = this.createNovelForm.get('cover_image')?.value;
+
+    let novelImageUrl = '';
+    if (file) {
+      const path = `novel/${file.name}`;
+      const upload = await this.fireStogre.upload(path, file);
+      novelImageUrl = await upload.ref.getDownloadURL();
+    }
+    const formData = {...this.createNovelForm.value, cover_image: novelImageUrl};
+    console.log(formData);
+
+
+    this.adminService.postNovel(formData).subscribe(res => {
       if (res.ok === true) {
         this.toastService.success({ detail: "Success", summary: "Novel created successfully", duration: 3000 });
         this.createNovelForm.reset();
@@ -85,8 +100,25 @@ export class CreateNovelsPageComponent {
   }
 
 
-  update() {
-    this.adminService.updateNovel(this.createNovelForm.value, this.novelIdUpdate).subscribe(res => {
+  async update() {
+    if (!this.createNovelForm.valid) {
+      this.createNovelForm.markAllAsTouched();
+      this.toastService.error({ detail: "Error", summary: "Xin vui lòng điền đầy đủ", duration: 3000 });
+      return;
+    }
+
+    const file = this.fileTemp;
+    let novelImageUrl = this.novel.cover_image;
+    if (file) {
+      const path = `novel/${file.name}`;
+      const upload = await this.fireStogre.upload(path, file);
+      novelImageUrl = await upload.ref.getDownloadURL();
+    }
+    const formData = {...this.createNovelForm.value, cover_image: novelImageUrl};
+    console.log(formData);
+
+
+    this.adminService.updateNovel(formData, this.novelIdUpdate).subscribe(res => {
       if (res.ok === true) {
         this.toastService.success({ detail: "Success", summary: "Novel updated successfully", duration: 3000 });
         this.createNovelForm.reset();
@@ -97,10 +129,18 @@ export class CreateNovelsPageComponent {
   }
 
 
+  // onFileSelected(event: any) {
+  //   const file = event.target.files[0];
+  //   const fileName = file.name;
+  //   this.createNovelForm.get('cover_image')!.setValue(fileName);
+  // }
+
   onFileSelected(event: any) {
-    const file = event.target.files[0];
-    const fileName = file.name;
-    this.createNovelForm.get('cover_image')!.setValue(fileName);
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.createNovelForm.get('cover_image')!.setValue(file);
+      this.fileTemp = file;
+    }
   }
 
   fillFormUpdate(novel: Novel) {
@@ -112,6 +152,10 @@ export class CreateNovelsPageComponent {
       cover_image: novel.cover_image,
       categories_id: novel.categories_id,
     })
+  }
+
+  logout(){
+    this.adminService.logout();
   }
 }
 

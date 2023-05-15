@@ -52,4 +52,7 @@ export class NovelDetailAdminPageComponent implements OnInit {
     })
   }
 
+  logout(){
+    this.AdminService.logout();
+  }
 }

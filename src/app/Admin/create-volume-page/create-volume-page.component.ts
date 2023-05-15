@@ -99,4 +99,8 @@ export class CreateVolumePageComponent {
       cover_image: volumes.cover_image,
     })
   }
+
+  logout(){
+    this.adminService.logout();
+  }
 }

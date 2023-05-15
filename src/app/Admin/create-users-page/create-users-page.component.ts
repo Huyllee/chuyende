@@ -127,4 +127,8 @@ export class CreateUsersPageComponent {
       }
     };
   }
+
+  logout(){
+    this.adminService.logout();
+  }
 }

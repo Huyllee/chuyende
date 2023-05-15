@@ -93,4 +93,8 @@ export class ChaptersAdminPageComponent {
   );
 
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }

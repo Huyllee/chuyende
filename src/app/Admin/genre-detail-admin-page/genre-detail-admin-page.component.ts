@@ -39,4 +39,8 @@ export class GenreDetailAdminPageComponent {
       console.log(this.genreDetail);
     })
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }
