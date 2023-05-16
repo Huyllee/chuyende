@@ -16,7 +16,7 @@ export class User{
   password!:string;
   full_name!:string;
   token!:string;
-  role!:number;
+  role!:string;
   created!:string;
   updated!:string;
   ok!: boolean;
