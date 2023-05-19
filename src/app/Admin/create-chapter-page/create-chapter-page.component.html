@@ -94,13 +94,13 @@
               <form [formGroup]="createChaptersForm">
 
                 <div class="form-group clearfix required">
-                  <label class="col-md-2 control-label pt-7 text-right">Tên Novel</label>
+                  <label class="col-md-2 control-label pt-7 text-right">Tên Volume</label>
                   <div class="col-md-8">
 
                     <mat-form-field appearance="outline">
-                      <mat-label>Which of the following is important to you ? </mat-label>
+                      <mat-label>Chọn volume </mat-label>
                       <mat-select formControlName="volume">
-                        <mat-option *ngFor="let volume of volumes" [value]="[ volume.volume_id ]">
+                        <mat-option *ngFor="let volume of volumes" [value]="volume.volume_id">
                           {{ volume.volume_title }}
                         </mat-option>
                       </mat-select>

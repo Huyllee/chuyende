@@ -20,7 +20,7 @@
 
           <div class="audio">
             <h4 class="audio_title">Audio:</h4>
-            <audio src="./assets/audio/{{ audio[0].url }}" controls="controls" style="height: 30px; flex: 1 1 100px;"></audio>
+            <audio src="{{ audio[0].url }}" controls="controls" style="height: 30px; flex: 1 1 100px;"></audio>
 
           </div>
 
@@ -38,7 +38,6 @@
               <img src="./assets/banner-book.jpg" class="d-md-none" style="width: 100%; height: auto">
             </a>
 
-            <button (click)="startReading()">Đọc</button>
           </div>
 
           <div style="text-align: center; margin: 20px auto 10px auto;"></div>

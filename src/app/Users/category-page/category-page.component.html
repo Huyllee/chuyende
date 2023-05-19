@@ -49,7 +49,7 @@
             <div class="thumb-wrapper ln-tooltip">
               <a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">
                 <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/{{ chapter.cover_image }}');"></div>
+                  <div class="content img-in-ratio lazyloaded" style="background-image: url('{{ chapter.cover_image }}');"></div>
                 </div>
               </a>
               <div class="thumb-detail">

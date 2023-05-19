@@ -1,10 +1,16 @@
-// .index-top_notification {
-//   background-color: #1f1f1f;
-//   border-color: #1f1f1f #111 #0a0a0a;
-//   border-style: solid;
-//   border-width: 1px;
-//   box-shadow: none;
-// }
+/* banner */
+
+.page-top-group {
+  padding-top: 46px;
+}
+
+.index-background {
+  background: rgba(199,203,209,.3) url('/src/assets/home-banner.png') no-repeat 50%;
+  height: 180px;
+  width: 100%;
+}
+
+/* top_notification */
 
 .index-top_notification {
   background-color: rgba(227,229,232,.5);
@@ -26,6 +32,10 @@
 }
 
 /*carousel*/
+
+.layour {
+  margin-top: 50px;
+}
 
 .daily-recent_views .top-tab_title.title-active {
   background-color: rgba(25,26,26,.8);
@@ -620,8 +630,8 @@ img {
   white-space: nowrap;
 }
 
-.thumb-item-flow .thumb_attr.chapter-title {
-  overflow: hidden;
+.thumb-item-flow .thumb_attr.chapter-titles, .thumb_attr.volume-titles {
+  // overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -830,4 +840,77 @@ h5.series-title a:hover {
     width: 200px;
     height: 250px;
   }
+}
+
+/* email */
+
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 0px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.newsletter_section {
+  width: 100%;
+  float: left;
+  // background-image: url(/src/assets/newsletter-bg.png);
+  height: auto;
+  padding-bottom: 90px;
+  background-size: 100%;
+}
+
+.newsletter_text {
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.box_main {
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: auto;
+  padding: 40px;
+  display: table;
+}
+
+.dummy_text {
+  width: 100%;
+  float: left;
+  font-size: 16px;
+  color: #ececec;
+  margin: 0px;
+  text-align: left;
+}
+
+.mail_main {
+  width: 100%;
+  display: flex;
+  padding-top: 20px;
+}
+
+.email_text {
+  width: 100%;
+  float: left;
+  font-size: 18px;
+  color: #929191;
+  background-color: #ffffff;
+  padding: 5px 15px;
+  border: 0px !important;
+}
+
+input.email_text::placeholder {
+  color: #929191;
+}
+
+.right_arrow {
+  width: 8%;
+  background-color: #df9911;
+  height: auto;
+  padding: 10px 10px;
 }

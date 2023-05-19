@@ -121,7 +121,7 @@
           <!-- bmiResult Column -->
           <ng-container matColumnDef="cover_image">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Cover image </th>
-            <td mat-cell *matCellDef="let row"> <img src="./assets/{{row.cover_image}}" style="max-width: 100px;"> </td>
+            <td mat-cell *matCellDef="let row"> <img src="{{row.cover_image}}" style="max-width: 100px;"> </td>
           </ng-container>
 
           <!-- gender Column -->

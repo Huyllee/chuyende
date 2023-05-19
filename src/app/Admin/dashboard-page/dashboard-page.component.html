@@ -124,7 +124,7 @@
           <tbody *ngFor="let novel of novels.slice(0, 5)">
             <tr>
               <td>
-                <img src="./assets/{{ novel.cover_image }}">
+                <img src="{{ novel.cover_image }}">
                 <p>{{ novel.title | limitTo: 25 }}</p>
               </td>
               <td>{{ novel.updated_at | date: 'dd/MM/yyyy' }}</td>

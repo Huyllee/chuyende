@@ -49,8 +49,8 @@ export class CreateChapterPageComponent {
     this.createChaptersForm = this.fb.group({
       volume: this.volume,
       title: this.title,
-      content: this.content,
       audio: this.audio,
+      content: this.content,
     })
 
     this.novelService.getVolumes().subscribe(volumes => this.volumes = volumes);
@@ -104,7 +104,7 @@ export class CreateChapterPageComponent {
       const upload = await this.fireStogre.upload(path, file);
       chapterNovelUrl = await upload.ref.getDownloadURL();
     }
-    const formData = {...this.createChaptersForm.value, cover_image: chapterNovelUrl};
+    const formData = {...this.createChaptersForm.value, audio: chapterNovelUrl};
     console.log(formData);
 
     this.adminService.updateChapter(formData, this.chapterIdUpdate).subscribe(res => {

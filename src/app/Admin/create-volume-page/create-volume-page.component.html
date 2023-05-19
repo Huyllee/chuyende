@@ -98,9 +98,9 @@
                   <div class="col-md-8">
 
                     <mat-form-field appearance="outline">
-                      <mat-label>Which of the following is important to you ? </mat-label>
+                      <mat-label>Chọn tiểu thuyết </mat-label>
                       <mat-select formControlName="novels">
-                        <mat-option *ngFor="let novel of novels" [value]="[ novel.novel_id ]">
+                        <mat-option *ngFor="let novel of novels" [value]="novel.novel_id">
                           {{ novel.title }}
                         </mat-option>
                       </mat-select>
@@ -119,8 +119,7 @@
                 <div class="form-group clearfix">
                   <label class="col-md-2 control-label pt-7 text-right">Ảnh Bìa</label>
                   <div class="col-md-8">
-                    <!-- <form> -->
-                    <input class="file" type="file" ng2FileSelect (change)="onFileSelected($event)" formControlName="cover_image"/><br/>
+                    <input class="file" type="file" (change)="onFileSelected($event)"/><br/>
 
                   </div>
                 </div>
