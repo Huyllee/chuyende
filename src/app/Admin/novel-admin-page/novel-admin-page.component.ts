@@ -100,4 +100,8 @@ export class NovelAdminPageComponent implements OnInit {
   );
 
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }

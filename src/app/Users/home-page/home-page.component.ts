@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
-import { Novel } from 'src/app/Model/novel';
+import { Novel, chaptersById, volumeById } from 'src/app/Model/novel';
+import { volumes } from 'src/app/Model/novel';
 
 @Component({
   selector: 'app-home-page',
@@ -64,11 +65,37 @@ export class HomePageComponent implements OnInit {
   }
 
   novels: Novel[] = [];
+  topNovels: Novel[] = [];
+  newNovel: Novel[] = [];
+  volumes: volumes[] = [];
+  chapters: chaptersById[] = [];
 
   constructor(private novelService: NovelDataService) {}
 
   ngOnInit(): void {
-    this.novelService.getNovels().subscribe(novels => this.novels = novels)
+    this.novelService.getNovels().subscribe(novels => this.novels = novels);
+
+    this.novelService.getTopRatings().subscribe(res => {
+      this.topNovels = res;
+    });
+
+    this.novelService.getNewChapters().subscribe(chapters => {
+      this.chapters = chapters;
+    });
+
+    this.novelService.getAllNovels().subscribe(res => {
+      this.newNovel = res;
+      this.newNovel.sort((a, b) => {
+        if (a.updated_at && b.updated_at) {
+          return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+        } else {
+          return 0;
+        }
+      });
+      console.log(this.newNovel);
+    })
+
+
   }
 
 }

@@ -5,6 +5,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { Novel, volumes } from 'src/app/Model/novel';
 import { AdminApiService } from 'src/app/Services/admin-api.service';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-create-volume-page',
@@ -14,7 +15,7 @@ import { NovelDataService } from 'src/app/Services/novel-data.service';
 export class CreateVolumePageComponent {
   //Sidebar toggle show hide function
   status = false;
-
+  fileTemp: any;
   createVolumeForm!: FormGroup;
   volumeIdUpdate!: number;
   public isUpdateActive: boolean = false;
@@ -32,7 +33,8 @@ export class CreateVolumePageComponent {
     private novelService: NovelDataService,
     private router: Router,
     private toastService: NgToastService,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
+    private fireStogre: AngularFireStorage,
     ) {
 
   }
@@ -64,8 +66,19 @@ export class CreateVolumePageComponent {
 
   }
 
-  submit() {
-    this.adminService.postVolume(this.createVolumeForm.value).subscribe(res => {
+  async submit() {
+    const file = this.createVolumeForm.get('cover_image')?.value;
+
+    let volumeImageUrl = '';
+    if (file) {
+      const path = `volumes/${file.name}`;
+      const upload = await this.fireStogre.upload(path, file);
+      volumeImageUrl = await upload.ref.getDownloadURL();
+    }
+    const formData = {...this.createVolumeForm.value, cover_image: volumeImageUrl};
+    console.log(formData);
+
+    this.adminService.postVolume(formData).subscribe(res => {
       if (res.ok === true) {
         this.toastService.success({ detail: "Success", summary: "Volume created successfully", duration: 3000 });
         this.createVolumeForm.reset();
@@ -74,8 +87,24 @@ export class CreateVolumePageComponent {
   }
 
 
-  update() {
-    this.adminService.updateVolume(this.createVolumeForm.value, this.volumeIdUpdate).subscribe(res => {
+  async update() {
+    if (!this.createVolumeForm.valid) {
+      this.createVolumeForm.markAllAsTouched();
+      this.toastService.error({ detail: "Error", summary: "Xin vui lòng điền đầy đủ", duration: 3000 });
+      return;
+    }
+
+    const file = this.fileTemp;
+    let volumeImageUrl = this.volumes.cover_image;
+    if (file) {
+      const path = `volumes/${file.name}`;
+      const upload = await this.fireStogre.upload(path, file);
+      volumeImageUrl = await upload.ref.getDownloadURL();
+    }
+    const formData = {...this.createVolumeForm.value, cover_image: volumeImageUrl};
+    console.log(formData);
+
+    this.adminService.updateVolume(formData, this.volumeIdUpdate).subscribe(res => {
       if (res.ok === true) {
         this.toastService.success({ detail: "Success", summary: "Volume updated successfully", duration: 3000 });
         this.createVolumeForm.reset();
@@ -86,10 +115,11 @@ export class CreateVolumePageComponent {
   }
 
   onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    const fileName: string = file.name;
-    this.createVolumeForm.get('cover_image')!.setValue(fileName);
-    console.log(fileName);
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.createVolumeForm.get('cover_image')!.setValue(file);
+      this.fileTemp = file;
+    }
   }
 
   fillFormUpdate(volumes: volumes) {
@@ -98,5 +128,9 @@ export class CreateVolumePageComponent {
       volume_title: volumes.volume_title,
       cover_image: volumes.cover_image,
     })
+  }
+
+  logout(){
+    this.adminService.logout();
   }
 }

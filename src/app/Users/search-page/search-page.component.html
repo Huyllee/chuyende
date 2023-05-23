@@ -18,7 +18,7 @@
     <div class="container">
       <form class="search-form clear">
         <div class="row">
-          <input #s id="search-page-input" class="search-form in col-8 col-md-10 col-lg-10" type="text" placeholder="Tối thiểu 2 kí tự" name="keywords" size="40"
+          <input #s id="search-page-input" class="search-form in col-8 col-md-10 col-lg-10" type="text" placeholder="Search..." name="keywords" size="40"
             (keyup.enter)="search(s.value)"
             [value]="searchTerm">
           <input (click)="search(s.value)" id="search-go" class="search-go_form search-form submit col-4 col-md-2 col-lg-2" type="submit" value="Tìm kiếm">
@@ -32,29 +32,24 @@
       <main class="sect-body">
         <div class="row">
 
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let novel of novels">
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let chapter of chapters">
             <div class="thumb-wrapper ln-tooltip">
-              <a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">
+              <a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">
                 <div class="a6-ratio">
-                  <div class="content img-in-ratio lazyloaded" style="background-image: url('./assets/{{ novel.cover_image }}');"></div>
+                  <div class="content img-in-ratio lazyloaded" style="background-image: url('{{ chapter.cover_image }}');"></div>
                 </div>
               </a>
-              <div class="thumb-detail" *ngFor="let chapter of chapters.slice(-1)">
-                <div *ngFor="let volume of volumes.slice(0, 1)">
-                  <div *ngIf="novel.novel_id === volume.volume_id">
-                    <div class="thumb_attr chapter-title" title="{{ chapter.title }}"><a routerLink="/novel-detail/{{ chapter.chapter_id }}" title="{{ chapter.title }}">{{ chapter.title }}</a></div>
-                    <div class="thumb_attr volume-title" *ngIf="chapter.volume_id === volume.volume_id">{{ volume.volume_title }}</div>
-                  </div>
-                </div>
+              <div class="thumb-detail">
+                <div class="thumb_attr chapter-title" title="{{ chapter.title }}"><a routerLink="/novel-detail/{{ chapter.chapter_id }}" title="{{ chapter.title }}">{{ chapter.title }}</a></div>
+                <div class="thumb_attr volume-title">{{ chapter.volume_title }}</div>
               </div>
+              <div class="thumb_attr series-title"><a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">{{ chapter.novel_title }}</a></div>
             </div>
-            <div class="thumb_attr series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></div>
           </div>
-
         </div>
       </main>
 
-      <div class="pagination-footer">
+      <!-- <div class="pagination-footer">
         <div class="pagination_wrap">
 
         <a href="/" class="paging_item paging_prevnext prev  disabled ">Đầu</a>
@@ -66,7 +61,7 @@
 
         <a href="/" class="paging_item paging_prevnext next ">Cuối</a>
         </div>
-        </div>
+      </div> -->
     </section>
   </div>
 </div>

@@ -184,6 +184,12 @@ section.basic-section main {
   color: #36a189;
 }
 
+.thumb-item-flow .thumb_attr.chapter-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* paginative */
 
 .has-pagination .pagination-footer {

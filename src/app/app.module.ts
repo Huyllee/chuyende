@@ -7,6 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { EditorModule } from '@tinymce/tinymce-angular';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { NgToastModule } from 'ng-angular-popup';
 import { NgConfirmModule } from 'ng-confirm-box';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -61,7 +64,9 @@ import { ChapterDetailAdminPageComponent } from './Admin/chapter-detail-admin-pa
 import { LimitToPipe } from './Layouts/limit-to.pipe';
 import { PageNotFoundComponent } from './Users/page-not-found/page-not-found.component';
 import { RatingComponent } from './Layouts/rating/rating.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -97,7 +102,8 @@ import { RatingComponent } from './Layouts/rating/rating.component';
     ChapterDetailAdminPageComponent,
     LimitToPipe,
     PageNotFoundComponent,
-    RatingComponent
+    RatingComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -125,7 +131,9 @@ import { RatingComponent } from './Layouts/rating/rating.component';
 
     NgToastModule,
     NgConfirmModule,
-    FileUploadModule
+    FileUploadModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <input type="email" name="email" [formControl]="email" placeholder="Enter your email" required>
+        <input type="password" name="password" [formControl]="password" placeholder="Enter your password" required>
+        <a href="#">Forgot password?</a>
+        <div class="submit-btn">
+          <button class="btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+        </div>
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

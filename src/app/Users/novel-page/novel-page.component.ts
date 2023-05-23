@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
-import { Novel, Categories, novelById, tagById, volumeById, chaptersById, favorites, rating } from 'src/app/Model/novel';
+import { Novel, Categories, novelById, tagById, volumeById, chaptersById, favorites, rating, volumes } from 'src/app/Model/novel';
 import { User } from 'src/app/Model/users';
 import { UserDataService } from 'src/app/Services/user-data.service';
 import { NgToastService } from 'ng-angular-popup';
@@ -47,7 +47,7 @@ export class NovelPageComponent {
 
   novels: novelById[] = [];
   categories: tagById[] = [];
-  volumes: volumeById[] = [];
+  volumes: volumes[] = [];
   chapters: chaptersById[] = [];
   user!: User;
   users!: User[];

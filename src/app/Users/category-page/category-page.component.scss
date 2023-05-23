@@ -166,6 +166,12 @@ a {
   font-weight: 700;
 }
 
+.thumb-item-flow .thumb_attr.volume-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .thumb-item-flow .thumb_attr.chapter-title a:hover {
   color: #36a189;
 }

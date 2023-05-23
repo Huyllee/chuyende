@@ -42,10 +42,12 @@ export class AppComponent {
       case url === '/novel-detail' || url.startsWith('/novel-detail'):
         this.isAdmin = true;
         break;
-      // case url === '/register'|| url.startsWith('/register'):
-      //   this.showBanner = false;
-      //   this.showFooter = false;
-      //   break;
+      case url === '/register'|| url.startsWith('/register'):
+        this.isAdmin = true;
+        break;
+      case url === '/login'|| url.startsWith('/login'):
+        this.isAdmin = true;
+        break;
       // default:
       //   this.showBanner = false;
       //   this.showFooter = true;

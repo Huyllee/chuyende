@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Novel, chaptersById, volumeById } from 'src/app/Model/novel';
+import { Novel, chaptersById, volumeById, volumes } from 'src/app/Model/novel';
 import { ActivatedRoute } from '@angular/router';
 import { AdminApiService } from 'src/app/Services/admin-api.service';
 import { NovelDataService } from 'src/app/Services/novel-data.service';
@@ -13,7 +13,7 @@ export class NovelDetailAdminPageComponent implements OnInit {
 
   novelID!: number;
   novelDetail!: Novel;
-  volumes: volumeById[] = [];
+  volumes: volumes[] = [];
   chapters: chaptersById[] = [];
   //Sidebar toggle show hide function
   status = false;
@@ -52,4 +52,7 @@ export class NovelDetailAdminPageComponent implements OnInit {
     })
   }
 
+  logout(){
+    this.AdminService.logout();
+  }
 }

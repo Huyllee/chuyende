@@ -28,7 +28,7 @@
                   </div>
 
                   <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/{{ novels[0].cover_image }}')"></div>
+                    <div class="content img-in-ratio" style="background-image: url('{{ novels[0].cover_image }}')"></div>
                   </div>
                 </div>
               </div>
@@ -84,24 +84,6 @@
                       </a>
                     </div>
 
-                    <!-- <div class="col-4 col-md feature-item width-auto-xl">
-                      <div class="series-rating rated">
-                        <label for="open-rating" class="side-feature-button button-rate">
-                          <span class="block feature-value"><i class="fa fa-star"></i></span>
-                          <span class="block feature-name">Đánh giá</span>
-                        </label>
-
-                        <input type="checkbox" id="open-rating" />
-                        <div class="series-evaluation clear" >
-                          <span class="star-evaluate-item star-5" data-value="5"><i class="fa fa-star"></i></span>
-                          <span class="star-evaluate-item star-4" data-value="4"><i class="fa fa-star"></i></span>
-                          <span class="star-evaluate-item star-3" data-value="3"><i class="fa fa-star"></i></span>
-                          <span class="star-evaluate-item star-2" data-value="2"><i class="fa fa-star"></i></span>
-                          <span class="star-evaluate-item star-1" data-value="1"><i class="fa fa-star"></i></span>
-                        </div>
-                      </div>
-                    </div> -->
-
                     <div class="col-4 col-md feature-item width-auto-xl">
                       <div class="catalog-icon side-feature-button">
                         <span class="block feature-value"><i class="fa fa-list"></i></span>
@@ -140,38 +122,13 @@
 
           <div class="bottom-part">
             <div class="row">
-              <div class="col-12">
-                <div class="row statistic-list">
-
-                  <div class="col-12 col-md-3 statistic-item block-wide at-mobile">
-                    <div class="statistic-name">Lần cuối</div>
-                    <div class="statistic-value"><time class="timeago" title="31/03/2023 22:26:00" datetime="2023-03-31T22:26:00+07:00">3 ngày</time></div>
-                  </div>
-
-                  <div class="col-4 col-md-3 statistic-item">
-                    <div class="statistic-name">Số từ</div>
-                    <div class="statistic-value">660.166</div>
-                  </div>
-
-                  <div class="col-4 col-md-3 statistic-item">
-                    <div class="statistic-name">Đánh giá</div>
-                    <div class="statistic-value">1181</div>
-                  </div>
-
-                  <div class="col-4 col-md-3 statistic-item">
-                    <div class="statistic-name">Lượt xem</div>
-                    <div class="statistic-value">2.774.821</div>
-                  </div>
-
-                </div>
-              </div>
 
               <div class="summary-wrapper other-facts col-12">
                 <div class="fact-item">
                   <div class="fact-name">Tên khác:</div>
                   <div class="fact-value">
-                    <div class="block pad-bottom-5">Mamahaha no Tsurego ga Motokano datta</div>
-                    <div class="block pad-bottom-5">Tsurekano</div>
+                    <div class="block pad-bottom-5">{{ novels[0].title }}</div>
+                    <div class="block pad-bottom-5">{{ novels[0].author }}</div>
                   </div>
                 </div>
               </div>
@@ -202,7 +159,7 @@
           <section class="series-users">
             <main>
               <div class="series-owner group-mem">
-                <img width="50px" height="50px" src="./assets/1.jpg" alt="Poster's avatar">
+                <img width="50px" height="50px" src="./assets/2.jpg" alt="Poster's avatar">
                 <div class="series-owner-title">
                   <span class="series-owner_name"><a href="/">Shiki Natsume</a></span>
                 </div>
@@ -248,29 +205,6 @@
           </div>
         </main>
       </section>
-
-      <section id="list-vol" class="none list_vol-section">
-        <div class="list-volume-wrapper basic-section">
-          <header class="sect-header"><span class="sect-title">Mục lục</span></header>
-          <span class="list-vol_off">
-            <i class="fa fa-times"></i>
-          </span>
-          <ol class="list-volume unstyled no-margin no-padding">
-            <li data-scrollto="#volume_11944"><span class="list_vol-order">01.</span><span class="list_vol-title">Tập 01 - Tình yêu cũ vẫn chưa chịu kết thúc</span></li>
-            <li data-scrollto="#volume_11945"><span class="list_vol-order">02.</span><span class="list_vol-title">Tập 02 - Cho dù không phải là người yêu đi chăng nữa</span></li>
-            <li data-scrollto="#volume_11946"><span class="list_vol-order">03.</span><span class="list_vol-title">Tập 03 - Nên dừng làm bạn thuở nhỏ thì hơn</span></li>
-            <li data-scrollto="#volume_11947"><span class="list_vol-order">04.</span><span class="list_vol-title">Tập 04 - Tuyên bố nụ hôn đầu</span></li>
-            <li data-scrollto="#volume_12010"><span class="list_vol-order">05.</span><span class="list_vol-title">Tập 05 - Chỉ mỗi cậu duy nhất trên trần đời</span></li>
-            <li data-scrollto="#volume_12805"><span class="list_vol-order">06.</span><span class="list_vol-title">Tập 06 - 6 điều chẳng thể nói lúc ấy</span></li>
-            <li data-scrollto="#volume_14556"><span class="list_vol-order">07.</span><span class="list_vol-title">Tập 07 - Cứ thế này thêm một chút nữa nhé</span></li>
-            <li data-scrollto="#volume_16851"><span class="list_vol-order">08.</span><span class="list_vol-title">Tập 08 - Đã đến lúc nghiêm túc rồi</span></li>
-            <li data-scrollto="#volume_18068"><span class="list_vol-order">09.</span><span class="list_vol-title">Tập 09 - Cầu hôn thôi vẫn là chưa đủ</span></li>
-            <li data-scrollto="#volume_19853"><span class="list_vol-order">10.</span><span class="list_vol-title">Tập 10 - Vươn tay đến là chạm được vào em</span></li>
-            <li data-scrollto="#volume_12355"><span class="list_vol-order">11.</span><span class="list_vol-title">Ngoại truyện</span></li>
-            <li data-scrollto="#volume_18826"><span class="list_vol-order">12.</span><span class="list_vol-title">Con gái mẹ kế là bạn gái hiện tại của tôi</span></li>
-          </ol>
-        </div>
-      </section>
     </div>
 
     <div class="col-12 col-lg-9 float-left">
@@ -290,7 +224,7 @@
               <div class="volume-cover">
                 <a href="/">
                   <div class="a6-ratio">
-                    <div class="content img-in-ratio" style="background-image: url('./assets/{{ volume.cover_image }}')"></div>
+                    <div class="content img-in-ratio" style="background-image: url('{{ volume.cover_image }}')"></div>
                   </div>
                 </a>
               </div>

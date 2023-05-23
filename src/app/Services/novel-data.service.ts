@@ -35,8 +35,8 @@ export class NovelDataService {
     return this.http.get<tagById[]>(`/api/novel/get/novel/tag/${id}`);
   }
 
-  getVolumeById(id: string): Observable<volumeById[]> {
-    return this.http.get<volumeById[]>(`/api/novel/get/novel/volumes/${id}`);
+  getVolumeById(id: string): Observable<volumes[]> {
+    return this.http.get<volumes[]>(`/api/novel/get/novel/volumes/${id}`);
   }
 
   getVolumes(): Observable<volumes[]> {
@@ -53,6 +53,10 @@ export class NovelDataService {
 
   getChapterById(id: string): Observable<chaptersById[]> {
     return this.http.get<chaptersById[]>(`/api/novel/get/chapter/${id}`);
+  }
+
+  getNewChapters(): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/newChapters`);
   }
 
   getAllNovelsBySearchTerm(searchTerm: string) {
@@ -83,8 +87,16 @@ export class NovelDataService {
     return this.http.post<rating>(`/api/novel/post/rating`, {user_id, novel_id, rating_value});
   }
 
+  getAllRatings(): Observable<rating[]> {
+    return this.http.get<rating[]>(`/api/novel/get/allRatings`);
+  }
+
   getRating(novelId: string, userId: number): Observable<rating[]> {
     return this.http.get<rating[]>(`/api/novel/get/ratings/${novelId}/${userId}`);
+  }
+
+  getTopRatings(): Observable<Novel[]> {
+    return this.http.get<Novel[]>(`/api/novel/get/topRatings`);
   }
 
   updateRating(RatingObj: number, novelId: number, userId: string): Observable<rating[]> {
@@ -97,6 +109,10 @@ export class NovelDataService {
 
   getChapterByVolume(id: string): Observable<chaptersById[]> {
     return this.http.get<chaptersById[]>(`/api/novel/get/chaptersByVolumeId/${id}`);
+  }
+
+  getNovelsByTag(tag: string): Observable<chaptersById[]> {
+    return this.http.get<chaptersById[]>(`/api/novel/get/novelByTag/${tag}`);
   }
 
   getAudio(id: string): Observable<Audio[]> {

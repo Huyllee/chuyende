@@ -7,10 +7,9 @@
 
    <div class="logo"><a [routerLink]="['/home']"><img src="./assets/logo.png" width="80px"></a></div>
    <div class="nav">
+    <a routerLink="/home"><button mat-button>Home</button></a>
     <a routerLink="/search"><button mat-button>Tìm kiếm</button></a>
     <a routerLink="/category"><button mat-button>Danh mục</button></a>
-    <a routerLink="/discussion"><button mat-button>Thảo luận</button></a>
-    <a routerLink="/"><button mat-button>Hướng dẫn</button></a>
    </div>
 
    <span class="spacer"></span>
@@ -27,7 +26,7 @@
       <a class="login"><button mat-button>{{user.full_name}} <i class="fa fa-user-circle-o"></i></button></a>
       <div class="menu">
         <a routerLink="/profile">Profile</a>
-        <a (click)="logout()" style="color: red;">Logout</a>
+        <a (click)="logout()" style="color: red;">Logout <i class="fa fa-sign-out"></i></a>
       </div>
     </div>
 
@@ -41,6 +40,11 @@
         <input class="form-control" type="text" placeholder="Search..">
         <i class="fa fa-search"></i>
       </div>
+      <a routerLink="/home">
+        <button mat-button>
+          <span>Home</span>
+        </button>
+      </a>
       <a routerLink="/search">
         <button mat-button>
           <span>Tìm kiếm</span>
@@ -49,16 +53,6 @@
       <a routerLink="/category">
         <button mat-button>
           <span>Danh mục</span>
-        </button>
-      </a>
-      <a routerLink="/discussion">
-        <button mat-button>
-          <span>Thảo luận</span>
-        </button>
-      </a>
-      <a routerLink="/">
-        <button mat-button>
-          <span>Hướng dẫn</span>
         </button>
       </a>
     </mat-sidenav>

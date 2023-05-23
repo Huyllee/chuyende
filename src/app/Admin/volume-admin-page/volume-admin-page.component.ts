@@ -95,4 +95,7 @@ export class VolumeAdminPageComponent {
 
   }
 
+  logout(){
+    this.AdminService.logout();
+  }
 }

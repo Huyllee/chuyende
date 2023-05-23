@@ -89,4 +89,7 @@ export class CreateGenrePageComponent {
     })
   }
 
+  logout(){
+    this.adminService.logout();
+  }
 }

@@ -54,4 +54,8 @@ export class UserDeitailAdminPageComponent {
       console.log(this.userDetail);
     })
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }

@@ -92,4 +92,8 @@ export class GenreAdminPageComponent {
   );
 
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }

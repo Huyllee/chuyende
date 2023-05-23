@@ -1,8 +1,15 @@
-<!-- <main id="mainpart" class="at-index" style="min-height: 640px;"></main> -->
-<div class="container">
+<!-- <div class="page-top-group  at-index ">
+  <a>
+    <div class="index-background d-none d-lg-block" style="background-image: url('./assets/home-banner.png')"></div>
+    <div class="index-background d-lg-none" style="background-image: url('./assets/home-banner.png'); background-size: cover"></div>
+  </a>
+</div> -->
+
+
+<div class="container layour">
   <div class="row">
     <div class="no-push col-12 push-2-l col-8-l">
-      <div id="announcements" class="index-top_notification">
+      <!-- <div id="announcements" class="index-top_notification">
         <div class="annoucement-item">
           <a routerLink="/" style=" color:  red">Cải tiến về Tìm kiếm</a>
         </div>
@@ -29,7 +36,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="row">
     <div class="col-12 col-lg-9">
@@ -46,7 +53,7 @@
             <ng-template carouselSlide *ngFor="let novel of novels.slice(0,8)">
               <div class="slide mainBlock">
                 <a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">
-                  <div class="content img-in-ratio" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+                  <div class="content img-in-ratio" style="background-image: url('{{ novel.cover_image }}')"></div>
                   <div class="imgText">
                     <p>{{ novel.title }}</p>
                   </div>
@@ -62,7 +69,7 @@
     <div class="col-12 col-lg-3">
       <section class="last-topics index-section">
         <header class="section-title">
-          <a href=""><span class="sts-bold">Thảo</span><span class="sts-empty">Luận</span></a>
+          <a href=""><span class="sts-bold">Thông</span><span class="sts-empty">Báo</span></a>
         </header>
 
         <main>
@@ -190,17 +197,17 @@
         </header>
 
         <main class="row">
-          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let novel of novels.slice(0,17)">
+          <div class="thumb-item-flow col-4 col-md-3 col-lg-2" *ngFor="let chapter of chapters.slice(0, 17)">
             <div class="mainBlocks">
-              <a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">
-                <div class="content img-in-ratio" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
-                <div class="imgTexts">
-                  <p>Try to write a short paragraph here as a long paragraph will cover most of the image area and covering the entire image with text is not praise worthy.</p>
-                  <p class="volume-title">Type your text here that you want to place over an image.</p>
-                </div>
+              <a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">
+                <div class="content img-in-ratio" style="background-image: url('{{ chapter.cover_image }}')"></div>
+                  <div class="imgTexts">
+                    <p class="thumb_attr chapter-titles" style="text-align: left;">{{ chapter.title }}</p>
+                    <p class="thumb_attr volume-titles" style="text-align: left;">{{ chapter.volume_title }}</p>
+                  </div>
               </a>
             </div>
-            <div class="thumb_attr series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></div>
+            <div class="thumb_attr series-title"><a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">{{ chapter.novel_title }}</a></div>
           </div>
 
 
@@ -225,7 +232,7 @@
         </main>
       </section>
 
-      <section class="index-sections thumb-section-flow last-chapter original one-row">
+      <!-- <section class="index-sections thumb-section-flow last-chapter original one-row">
         <header class="section-title"><span class="sts-bold">Sáng tác</span><span class="sts-empty">Mới Nhất</span></header>
 
         <main class="row">
@@ -262,11 +269,11 @@
           </div>
 
         </main>
-      </section>
+      </section> -->
     </div>
 
     <div class="col-12 col-lg-3">
-      <div class="d-none d-lg-block">
+      <!-- <div class="d-none d-lg-block">
         <section id="reading-history" class="index-section">
 
           <header class="section-title">
@@ -524,7 +531,36 @@
 
         </main>
       </section>
-    </div>
+    </div> -->
+    <section class="index-section rank-cirle most-followed">
+      <header class="section-title">
+        <span class="sts-bold">Xem</span><span class="sts-empty">nhiều</span>
+      </header>
+
+      <main>
+        <div class="rank-circle-item" *ngFor="let novel of topNovels.slice(0,3)">
+          <span class="rank-number">{{ novel.novel_id }}</span>
+          <div class="series-detail clear">
+            <div class="series-cover">
+              <div class="a6-ratio">
+                <div class="img-contain-ratio content" style="background-image: url('{{ novel.cover_image }}')"></div>
+              </div>
+            </div>
+            <h5 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+            <small class="rank-count">{{ novel.avg_rating }} Lượt xem</small>
+          </div>
+        </div>
+
+        <div class="rank-circle-item" *ngFor="let novel of topNovels.slice(3,10)">
+          <span class="rank-number">{{ novel.novel_id }}</span>
+          <div class="series-detail clear">
+            <h5 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+            <small class="rank-count">{{ novel.avg_rating }} Lượt xem</small>
+          </div>
+        </div>
+
+      </main>
+    </section>
   </div>
 </div>
 
@@ -538,12 +574,12 @@
           <main class="sect-body">
             <div class="row">
 
-              <article class="list-item col-12 col-lg-6" *ngFor="let novel of novels.slice(0,8)">
+              <article class="list-item col-12 col-lg-6" *ngFor="let novel of newNovel.slice(0,8)">
                 <div class="row">
                   <div class="col-4 col-md-3 col-lg-4 a6-ratio">
                     <div class="series-cover">
                       <a routerLink="/novel/{{ novel.novel_id }}">
-                        <div class="img-contain-ratio content" style="background-image: url('./assets/{{novel.cover_image}}')"></div>
+                        <div class="img-contain-ratio content" style="background-image: url('{{novel.cover_image}}')"></div>
                       </a>
                     </div>
                   </div>
@@ -573,28 +609,28 @@
       <div class="col-12 col-md-4 col-lg-3">
         <section class="index-section rank-cirle most-followed">
           <header class="section-title">
-            <span class="sts-bold">Theo dõi</span><span class="sts-empty">nhiều</span>
+            <span class="sts-bold">Đánh giá</span><span class="sts-empty">nhiều</span>
           </header>
 
           <main>
-            <div class="rank-circle-item" *ngFor="let novel of novels.slice(0,3)">
+            <div class="rank-circle-item" *ngFor="let novel of topNovels.slice(0,3)">
               <span class="rank-number">{{ novel.novel_id }}</span>
               <div class="series-detail clear">
                 <div class="series-cover">
                   <div class="a6-ratio">
-                    <div class="img-contain-ratio content" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+                    <div class="img-contain-ratio content" style="background-image: url('{{ novel.cover_image }}')"></div>
                   </div>
                 </div>
-                <h5 class="series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></h5>
-                <small class="rank-count">11,393 theo dõi</small>
+                <h5 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+                <small class="rank-count">{{ novel.avg_rating }} điểm đánh giá</small>
               </div>
             </div>
 
-            <div class="rank-circle-item" *ngFor="let novel of novels.slice(3,10)">
+            <div class="rank-circle-item" *ngFor="let novel of topNovels.slice(3,10)">
               <span class="rank-number">{{ novel.novel_id }}</span>
               <div class="series-detail clear">
-                <h5 class="series-title"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></h5>
-                <small class="rank-count">11,393 theo dõi</small>
+                <h5 class="series-title"><a routerLink="/novel/{{ novel.novel_id }}" title="{{ novel.title }}">{{ novel.title }}</a></h5>
+                <small class="rank-count">{{ novel.avg_rating }} điểm đánh giá</small>
               </div>
             </div>
 
@@ -602,6 +638,21 @@
         </section>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="newsletter_section layout_padding" style="background-image: url(./assets/newsletter-bg.png);">
+  <div class="container">
+     <h1 class="newsletter_text">Subscribe Our New Novels</h1>
+     <div class="box_main">
+        <p class="dummy_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking</p>
+        <div class="mail_main">
+           <input type="text" class="email_text" placeholder="Enter Your email" name="Enter Your email">
+           <div class="right_arrow">
+              <a href="#"><img src="./assets/right-arrow.png"></a>
+           </div>
+        </div>
+     </div>
   </div>
 </div>
 
@@ -613,17 +664,17 @@
 
     <owl-carousel-o [options]="customOptions2">
       <ng-container id="tns1">
-        <ng-template class="series-slide" carouselSlide *ngFor="let novel of novels.slice(0,16)">
+        <ng-template class="series-slide" carouselSlide *ngFor="let chapter of chapters.slice(0,16)">
           <div class="slide slide-mainBlock">
-            <a routerLink="/"  title="{{ novel.title }}">
-              <div class="content img-in-ratio" style="background-image: url('./assets/{{ novel.cover_image }}')"></div>
+            <a routerLink="/novel/{{ chapter.chapter_id }}"  title="{{ chapter.title }}">
+              <div class="content img-in-ratio" style="background-image: url('{{ chapter.cover_image }}')"></div>
               <div class="imgTexts">
-                <p>Try to write a short paragraph here as a long paragraph will cover most of the image area and covering the entire image with text is not praise worthy.</p>
-                <p class="volume-titles">Type your text here that you want to place over an image.</p>
+                <p>{{ chapter.title }}</p>
+                <p class="volume-titles">{{ chapter.volume_title }}</p>
               </div>
             </a>
           </div>
-        <div class="thumb_attr series-titles"><a href="/" title="{{ novel.title }}">{{ novel.title }}</a></div>
+        <div class="thumb_attr series-titles"><a routerLink="/novel/{{ chapter.novel_id }}" title="{{ chapter.novel_title }}">{{ chapter.novel_title }}</a></div>
         </ng-template>
 
       </ng-container>

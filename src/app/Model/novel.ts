@@ -13,6 +13,7 @@ export class Novel {
   title!: string;
   author!: string;
   artist!: string;
+  avg_rating!: number;
   description!: string;
   cover_image!: string;
   category_name!: string[];
@@ -74,10 +75,14 @@ export class volumes {
 export class chaptersById {
   chapter_id!: number;
   volume_id!: number;
+  novel_id!: number;
   volume_title!: string;
+  novel_title!: string;
   title!: string;
+  cover_image!: string;
   content!: string;
   volume!: number;
+  audio!: string;
   created_at!: string;
   updated_at!: string;
   ok!: boolean

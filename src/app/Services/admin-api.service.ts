@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Categories, Novel, chaptersById, newNovel, volumes } from '../Model/novel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../Model/users';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { IUserLogin } from '../Model/users';
+import { NgToastService } from 'ng-angular-popup';
+
+const USER_KEY = 'User';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -12,8 +17,48 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AdminApiService {
+  private userSubject = new BehaviorSubject<User>(this.getUserToLocalStogare());
+  public userObservable:Observable<User>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private storage: AngularFireStorage, private toastService: NgToastService,) {
+    this.userObservable = this.userSubject.asObservable();
+  }
+
+  public get currentUser(): User{
+    return this.userSubject.value;
+  }
+
+  login(userLogin:IUserLogin):Observable<User>{
+    return this.http.post<User>('/api/users/login-admin', userLogin).pipe(
+      tap({
+        next: (user) =>{
+          this.setUserToLocalStogare(user);
+          this.userSubject.next(user);
+          this.toastService.success({ detail: "Success", summary: "Đăng nhập thành công", duration: 3000 });
+          console.log(user);
+        },
+        error: (errorResponse) => {
+          this.toastService.error({ detail: errorResponse.error, summary: 'Đăng nhập thất bại', duration: 3000 });
+        }
+      })
+    );
+  }
+
+  logout(){
+    this.userSubject.next(new User());
+    localStorage.removeItem(USER_KEY);
+    window.location.reload();
+  }
+
+  private setUserToLocalStogare(user:User){
+    localStorage.setItem(USER_KEY, JSON.stringify(user))
+  }
+
+  private getUserToLocalStogare():User{
+    const userJson = localStorage.getItem(USER_KEY)
+    if(userJson) return JSON.parse(userJson) as User;
+    return new User();
+  }
 
   postNovel(NovelObj: Novel): Observable<Novel> {
     return this.http.post<Novel>(`${'/api/novel/post/newNovel'}`, NovelObj, httpOptions )
@@ -117,5 +162,11 @@ export class AdminApiService {
 
   deleteChapter(id: string): Observable<chaptersById>{
     return this.http.delete<chaptersById>(`${'/api/novel/delete/chapter'}/${id}`, httpOptions )
+  }
+
+
+  getNovelImage(path: string): Observable<string> {
+    const ref = this.storage.ref(path);
+    return ref.getDownloadURL();
   }
 }

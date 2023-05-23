@@ -39,4 +39,8 @@ export class ChapterDetailAdminPageComponent {
       console.log(this.chapterDetail);
     })
   }
+
+  logout(){
+    this.AdminService.logout();
+  }
 }
