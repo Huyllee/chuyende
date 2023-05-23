@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:5000",
+    "target": "http://backend-chuyende-production.up.railway.app",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
