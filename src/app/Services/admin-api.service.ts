@@ -6,6 +6,7 @@ import { User } from '../Model/users';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { IUserLogin } from '../Model/users';
 import { NgToastService } from 'ng-angular-popup';
+import { urlDB } from 'src/url';
 
 const USER_KEY = 'User';
 
@@ -29,7 +30,7 @@ export class AdminApiService {
   }
 
   login(userLogin:IUserLogin):Observable<User>{
-    return this.http.post<User>('/api/users/login-admin', userLogin).pipe(
+    return this.http.post<User>(`${urlDB}/api/users/login-admin`, userLogin).pipe(
       tap({
         next: (user) =>{
           this.setUserToLocalStogare(user);
@@ -61,15 +62,15 @@ export class AdminApiService {
   }
 
   postNovel(NovelObj: Novel): Observable<Novel> {
-    return this.http.post<Novel>(`${'/api/novel/post/newNovel'}`, NovelObj, httpOptions )
+    return this.http.post<Novel>(`${urlDB}/api/novel/post/newNovel`, NovelObj, httpOptions )
   }
 
   getNovel(): Observable<Novel[]>{
-    return this.http.get<Novel[]>(`${'/api/novel/get/allNovels'}`)
+    return this.http.get<Novel[]>(`${urlDB}/api/novel/get/allNovels`)
   }
 
   updateNovel(NovelObj: Novel, id: number): Observable<Novel>{
-    return this.http.put<Novel>(`${'/api/novel/put/novel'}/${id}`, NovelObj, httpOptions )
+    return this.http.put<Novel>(`/api/novel/put/novel/${id}`, NovelObj, httpOptions )
   }
 
   deleteNovel(id: string): Observable<Novel>{
